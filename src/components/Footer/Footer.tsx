@@ -1,19 +1,21 @@
-// const Footer = () => {
 
-//     const scrollToTop = () => {
-//         window.scrollTo({ top: 0, behavior: 'smooth' });
-//       };
+// import React from 'react';
+// import Image from 'next/image';
+// const Footer = () => {
+//   const scrollToTop = () => {
+//     window.scrollTo({ top: 0, behavior: 'smooth' });
+//   };
+
 //   return (
 //     <>
-//       <footer className="bg-gray-100 mt-[170px]">
-//         <div className="relative mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8 lg:pt-24">
+//       <footer className="bg-white mt-[170px]  ">
+//         <div className="relative mx-auto max-w-screen-xl px-4  sm:px-6 lg:px-8 lg:pt-24 flex flex-col justify-between">
 //           <div className="absolute end-4 top-4 sm:end-6 sm:top-6 lg:end-8 lg:top-8">
 //             <button
 //               className="inline-block rounded-full bg-black p-2 text-white shadow transition hover:bg-slate-600 sm:p-3 lg:p-4"
 //               onClick={scrollToTop}
 //             >
 //               <span className="sr-only">Back to top</span>
-
 //               <svg
 //                 xmlns="http://www.w3.org/2000/svg"
 //                 className="h-5 w-5"
@@ -31,8 +33,10 @@
 
 //           <div className="lg:flex lg:items-end lg:justify-between">
 //             <div>
-//               <div className=" flex justify-center lg:justify-start">
-//                 <span className="font-lobster italic text-[25px] font-[600] cursor-pointer">HappyFood</span>
+//               <div className="flex justify-center lg:justify-start">
+//                 <span className="font-lobster italic text-[25px] font-[600] cursor-pointer">
+//                   HappyFood
+//                 </span>
 //               </div>
 
 //               <p className="mx-auto mt-6 max-w-md text-center font-Inter leading-relaxed text-gray-500 lg:text-left">
@@ -43,58 +47,39 @@
 
 //             <ul className="mt-12 font-Andika flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12">
 //               <li>
-//                 <a
-//                   className="text-gray-700 transition hover:text-gray-700/75"
-//                   href="#"
-//                 >
-//                   {" "}
-//                   Recipes{" "}
+//                 <a className="text-gray-700 transition hover:text-gray-700/75" href="#">
+//                   Recipes
 //                 </a>
 //               </li>
-
 //               <li>
-//                 <a
-//                   className="text-gray-700 transition hover:text-gray-700/75"
-//                   href="#"
-//                 >
-//                   {" "}
-//                   Blog{" "}
+//                 <a className="text-gray-700 transition hover:text-gray-700/75" href="#">
+//                   Blog
 //                 </a>
 //               </li>
-
 //               <li>
-//                 <a
-//                   className="text-gray-700 transition hover:text-gray-700/75"
-//                   href="#"
-//                 >
-//                   {" "}
-//                   Contact{" "}
+//                 <a className="text-gray-700 transition hover:text-gray-700/75" href="#">
+//                   Contact
 //                 </a>
 //               </li>
-
 //               <li>
-//                 <a
-//                   className="text-gray-700 transition hover:text-gray-700/75"
-//                   href="#"
-//                 >
-//                   {" "}
-//                   About us{" "}
+//                 <a className="text-gray-700 transition hover:text-gray-700/75" href="#">
+//                   About us
 //                 </a>
 //               </li>
 //             </ul>
 //           </div>
 
-//           <ul className=" flex justify-center lg:justify-end items-center gap-[40px] mt-12">
-//                 <li className="cursor-pointer ">
-//                     <img src="icon/001-facebook.svg" alt="icon-facebook" />
-//                 </li>
-//                 <li className="cursor-pointer ">
-//                     <img src="icon/003-twitter.svg" alt="icon-twitter" />
-//                 </li>
-//                 <li className="cursor-pointer ">
-//                     <img src="icon/004-instagram.svg" alt="icon-instagram" />
-//                 </li>
-//             </ul>
+//           <ul className=" lg:border-t pb-[40px] lg:py-[50px]  flex justify-center lg:justify-end items-center gap-[40px] mt-12">
+//             <li className=" cursor-pointer">
+//               <img src="icon/001-facebook.svg" alt="icon-facebook" />
+//             </li>
+//             <li className=" cursor-pointer">
+//               <img src="icon/003-twitter.svg" alt="icon-twitter" />
+//             </li>
+//             <li className=" cursor-pointer">
+//               <img src="icon/004-instagram.svg" alt="icon-instagram" />
+//             </li>
+//           </ul>
 //         </div>
 //       </footer>
 //     </>
@@ -107,6 +92,7 @@
 
 import React from 'react';
 import Image from 'next/image';
+
 const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -114,8 +100,8 @@ const Footer = () => {
 
   return (
     <>
-      <footer className="bg-white mt-[170px]  ">
-        <div className="relative mx-auto max-w-screen-xl px-4  sm:px-6 lg:px-8 lg:pt-24 flex flex-col justify-between">
+      <footer className="bg-white mt-[170px]">
+        <div className="relative mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8 lg:pt-24 flex flex-col justify-between">
           <div className="absolute end-4 top-4 sm:end-6 sm:top-6 lg:end-8 lg:top-8">
             <button
               className="inline-block rounded-full bg-black p-2 text-white shadow transition hover:bg-slate-600 sm:p-3 lg:p-4"
@@ -146,8 +132,7 @@ const Footer = () => {
               </div>
 
               <p className="mx-auto mt-6 max-w-md text-center font-Inter leading-relaxed text-gray-500 lg:text-left">
-                Welcome to HappyFood, your ultimate destination for home-cooked
-                meal inspiration!
+                Welcome to HappyFood, your ultimate destination for home-cooked meal inspiration!
               </p>
             </div>
 
@@ -175,15 +160,15 @@ const Footer = () => {
             </ul>
           </div>
 
-          <ul className=" lg:border-t pb-[40px] lg:py-[50px]  flex justify-center lg:justify-end items-center gap-[40px] mt-12">
-            <li className="cursor-pointer">
-              <img src="icon/001-facebook.svg" alt="icon-facebook" />
+          <ul className="lg:border-t pb-[40px] lg:py-[50px] flex justify-center lg:justify-end items-center gap-[40px] mt-12">
+            <li className=" cursor-pointer flex justify-center ">
+              <Image className='' src="/icon/001-facebook.svg" alt="icon-facebook" width={15} height={15} />
             </li>
-            <li className="cursor-pointer">
-              <img src="icon/003-twitter.svg" alt="icon-twitter" />
+            <li className=" cursor-pointer">
+              <Image className='' src="/icon/003-twitter.svg" alt="icon-twitter" width={32} height={32} />
             </li>
-            <li className="cursor-pointer">
-              <img src="icon/004-instagram.svg" alt="icon-instagram" />
+            <li className=" cursor-pointer">
+              <Image className='' src="/icon/004-instagram.svg" alt="icon-instagram" width={30} height={30} />
             </li>
           </ul>
         </div>
