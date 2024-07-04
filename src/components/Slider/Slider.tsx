@@ -251,9 +251,6 @@
 
 // export default Slider;
 
-
-
-
 import React from "react";
 import { Carousel } from "antd";
 import Image from "next/image";
@@ -269,52 +266,153 @@ const Slider = () => {
         draggable={true}
         infinite={true}
       >
-        <div className="w-full h-[626px] flex justify-center items-center">
-          <div className="h-full relative flex flex-row justify-center items-center">
-            <div className="bg-[#E7FAFE] w-[100%] h-full rounded-l-[50px]">
-              <div className="w-full h-full flex flex-col justify-between gap-[40px] p-[50px]">
-                <div className="bg-white w-fit flex gap-3 px-[20px] py-[10px] rounded-full justify-center items-center">
-                  <Image src="/icon/note.svg" alt="" width={24} height={24} />
-                  <p className="text-[14px] font-[600] font-Inter">
+        <div className=" px-[20px] lg:px-[0px] w-full h-[200px] lg:h-[626px] flex justify-center items-center">
+          <div className=" h-full relative flex flex-row justify-center items-center">
+            <div className="bg-[#E7FAFE] w-[100%] h-full rounded-l-[30px] lg:rounded-l-[50px]">
+              <div className=" w-full h-full flex flex-col justify-between lg:gap-[40px] p-[20px] lg:p-[50px]">
+                
+                <div className="bg-white w-fit flex gap-1 lg:gap-3 px-[8px] lg:px-[20px] py-[5px] lg:py-[10px] rounded-full justify-center items-center">
+                  {/* Image for smaller screens */}
+                  <div className="block lg:hidden">
+                    <Image src="/icon/note.svg" alt="" width={11} height={11} />
+                  </div>
+                  {/* Image for larger screens */}
+                  <div className="hidden lg:block">
+                    <Image src="/icon/note.svg" alt="" width={24} height={24} />
+                  </div>
+                  <p className="text-[8px] lg:text-[14px] font-[600] lg:font-[600] font-Inter">
                     Công thức Hot
                   </p>
                 </div>
 
-                <p className="max-w-[80%] text-[64px] font-[700] font-Inter" style={{ lineHeight: "1" }}>
+                <p
+                  className="max-w-[80%]  lg:text-[64px] font-[700] font-Inter"
+                  style={{ lineHeight: "1" }}
+                >
                   Cánh gà cay thơm ngon
                 </p>
-                <p style={{ color: "rgba(0, 0, 0, 60%)" }} className="font-Inter text-[15px]">
-                  Cánh gà được tẩm ướp kỹ lưỡng với các gia vị cay như ớt, tiêu, và sốt cay, sau đó được nướng hoặc chiên giòn. Lớp ngoài của cánh gà giòn rụm, trong khi thịt bên trong mềm mịn, đậm đà hương vị cay nồng
+                <p
+                  style={{ color: "rgba(0, 0, 0, 60%)" }}
+                  className="font-Inter text-[8px] lg:text-[15px] line-clamp-2 lg:line-clamp-4 truncate whitespace-normal text-clip overflow-hidden"
+                >
+                  Cánh gà được tẩm ướp kỹ lưỡng với các gia vị cay như ớt, tiêu,
+                  và sốt cay, sau đó được nướng hoặc chiên giòn. Lớp ngoài của
+                  cánh gà giòn rụm, trong khi thịt bên trong mềm mịn, đậm đà
+                  hương vị cay nồng
                 </p>
-                <div className="flex gap-[20px]">
-                  <div className="px-[15px] gap-2 py-[7px] flex justify-center items-center rounded-full" style={{ backgroundColor: "rgba(0, 0, 0, 5%)" }}>
-                    <Image src="/icon/Timer.svg" alt="Timer" width={24} height={24} />
-                    <p>30p</p>
+
+                <div className="flex gap-[5px] lg:gap-[20px]">
+                  <div
+                    className="px-[10px] h-fit  lg:px-[15px] gap-1 lg:gap-2 py-[2px] lg:py-[7px] flex justify-center items-center rounded-[10px] lg:rounded-full"
+                    style={{ backgroundColor: "rgba(0, 0, 0, 5%)" }}
+                  >
+                    <div className="block lg:hidden">
+                      {" "}
+                      <Image
+                        src="/icon/Timer.svg"
+                        alt="Timer"
+                        width={11}
+                        height={11}
+                      />
+                    </div>
+                    <div className="hidden lg:block">
+                      <Image
+                        className="hidden lg:block"
+                        src="/icon/Timer.svg"
+                        alt="Timer"
+                        width={24}
+                        height={24}
+                      />
+                    </div>
+
+                    <p className="text-[8px] lg:text-[14px]">30p</p>
                   </div>
-                  <div className="px-[15px] gap-2 py-[7px] flex justify-center items-center rounded-full" style={{ backgroundColor: "rgba(0, 0, 0, 5%)" }}>
-                    <Image src="/icon/ForkKnife.svg" alt="ForkKnife" width={24} height={24} />
-                    <p>Chicken</p>
+                  <div
+                    className="px-[10px] lg:px-[15px] h-fit gap-1 lg:gap-2 py-[2px] lg:py-[7px] flex justify-center items-center rounded-full"
+                    style={{ backgroundColor: "rgba(0, 0, 0, 5%)" }}
+                  >
+                    <div className="block lg:hidden">
+                      <Image
+                        src="/icon/ForkKnife.svg"
+                        alt="ForkKnife"
+                        width={11}
+                        height={11}
+                      />
+                    </div>
+                    <div className="hidden lg:block">
+                      <Image
+                        src="/icon/ForkKnife.svg"
+                        alt="ForkKnife"
+                        width={24}
+                        height={24}
+                      />
+                    </div>
+                    <p className="text-[8px] lg:text-[14px]">Chicken</p>
                   </div>
                 </div>
+
                 <div className="flex justify-between">
-                  <div className=" w-fit flex gap-3">
-                    <Image className="object-contain object-center" src="/icon/avata.png" alt="avata" width={45} height={45} />
-                    <span className="flex flex-col justify-center font-Inter">
-                      <p className="font-[700] text-[15px]">Ngo Son</p>
+                  <div className="  w-fit flex justify-center items-center gap-1 lg:gap-3">
+                    <div className="block lg:hidden">
+                      {" "}
+                      <Image
+                        className="object-contain object-center"
+                        src="/icon/avata.png"
+                        alt="avata"
+                        width={15}
+                        height={15}
+                      />
+                    </div>
+                    <div className="hidden lg:block">
+                      {" "}
+                      <Image
+                        className="object-contain object-center"
+                        src="/icon/avata.png"
+                        alt="avata"
+                        width={45}
+                        height={45}
+                      />
+                    </div>
+                    <span className="  flex text-[7px] lg:text-[15px] flex-col justify-center font-Inter">
+                      <p className="font-[700]  ">Ngo Son</p>
                       <p style={{ color: "rgba(0, 0, 0, 60%)" }}>15/3/2024</p>
                     </span>
                   </div>
-                  <div className="bg-black w-fit flex justify-center items-center gap-4 cursor-pointer rounded-[10px] py-[12px] px-[30px]">
-                    <p className="text-white w-fit font-Inter font-[500]">View Recipes</p>
-                    <Image src="/icon/PlayCircle.svg" alt="PlayCircle" width={24} height={24} />
+
+                  <div className="bg-black w-fit flex justify-center items-center gap-1 lg:gap-4 cursor-pointer rounded-[10px] lg:py-[12px] px-[7px] lg:px-[30px]">
+                    <p className="text-white w-fit font-Inter text-[7px] lg:text-[14px] font-[500]">
+                      View Recipes
+                    </p>
+                    <div className="block lg:hidden">
+                      <Image
+                        src="/icon/PlayCircle.svg"
+                        alt="PlayCircle"
+                        width={12}
+                        height={12}
+                      />
+                    </div>
+                    <div className="hidden  lg:block ">
+                      <Image
+                        src="/icon/PlayCircle.svg"
+                        alt="PlayCircle"
+                        width={24}
+                        height={24}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="bg-slate-500 w-[100%] h-full rounded-r-[50px] relative overflow-hidden">
-              <Image className="w-full h-full object-cover object-center absolute inset-0" src="/images/food-img/canh-ga-cay-thom-ngon.png" alt="food" layout="fill" />
+            <div className="bg-slate-500 w-[100%] h-full rounded-r-[30px] lg:rounded-r-[50px] relative overflow-hidden">
+              <Image
+                className="w-full h-full object-cover object-center absolute inset-0"
+                src="/images/food-img/canh-ga-cay-thom-ngon.png"
+                alt="food"
+                layout="fill"
+              />
             </div>
-            <Image className="absolute top-[50px]" src="/images/Badge.svg" alt="Badge" width={150} height={150} />
+            <div className="absolute top-[10px] block lg:hidden"><Image  src="/images/Badge.svg" alt="Badge" width={50} height={50} /></div>
+            <div className="absolute top-[50px] hidden lg:block"><Image  src="/images/Badge.svg" alt="Badge" width={150} height={150} /></div>
           </div>
         </div>
 
@@ -325,4 +423,3 @@ const Slider = () => {
 };
 
 export default Slider;
-

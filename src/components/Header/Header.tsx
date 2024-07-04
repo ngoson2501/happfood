@@ -104,7 +104,7 @@ const Header: React.FC = () => {
           </span>
         </div>
 
-        <div>
+        <div className="hidden md:block ">
           <ul className="flex gap-[50px] font-Andika">
             <li className="cursor-pointer ">Home</li>
             <li className="cursor-pointer ">Recipes</li>
@@ -114,7 +114,7 @@ const Header: React.FC = () => {
           </ul>
         </div>
 
-        <div className="flex">
+        <div className="hidden md:flex ">
           <div className="relative flex justify-center items-center gap-2">
             <span
               className="w-[30px] h-[30px] flex justify-center items-center relative"
@@ -146,6 +146,8 @@ const Header: React.FC = () => {
             </span>
           </div>
         </div>
+
+
       </div>
     </header>
   );
