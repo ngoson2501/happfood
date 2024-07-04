@@ -8,7 +8,7 @@ import LearnMore from "@/components/LearnMore/LearnMore"
 import RecommendedList from "@/components/RecommendedList/RecommendedList";
 import Footer from "@/components/Footer/Footer";
 
-export default function HomePage(){
+function HomePage(){
 
     
 
@@ -28,3 +28,6 @@ export default function HomePage(){
         </>
     )
 }
+
+
+export default HomePage
