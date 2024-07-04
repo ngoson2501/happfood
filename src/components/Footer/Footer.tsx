@@ -106,7 +106,7 @@
 
 
 import React from 'react';
-
+import Image from 'next/image';
 const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
