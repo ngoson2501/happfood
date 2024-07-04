@@ -9,7 +9,7 @@ const RecommendedList = () => {
             Try this delicious recipe to make your day
           </p>
           <p style={{ color: "rgba(0, 0, 0, 60%)" }} className="w-[100%] font-[300]">
-            Try this delicious recipe to make your day. Whether you're cooking
+            Try this delicious recipe to make your day. Whether you are cooking
             for yourself, your family, or friends, this dish is sure to bring
             joy and satisfaction to everyone at the table.
           </p>
