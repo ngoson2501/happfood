@@ -9,12 +9,21 @@ export default function RootLayout({
   }) {
     return (
       <html lang="en">
-        <body>
+        <body className=" flex justify-center flex-col items-center  ">
           {/* Layout UI */}
-          <Header></Header>
+         
+         {/* <div className="bg-yellow-400  w-full max-w-[1425px]">
+         
+         </div> */}
+
+         <Header></Header>
+        
           
-          <main>{children}</main>
+          <main className=" w-full max-w-[1425px]">{children}</main>
         </body>
       </html>
     )
   }
+
+
+

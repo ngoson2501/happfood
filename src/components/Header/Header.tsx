@@ -10,7 +10,7 @@
 //     let timeout: NodeJS.Timeout;
 //     if (hover) {
 //       setVisible(true);
-   
+
 //     } else {
 //       timeout = setTimeout(() => setVisible(false), 500); // Delay 1 giây
 //     }
@@ -49,8 +49,8 @@
 //                 alt="icon-instagram"
 //               />
 //               <div
-//                 className={`absolute bottom-[-70px] rounded-[10px] border font-Andika  w-[150px] h-[60px]  bg-white flex flex-col justify-center items-center transition-opacity duration-1000 
-                
+//                 className={`absolute bottom-[-70px] rounded-[10px] border font-Andika  w-[150px] h-[60px]  bg-white flex flex-col justify-center items-center transition-opacity duration-1000
+
 //                     ${visible ? "" : "hidden"}`}
 //                     style={{
 //                         boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.15)",
@@ -74,7 +74,6 @@
 
 // export default Header;
 
-
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -88,7 +87,6 @@ const Header: React.FC = () => {
     let timeout: NodeJS.Timeout;
     if (hover) {
       setVisible(true);
-   
     } else {
       timeout = setTimeout(() => setVisible(false), 500); // Delay 1 giây
     }
@@ -96,10 +94,10 @@ const Header: React.FC = () => {
   }, [hover]);
 
   return (
-    <header className="w-full h-[80px] relative">
-      <div className="bg-white w-full h-[80px]  border-b-[1px] border-b-[#e1e1e1] fixed top-0 left-0 z-50 flex items-center justify-between px-[50px]">
+    <header className="w-full max-w-[1425px] flex justify-center items-center h-[80px]  relative  ">
+      <div className="bg-white w-full max-w-[1425px]  h-[80px]  border-b-[1px] border-b-[#e1e1e1] fixed  top-0  z-50 flex items-center justify-between px-[20px] lg:px-[50px] ">
         <div>
-          <span className="font-lobster italic text-[25px] font-[600] cursor-pointer">
+          <span className="font-lobster italic text-[16px] xl:text-[25px] font-[600] cursor-pointer">
             HappFood
           </span>
         </div>
@@ -147,7 +145,15 @@ const Header: React.FC = () => {
           </div>
         </div>
 
-
+        <div className="block md:hidden">
+          <Image
+            src="/icon/menu.png"
+            alt="icon-instagram"
+            width={30}
+            height={30}
+            className="object-contain object-center cursor-pointer"
+          />
+        </div>
       </div>
     </header>
   );
