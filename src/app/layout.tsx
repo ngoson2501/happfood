@@ -19,7 +19,7 @@ export default function RootLayout({
          <Header></Header>
         
           
-          <main className=" w-full max-w-[1425px]">{children}</main>
+          <main className=" w-full max-w-[1425px] ">{children}</main>
         </body>
       </html>
     )

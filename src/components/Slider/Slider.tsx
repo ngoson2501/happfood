@@ -267,9 +267,9 @@ const Slider = () => {
         infinite={true}
       >
        <HotRecipes></HotRecipes>
+       {/* <HotRecipes></HotRecipes>
        <HotRecipes></HotRecipes>
-       <HotRecipes></HotRecipes>
-       <HotRecipes></HotRecipes>
+       <HotRecipes></HotRecipes> */}
        
 
       </Carousel>
