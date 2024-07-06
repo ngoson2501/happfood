@@ -112,7 +112,7 @@ const HotRecipes = () => {
               layout="fill"
             />
           </div>
-          <div className="absolute top-[10px lg:top-[30px] xl:top-[50px]">
+          <div className="absolute top-[10px] lg:top-[30px] xl:top-[50px]">
             <Image className="w-[50px] h-[50px] lg:w-[150px] lg:h-[150px]" src="/images/Badge.svg" alt="Badge" width={50} height={50} />
           </div>
          
