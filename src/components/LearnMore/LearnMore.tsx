@@ -24,7 +24,7 @@ const LearnMore = () => {
             className="w-full h-full object-contain absolute bottom-0"
             src="/images/banners/banner.svg"
             alt="banner"
-            layout="fill"
+            fill
           />
           <Image
             className="absolute top-[50px] left-8"

@@ -18,9 +18,9 @@ function HomePage(){
             <div className=" w-full flex gap-[20px] flex-col lg:px-[100px] pt-[50px] h-fit ">
                 
             <Slider></Slider>
-            {/* <CategoriesList></CategoriesList>
+            {/* <CategoriesList></CategoriesList> */}
             <RecipeList></RecipeList>
-            <LearnMore></LearnMore>
+            {/* <LearnMore></LearnMore>
             <RecommendedList></RecommendedList> */}
             </div>
             <Footer></Footer>     

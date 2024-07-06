@@ -109,7 +109,7 @@ const HotRecipes = () => {
               className="w-full h-full object-cover object-center absolute inset-0"
               src="/images/food-img/canh-ga-cay-thom-ngon.png"
               alt="food"
-              layout="fill"
+              fill
             />
           </div>
           <div className="absolute top-[10px] lg:top-[30px] xl:top-[50px]">

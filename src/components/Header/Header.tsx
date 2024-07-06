@@ -102,7 +102,7 @@ const Header: React.FC = () => {
           </span>
         </div>
 
-        <div className="hidden md:block ">
+        <div className="hidden md:block md:text-[12px] xl:text-[15px]">
           <ul className="flex gap-[50px] font-Andika">
             <li className="cursor-pointer ">Home</li>
             <li className="cursor-pointer ">Recipes</li>
@@ -115,19 +115,30 @@ const Header: React.FC = () => {
         <div className="hidden md:flex ">
           <div className="relative flex justify-center items-center gap-2">
             <span
-              className="w-[30px] h-[30px] flex justify-center items-center relative"
+              className="bg-blue-500 w-[30px] h-[30px]  xl:w-[40px] xl:h-[40px] flex justify-center items-center  rounded-full overflow-hidden "
               onMouseEnter={() => setHover(true)}
               onMouseLeave={() => setHover(false)}
             >
+              {/* <Image
+                    className="object-cover rounded-full w-[15px] h-[15px] lg:w-[45px] lg:h-[45px]"
+                    src="/images/IMG_8991.jpg"
+                    alt="avata"
+                    width={45}
+                    height={45}
+                    quality={100} // Điều chỉnh chất lượng lên mức cao nhất
+                  /> */}
+
               <Image
-                src="/icon/avata.png"
-                alt="icon-instagram"
-                width={30}
-                height={30}
-                className="object-contain object-center cursor-pointer"
+                className="object-cover relative"
+                src="/images/IMG_8991.jpg"
+                alt="avata"
+                width={45}
+                height={45}
+                quality={100}
               />
+
               <div
-                className={`absolute bottom-[-70px] rounded-[10px] border font-Andika w-[150px] h-[60px]  bg-white flex flex-col justify-center items-center transition-opacity duration-1000 
+                className={`text-[12px] xl:text-[15px] absolute bottom-[-70px] z-20 rounded-[10px] border font-Andika w-[150px] h-[60px]  bg-white flex flex-col justify-center items-center gap-2 xl:gap-1 transition-opacity duration-1000 
                 
                     ${visible ? "" : "hidden"}`}
                 style={{
@@ -140,7 +151,7 @@ const Header: React.FC = () => {
             </span>
 
             <span>
-              <p className="font-Andika">Ngo Son</p>
+              <p className="font-Andika text-[12px] xl:text-[15px]">Ngo Son</p>
             </span>
           </div>
         </div>

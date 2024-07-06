@@ -63,7 +63,7 @@ const Recipes_2 = () => {
             className="w-full h-full object-cover object-center absolute inset-0 transition-transform duration-500 ease-in-out transform group-hover:scale-110 "
             src="/images/food-img/Pancake.svg"
             alt="Pancake"
-            layout="responsive" // Sử dụng layout="responsive" nếu kích thước hình ảnh đã biết và bạn muốn hành vi đáp ứng
+            // Sử dụng layout="responsive" nếu kích thước hình ảnh đã biết và bạn muốn hành vi đáp ứng
             width={275} // Thay thế bằng chiều rộng thực của hình ảnh của bạn
             height={200} // Thay thế bằng chiều cao thực của hình ảnh của bạn
           />
