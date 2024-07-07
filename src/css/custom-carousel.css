@@ -14,32 +14,40 @@
 }
 
 
-/* .custom-carousel .slick-prev {
-    left: -50px; 
-  }
-  
-  .custom-carousel .slick-next {
-    right: -50px; 
-  } */
 
 
   .custom-carousel .slick-prev {
-    left: 5px; 
+    left: 5px;
+    z-index: -1;
+    
+    
   }
   
   .custom-carousel .slick-next {
     right: 5px; 
+    z-index: -1;
   }
   
   @media (min-width: 1024px) {
     .custom-carousel .slick-prev {
       left: -50px; 
+      z-index: 3;
     }
   
     .custom-carousel .slick-next {
       right: -50px; 
+      z-index: 3;
     }
   }
+
+
+
+
+
+
+
+
+
 
 
 

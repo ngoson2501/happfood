@@ -6,9 +6,9 @@ import "../../css/custom-carousel.css";
 const HotRecipes = () => {
   return (
     <>
-      <div className=" px-[20px] lg:px-[0px] w-full h-[200px] lg:h-[500px] xl:h-[626px] flex justify-center items-center">
+      <div className=" bg-blue-400 lg:px-[0px] w-full h-[250px] lg:h-[500px] xl:h-[626px] flex justify-center items-center">
         <div className=" h-full relative flex flex-row justify-center items-center">
-          <div className="bg-[#E7FAFE] w-[100%] h-full rounded-l-[30px] lg:rounded-l-[50px]">
+          <div className="bg-[#E7FAFE] w-[100%] h-full  lg:rounded-l-[50px]">
             <div className=" w-full h-full flex flex-col justify-between xl:gap-[40px] p-[20px] lg:p-[50px]">
               <div className="bg-white w-fit flex gap-1 lg:gap-3 px-[8px] xl:px-[20px] py-[5px] xl:py-[10px] rounded-full justify-center items-center">
                 <Image
@@ -25,14 +25,15 @@ const HotRecipes = () => {
               </div>
 
               <p
-                className="max-w-[80%] lg:text-[40px]  xl:text-[64px] font-[700] font-Inter"
-                style={{ lineHeight: "1" }}
+                className=" max-w-[80%]  text-[20px] lg:text-[40px]  xl:text-[64px] font-[700] font-Inter  line-clamp-2 truncate whitespace-normal text-clip overflow-hidden"
+                style={{ lineHeight: "1.2", minHeight: "1em" }}
               >
-                Cánh gà cay thơm ngon
+                Cánh gà cay thơm ngon gg snknk cns cns vsnd jdv ncsijd vnsdkv vnsd
               </p>
+              
               <p
                 style={{ color: "rgba(0, 0, 0, 60%)" }}
-                className=" font-Inter text-[8px] lg:text-[12px] xl:text-[15px] line-clamp-2 xl:line-clamp-4 truncate whitespace-normal text-clip overflow-hidden"
+                className=" font-Inter text-[10px] lg:text-[12px] xl:text-[15px] line-clamp-2 xl:line-clamp-4 truncate whitespace-normal text-clip overflow-hidden"
               >
                 Cánh gà được tẩm ướp kỹ lưỡng với các gia vị cay như ớt, tiêu,
                 và sốt cay, sau đó được nướng hoặc chiên giòn. Lớp ngoài của
@@ -74,7 +75,7 @@ const HotRecipes = () => {
               <div className="flex justify-between">
                 <div className="w-fit flex justify-center items-center gap-1 lg:gap-3">
                   <Image
-                    className="object-cover rounded-full w-[15px] h-[15px] lg:w-[45px] lg:h-[45px]"
+                    className="object-cover rounded-full w-[20px] h-[20px] lg:w-[45px] lg:h-[45px]"
                     src="/images/IMG_8991.jpg"
                     alt="avata"
                     width={45}
@@ -92,19 +93,19 @@ const HotRecipes = () => {
                   <p className="text-white w-fit font-Inter text-[7px] lg:text-[12px] xl:text-[14px] font-[500]">
                     View Recipes
                   </p>
-                  
+
                   <Image
                     className="w-[12] h-[12px] lg:w-[24px] lg:h-[24px] "
-                      src="/icon/PlayCircle.svg"
-                      alt="PlayCircle"
-                      width={12}
-                      height={12}
-                    />
+                    src="/icon/PlayCircle.svg"
+                    alt="PlayCircle"
+                    width={12}
+                    height={12}
+                  />
                 </div>
               </div>
             </div>
           </div>
-          <div className="bg-slate-500 w-[100%] h-full rounded-r-[30px] lg:rounded-r-[50px] relative overflow-hidden">
+          <div className="bg-slate-500 w-[100%] h-full  lg:rounded-r-[50px] relative overflow-hidden">
             <Image
               className="w-full h-full object-cover object-center absolute inset-0"
               src="/images/food-img/canh-ga-cay-thom-ngon.png"
@@ -113,9 +114,14 @@ const HotRecipes = () => {
             />
           </div>
           <div className="absolute top-[10px] lg:top-[30px] xl:top-[50px]">
-            <Image className="w-[50px] h-[50px] lg:w-[150px] lg:h-[150px]" src="/images/Badge.svg" alt="Badge" width={50} height={50} />
+            <Image
+              className="w-[70px] h-[70px] lg:w-[150px] lg:h-[150px]"
+              src="/images/Badge.svg"
+              alt="Badge"
+              width={50}
+              height={50}
+            />
           </div>
-         
         </div>
       </div>
     </>
