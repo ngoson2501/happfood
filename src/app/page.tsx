@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+// import { useState } from "react";
 
 import Slider from "@/components/Slider/Slider"
 import CategoriesList from "@/components/Categories/CategoriesList";

@@ -69,7 +69,7 @@ const Category: React.FC<CategoryProps> = ({ title, coverImage, color }) => {
         // </section>
 
         <section
-        className="relative w-[150px] h-[170px] rounded-[20px] flex flex-col items-center justify-center gap-[10px] cursor-pointer hover:shadow-md"
+        className="relative w-[150px] h-[170px] rounded-[20px] xl:w-[180px] xl:h-[202px] xl:rounded-[30px] flex flex-col items-center justify-center gap-[10px] xl:gap-[20px] cursor-pointer hover:shadow-md"
         style={{ background: `linear-gradient(to bottom, white, ${color})` }}
     >
         <div className="relative">
@@ -78,18 +78,18 @@ const Category: React.FC<CategoryProps> = ({ title, coverImage, color }) => {
                 alt={title}
                 width={60}
                 height={60}
-                className="relative z-10"
+                className="xl:w-[80px] xl:h-[80px] relative z-10"
             />
             <Image
                 src={`/icon/categories/${coverImage}`}
                 alt={`${title}-Shadow`}
                 width={60}
                 height={60}
-                className="absolute top-0 left-0 blur-md opacity-50"
+                className="xl:w-[80px] xl:h-[80px] absolute top-0 left-0 blur-md opacity-50"
                 style={{ transform: "translate(5px, 5px)" }}
             />
         </div>
-        <p className="font-Inter font-[600] text-[16px]">{title}</p>
+        <p className="font-Inter font-[600] text-[16px] xl:text-[18px]">{title}</p>
     </section>
 
     );

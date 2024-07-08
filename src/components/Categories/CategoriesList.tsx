@@ -68,7 +68,7 @@ const CategoriesList = () => {
   return (
     <div className="flex flex-col gap-[50px] mt-[50px]  xl:mt-[160px]">
       <div className="flex font-Inter justify-between items-center">
-        <h1 className="font-[600] text-[30px] lg:text-[45px]">Categories</h1>
+        <h1 className="font-[600] text-[25px] lg:text-[45px]">Categories</h1>
         <span className="bg-[#E7FAFE] text-[13px] lg:text-[16px] font-[550] rounded-[10px] lg:rounded-[20px] px-[15px] py-[10px] lg:px-[30px] lg:py-[20px]">
             <p>View All Categories</p>
         </span>

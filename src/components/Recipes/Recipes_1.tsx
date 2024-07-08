@@ -108,14 +108,14 @@ const Recipes_1 = () => {
             width={180}
             height={130}
           />
-          <div className="absolute z-10 w-[30px] h-[30px] lg:w-[60px] lg:h-[60px] right-0 flex justify-center items-center">
-            <div className="bg-white w-[20px] h-[20px] lg:w-[40px] lg:h-[40px] rounded-full flex gap-1 justify-center items-center">
+          <div className="absolute z-10 w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] right-0 flex justify-center items-center">
+            <div className="bg-white w-[30px] h-[30px] lg:w-[40px] lg:h-[40px] rounded-full flex gap-1 justify-center items-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
                 strokeWidth="1"
-                className="w-4 h-4 lg:w-6 lg:h-6 text-[#DBE2E5] cursor-pointer"
+                className="w-5 h-5 lg:w-6 lg:h-6 text-[#DBE2E5] cursor-pointer"
               >
                 <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
               </svg>

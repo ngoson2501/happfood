@@ -10,7 +10,7 @@ const Footer = () => {
     <>
       <footer className=" mt-[170px] lg:py-[50px]">
         <div className="relative mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8  flex flex-col justify-center">
-          <div className=" absolute end-4 top-0 sm:end-6 sm:top-0 lg:end-8 lg:top-0">
+          <div className="absolute end-6 top-0 sm:end-6 sm:top-0 lg:end-8 lg:top-0">
             <button
               className="inline-block rounded-full bg-black p-1 text-white shadow transition hover:bg-slate-600 lg:p-3"
               onClick={scrollToTop}
@@ -18,7 +18,7 @@ const Footer = () => {
               <span className="sr-only">Back to top</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-3 w-3 lg:h-6 lg:w-6 "
+                className="h-6 w-6"
                 viewBox="0 0 20 20"
                 fill="currentColor"
               >
@@ -31,7 +31,7 @@ const Footer = () => {
             </button>
           </div>
 
-          <div className=" py-3 flex flex-col justify-center items-center gap-[20px] md:flex-row md:items-end md:justify-between">
+          <div className="  py-3 flex flex-col justify-center items-center gap-[20px] md:flex-row md:items-end md:justify-between">
             <div>
               <div className="flex  justify-center md:justify-start">
                 <span className=" font-lobster italic text-[16px] xl:text-[25px] font-[600] cursor-pointer">
