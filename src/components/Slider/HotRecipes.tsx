@@ -33,7 +33,7 @@ const HotRecipes = () => {
               
               <p
                 style={{ color: "rgba(0, 0, 0, 60%)" }}
-                className=" font-Inter text-[10px] lg:text-[12px] xl:text-[15px] line-clamp-2 xl:line-clamp-4 truncate whitespace-normal text-clip overflow-hidden"
+                className=" font-Inter text-[12px] lg:text-[14px] xl:text-[15px] line-clamp-2 xl:line-clamp-4 truncate whitespace-normal text-clip overflow-hidden"
               >
                 Cánh gà được tẩm ướp kỹ lưỡng với các gia vị cay như ớt, tiêu,
                 và sốt cay, sau đó được nướng hoặc chiên giòn. Lớp ngoài của

@@ -97,12 +97,12 @@ const Header: React.FC = () => {
     <header className="w-full max-w-[1425px] flex justify-center items-center h-[80px]  relative  ">
       <div className="bg-white w-full max-w-[1425px]  h-[80px]  border-b-[1px] border-b-[#e1e1e1] fixed  top-0  z-50 flex items-center justify-between px-[20px] lg:px-[50px] ">
         <div>
-          <span className="font-lobster italic text-[16px] xl:text-[25px] font-[600] cursor-pointer">
+          <span className="font-lobster italic text-[16px] lg:text-[20px] xl:text-[25px] font-[600] cursor-pointer">
             HappFood
           </span>
         </div>
 
-        <div className="hidden md:block md:text-[12px] xl:text-[15px]">
+        <div className="hidden md:block md:text-[13px] lg:text-[14px] xl:text-[15px]">
           <ul className="flex gap-[50px] font-Andika">
             <li className="cursor-pointer ">Home</li>
             <li className="cursor-pointer ">Recipes</li>
@@ -151,7 +151,7 @@ const Header: React.FC = () => {
             </span>
 
             <span>
-              <p className="font-Andika text-[12px] xl:text-[15px]">Ngo Son</p>
+              <p className="font-Andika text-[12px] lg:text-[14px] xl:text-[15px]">Ngo Son</p>
             </span>
           </div>
         </div>
