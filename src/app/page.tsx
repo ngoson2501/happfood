@@ -20,8 +20,8 @@ function HomePage(){
             <Slider></Slider>
             <CategoriesList></CategoriesList>
             <RecipeList></RecipeList>
-            {/* <LearnMore></LearnMore>
-            <RecommendedList></RecommendedList> */}
+            {/* <LearnMore></LearnMore> */}
+            <RecommendedList></RecommendedList>
             </div>
             <Footer></Footer>     
             
