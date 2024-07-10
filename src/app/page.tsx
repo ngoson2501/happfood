@@ -7,6 +7,7 @@ import RecipeList from "@/components/RecipeList/RecipeList"
 import LearnMore from "@/components/LearnMore/LearnMore"
 import RecommendedList from "@/components/RecommendedList/RecommendedList";
 import Footer from "@/components/Footer/Footer";
+import SideMenu from "@/components/SideMenu/SideMenu";
 
 function HomePage(){
 
@@ -22,6 +23,7 @@ function HomePage(){
             <RecipeList></RecipeList>
             <LearnMore></LearnMore>
             <RecommendedList></RecommendedList>
+            
             </div>
             <Footer></Footer>     
             
