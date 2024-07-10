@@ -49,7 +49,7 @@ const Recipes_2 = () => {
       </section> */}
 
 
-<section className="w-[180px] h-[240px] lg:w-[275px]  lg:h-[350px] group cursor-pointer px-[10px] py-[10px] lg:px-[20px] lg:py-[20px]  rounded-[15px] lg:rounded-[30px] flex flex-col gap-[10px]  hover:shadow-lg bor"
+<section className="w-[180px] h-[240px] lg:w-[275px]  lg:h-[350px] group cursor-pointer p-[10px] lg:p-[20px] xl:p-0 rounded-[15px] lg:rounded-[30px] flex flex-col gap-[10px] xl:gap-[20px]  hover:shadow-lg bor"
           >
         <div className="w-full h-[130px] lg:h-[200px]  relative overflow-hidden rounded-[10px] lg:rounded-[20px]">
           <Image
@@ -94,6 +94,7 @@ const Recipes_2 = () => {
         >
           Fruity Pancake with Orange & Blueberry
         </p> */}
+         <div className="xl:px-[20px] flex flex-col gap-2 xl:gap-4">
          <p
           className=" font-Inter font-[600] text-[16px] lg:text-[20px] line-clamp-2 truncate whitespace-normal text-clip overflow-hidden"
           style={{ lineHeight: "1.4" }}
@@ -116,6 +117,7 @@ const Recipes_2 = () => {
             <p className="text-[12px] lg:text-[15px]" style={{ color: "rgba(0, 0, 0, 60%)" }}>sweet</p>
           </div>
         </div>
+         </div>
       </section>
     </>
   );

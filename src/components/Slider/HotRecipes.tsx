@@ -6,7 +6,7 @@ import "../../css/custom-carousel.css";
 const HotRecipes = () => {
   return (
     <>
-      <div className=" bg-blue-400 lg:px-[0px] w-full h-[250px] lg:h-[500px] xl:h-[626px] flex justify-center items-center">
+      <div className="lg:px-[0px] w-full h-[250px] lg:h-[500px] xl:h-[626px] flex justify-center items-center">
         <div className=" h-full relative flex flex-row justify-center items-center">
           <div className="bg-[#E7FAFE] w-[100%] h-full  lg:rounded-l-[50px]">
             <div className=" w-full h-full flex flex-col justify-between xl:gap-[40px] p-[20px] lg:p-[50px]">
@@ -28,9 +28,10 @@ const HotRecipes = () => {
                 className=" max-w-[80%]  text-[20px] lg:text-[40px]  xl:text-[64px] font-[700] font-Inter  line-clamp-2 truncate whitespace-normal text-clip overflow-hidden"
                 style={{ lineHeight: "1.2", minHeight: "1em" }}
               >
-                Cánh gà cay thơm ngon gg snknk cns cns vsnd jdv ncsijd vnsdkv vnsd
+                Cánh gà cay thơm ngon gg snknk cns cns vsnd jdv ncsijd vnsdkv
+                vnsd
               </p>
-              
+
               <p
                 style={{ color: "rgba(0, 0, 0, 60%)" }}
                 className=" font-Inter text-[12px] lg:text-[14px] xl:text-[15px] line-clamp-2 xl:line-clamp-4 truncate whitespace-normal text-clip overflow-hidden"
@@ -54,7 +55,12 @@ const HotRecipes = () => {
                     height={11}
                   />
 
-                  <p className="text-[8px] lg:text-[14px]">30p</p>
+                  <p
+                    style={{ color: "rgba(0, 0, 0, 60%)" }}
+                    className="text-[8px] lg:text-[14px]"
+                  >
+                    30p
+                  </p>
                 </div>
                 <div
                   className="px-[10px] lg:px-[15px] h-fit gap-1 lg:gap-2 py-[2px] lg:py-[7px] flex justify-center items-center rounded-full"
@@ -68,7 +74,12 @@ const HotRecipes = () => {
                     height={11}
                   />
 
-                  <p className="text-[8px] lg:text-[14px]">Chicken</p>
+                  <p
+                    style={{ color: "rgba(0, 0, 0, 60%)" }}
+                    className="text-[8px] lg:text-[14px]"
+                  >
+                    Chicken
+                  </p>
                 </div>
               </div>
 

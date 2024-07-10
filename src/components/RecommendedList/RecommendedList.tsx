@@ -3,7 +3,7 @@ import Recipes_2 from "../Recipes/Recipes_2";
 const RecommendedList = () => {
   return (
     <>
-      <div className=" flex flex-col mt-[30px] lg:mt-[100px] xl:mt-[180px] gap-[30px] lg:gap-[50px] xl:gap-[90px]">
+      <div className=" flex flex-col mt-[80px] lg:mt-[100px] xl:mt-[180px] gap-[30px] lg:gap-[50px] xl:gap-[90px]">
         <div className="  px-[10px] xl:px-0 font-Inter flex flex-col xl:flex-row justify-center items-center  gap-[20px] lg:gap-[30px] xl:gap-[50px]">
           <p className="text-center xl:text-left text-[25px] lg:text-[30px] xl:text-[50px] w-[100%] font-[600] " style={{ lineHeight: "1.2" }}>
             Try this delicious recipe to make your day

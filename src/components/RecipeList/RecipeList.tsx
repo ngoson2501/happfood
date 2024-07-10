@@ -6,7 +6,7 @@ const RecipeList = () => {
   return (
     <>
       <div className="flex flex-col gap-[60px] xl:gap-[114px] mt-[50px]  xl:mt-[190px]">
-        <div className=" flex flex-col justify-center font-Inter items-center gap-[20px] lg:gap-[30px]">
+        <div className=" px-[10px] xl:px-0 flex flex-col justify-center font-Inter items-center gap-[20px] lg:gap-[30px]">
           <h1 className=" text-[25px] lg:text-[30px] text-center xl:text-[40px] font-[700]">
             Những công thức nấu ăn tuyệt vời cho bạn
           </h1>

@@ -20,7 +20,7 @@ function HomePage(){
             <Slider></Slider>
             <CategoriesList></CategoriesList>
             <RecipeList></RecipeList>
-            {/* <LearnMore></LearnMore> */}
+            <LearnMore></LearnMore>
             <RecommendedList></RecommendedList>
             </div>
             <Footer></Footer>     
