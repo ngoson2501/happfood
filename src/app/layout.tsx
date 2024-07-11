@@ -20,6 +20,8 @@ export default function RootLayout({
         
           
           <main className=" w-full max-w-[1425px] ">{children}</main>
+
+         
         </body>
       </html>
     )

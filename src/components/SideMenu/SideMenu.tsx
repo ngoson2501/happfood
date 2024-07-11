@@ -297,11 +297,11 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
               />
 
             <div className=" flex justify-center items-center ">
-              <p className="text-xs">
-                <p className="text-[#E7FAFE] block text-[15px] font-[700] text-center">Ngo Son</p>
+              <div className="text-xs">
+                <p className=" block text-[15px] font-[700] text-center">Ngo Son</p>
 
                 <p className="block  text-center"> eric@frusciante.com </p>
-              </p>
+              </div>
             </div>
           </div>
         </div>
