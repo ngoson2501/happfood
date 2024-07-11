@@ -3,9 +3,9 @@ import Image from "next/image";
 
 
 interface SideMenuProps {
-    onClick: (e: React.MouseEvent<HTMLDivElement>) => void;
-    setSatteSideMenu: React.Dispatch<React.SetStateAction<boolean>>;
-  }
+  onClick: (e: React.MouseEvent<HTMLDivElement>) => void;
+  setSatteSideMenu: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
 const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
   return (
@@ -16,34 +16,71 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
       >
         <div className="px-4 py-6">
           <div className="flex items-center justify-between ">
-            <span className="grid h-10 w-32 place-content-center rounded-lg bg-gray-100 text-xs text-gray-600">
-                Logo
+            <span className=" flex h-10 w-32 items-center  text-black font-lobster italic text-[20px] font-[600] ">
+              HappyFood
             </span>
-            <span onClick={()=>setSatteSideMenu(false)} className="">
-                <Image
+            <span onClick={() => setSatteSideMenu(false)} className="cursor-pointer ">
+              {/* <Image
                 className=""
-                src="/icon/close.png"
+                src="/icon/cross.png"
                 alt="icon-close"
                 width={20}
                 height={20}
-                />
+                /> */}
+              <svg
+                 style={{
+                  color: "rgba(0, 0, 0, 0.3)",
+                 
+                }}
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="feather feather-x"
+              >
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
             </span>
           </div>
 
           <ul className="mt-6 space-y-1">
-            <li>
+            {/* <li>
               <a
                 href="#"
                 className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700"
               >
-                General
+                Recipes
+              </a>
+            </li> */}
+
+            <li>
+              <a
+                href="#"
+                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+              >
+                Home
               </a>
             </li>
+            <li>
+              <a
+                href="#"
+                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+              >
+                Recipes
+              </a>
+            </li>
+            
 
             <li>
               <details className="group [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700">
-                  <span className="text-sm font-medium"> Teams </span>
+                <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700">
+                  <span className="text-sm font-medium"> Categories </span>
 
                   <span className="shrink-0 transition duration-300 group-open:-rotate-180">
                     <svg
@@ -65,18 +102,72 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
                   <li>
                     <a
                       href="#"
-                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
                     >
-                      Banned Users
+                      Break Fast
                     </a>
                   </li>
 
                   <li>
                     <a
                       href="#"
-                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
                     >
-                      Calendar
+                      Lunch
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href="#"
+                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+                    >
+                      Vegan
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href="#"
+                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+                    >
+                      Meat
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href="#"
+                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+                    >
+                      Chicken
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href="#"
+                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+                    >
+                      Dessert
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href="#"
+                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+                    >
+                      Ice Cream
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href="#"
+                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+                    >
+                      Chocolate
                     </a>
                   </li>
                 </ul>
@@ -86,24 +177,33 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
             <li>
               <a
                 href="#"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
               >
-                Billing
+                About Us
               </a>
             </li>
 
             <li>
               <a
                 href="#"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
               >
-                Invoices
+                Blog
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="#"
+                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+              >
+                Contact
               </a>
             </li>
 
             <li>
               <details className="group [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700">
                   <span className="text-sm font-medium"> Account </span>
 
                   <span className="shrink-0 transition duration-300 group-open:-rotate-180">
@@ -126,7 +226,7 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
                   <li>
                     <a
                       href="#"
-                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
                     >
                       Details
                     </a>
@@ -135,7 +235,7 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
                   <li>
                     <a
                       href="#"
-                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
+                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
                     >
                       Security
                     </a>
@@ -145,7 +245,7 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
                     <form action="#">
                       <button
                         type="submit"
-                        className="w-full rounded-lg px-4 py-2 text-sm font-medium text-gray-500 [text-align:_inherit] hover:bg-gray-100 hover:text-gray-700"
+                        className="w-full rounded-lg px-4 py-2 text-sm font-medium text-gray-500 [text-align:_inherit] hover:bg-[#E7FAFE] hover:text-gray-700"
                       >
                         Logout
                       </button>
@@ -154,28 +254,56 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
                 </ul>
               </details>
             </li>
+
+            <li>
+              <a
+                href="#"
+                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+              >
+                Login
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="#"
+                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+              >
+                Singn Up
+              </a>
+            </li>
+
+
           </ul>
         </div>
 
-        <div className="sticky inset-x-0 bottom-0 border-t border-gray-100">
-          <a
-            href="#"
-            className="flex items-center gap-2 bg-white p-4 hover:bg-gray-50"
+        <div className=" sticky inset-x-0 bottom-0 border-t border-gray-100">
+          <div
+            
+            className="flex flex-col items-center  gap-2  p-4 hover:bg-gray-50"
           >
-            <img
+            {/* <Image
               alt=""
               src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
               className="size-10 rounded-full object-cover"
-            />
+            /> */}
+            <Image
+                className="w-[80px] h-[80px] object-cover relative size-10 rounded-full"
+                src="/images/IMG_8991.jpg"
+                alt="avata"
+                width={45}
+                height={45}
+                quality={100}
+              />
 
-            <div>
+            <div className=" flex justify-center items-center ">
               <p className="text-xs">
-                <strong className="block font-medium">Eric Frusciante</strong>
+                <p className="text-[#E7FAFE] block text-[15px] font-[700] text-center">Ngo Son</p>
 
-                <span> eric@frusciante.com </span>
+                <p className="block  text-center"> eric@frusciante.com </p>
               </p>
             </div>
-          </a>
+          </div>
         </div>
       </div>
     </>
