@@ -10,7 +10,8 @@ const Footer = () => {
     <>
       <footer className=" mt-[170px] lg:py-[50px]">
         <div className="relative mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8  flex flex-col justify-center">
-          <div className="absolute end-6 top-0 sm:end-6 sm:top-0 lg:end-8 lg:top-0">
+          {/* <div className="absolute end-6 top-0 sm:end-6 sm:top-0 lg:end-8 lg:top-0"> */}
+          <div className="fixed end-8 bottom-[40px] lg:bottom-[70px]   z-50">
             <button
               className="inline-block rounded-full bg-black p-1 text-white shadow transition hover:bg-slate-600 lg:p-3"
               onClick={scrollToTop}
