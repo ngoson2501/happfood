@@ -34,7 +34,7 @@ const Header: React.FC = () => {
       <div className="bg-white w-full max-w-[1425px]  h-[80px]  border-b-[1px] border-b-[#e1e1e1] fixed  top-0  z-50 flex items-center justify-between px-[20px] lg:px-[50px] ">
         <div>
           <span className="font-lobster italic text-[16px] lg:text-[20px] xl:text-[25px] font-[600] cursor-pointer">
-            HappFood
+            HappyFood
           </span>
         </div>
 

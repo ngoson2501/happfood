@@ -280,7 +280,7 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
         <div className=" sticky inset-x-0 bottom-0 border-t border-gray-100">
           <div
             
-            className="flex flex-col items-center  gap-2  p-4 hover:bg-gray-50"
+            className="bg-white flex flex-col items-center  gap-2  p-4 hover:bg-gray-50"
           >
             {/* <Image
               alt=""
