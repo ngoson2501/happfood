@@ -28,7 +28,7 @@ const LearnMore = () => {
 
         <div className="bg-gradient-to-b from-white to-[#E7FAFE] lg:rounded-[30px] w-full h-full relative overflow-hidden flex items-end">
           <Image
-            className="w-full h-full object-contain absolute bottom-0"
+            className=" w-full h-full object-contain absolute bottom-0"
             src="/images/banners/banner.svg"
             alt="banner"
             fill

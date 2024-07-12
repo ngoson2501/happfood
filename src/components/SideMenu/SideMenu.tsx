@@ -1,7 +1,6 @@
 import React from "react";
 import Image from "next/image";
 
-
 interface SideMenuProps {
   onClick: (e: React.MouseEvent<HTMLDivElement>) => void;
   setSatteSideMenu: React.Dispatch<React.SetStateAction<boolean>>;
@@ -12,14 +11,17 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
     <>
       <div
         onClick={onClick}
-        className="flex h-screen flex-col justify-between border-e bg-white z-40"
+        className="flex h-screen flex-col justify-between border-e bg-white z-40 overflow-y-scroll"
       >
-        <div className="px-4 py-6">
-          <div className="flex items-center justify-between ">
+        <div className="px-4 ">
+          <div className="bg-white sticky top-0 py-4  flex items-center justify-between ">
             <span className=" flex h-10 w-32 items-center  text-black font-lobster italic text-[20px] font-[600] ">
               HappyFood
             </span>
-            <span onClick={() => setSatteSideMenu(false)} className="cursor-pointer ">
+            <span
+              onClick={() => setSatteSideMenu(false)}
+              className="cursor-pointer "
+            >
               {/* <Image
                 className=""
                 src="/icon/cross.png"
@@ -28,9 +30,8 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
                 height={20}
                 /> */}
               <svg
-                 style={{
+                style={{
                   color: "rgba(0, 0, 0, 0.3)",
-                 
                 }}
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -49,7 +50,7 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
             </span>
           </div>
 
-          <ul className="mt-6 space-y-1">
+          <ul className="mt-6 space-y-1 font-Inter">
             {/* <li>
               <a
                 href="#"
@@ -75,7 +76,6 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
                 Recipes
               </a>
             </li>
-            
 
             <li>
               <details className="group [&_summary::-webkit-details-marker]:hidden">
@@ -241,16 +241,7 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
                     </a>
                   </li>
 
-                  <li>
-                    <form action="#">
-                      <button
-                        type="submit"
-                        className="w-full rounded-lg px-4 py-2 text-sm font-medium text-gray-500 [text-align:_inherit] hover:bg-[#E7FAFE] hover:text-gray-700"
-                      >
-                        Logout
-                      </button>
-                    </form>
-                  </li>
+                 
                 </ul>
               </details>
             </li>
@@ -263,7 +254,14 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
                 Login
               </a>
             </li>
-
+            <li>
+              <a
+                href="#"
+                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+              >
+                Logout
+              </a>
+            </li>
             <li>
               <a
                 href="#"
@@ -272,39 +270,36 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
                 Singn Up
               </a>
             </li>
-
-
           </ul>
         </div>
 
-        <div className=" sticky inset-x-0 bottom-0 border-t border-gray-100">
-          <div
-            
-            className="bg-white flex flex-col items-center  gap-2  p-4 hover:bg-gray-50"
-          >
-            {/* <Image
-              alt=""
-              src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-              className="size-10 rounded-full object-cover"
-            /> */}
+        
+
+        <div className="sticky inset-x-0 bottom-0 border-t border-gray-100 font-Inter">
+          <div className="bg-white flex flex-col items-center gap-2 p-4 hover:bg-gray-50">
             <Image
-                className="w-[80px] h-[80px] object-cover relative size-10 rounded-full"
-                src="/images/IMG_8991.jpg"
-                alt="avata"
-                width={45}
-                height={45}
-                quality={100}
-              />
+              className="w-[80px] h-[80px] object-cover relative size-10 rounded-full"
+              src="/images/IMG_8991.jpg"
+              alt="avata"
+              width={80} // Điều chỉnh width và height để khớp với kích thước mong muốn
+              height={80}
+              quality={100} // Tăng chất lượng hình ảnh lên mức cao nhất
+              // Sử dụng layout intrinsic để đảm bảo chất lượng tốt nhất
+            />
 
-            <div className=" flex justify-center items-center ">
+            <div className="flex justify-center items-center">
               <div className="text-xs">
-                <p className=" block text-[15px] font-[700] text-center">Ngo Son</p>
-
-                <p className="block  text-center"> eric@frusciante.com </p>
+                <p className="block text-[15px] font-[700] text-center">
+                  Ngo Son
+                </p>
+                <p className="block text-center">eric@frusciante.com</p>
               </div>
             </div>
           </div>
         </div>
+
+
+
       </div>
     </>
   );
