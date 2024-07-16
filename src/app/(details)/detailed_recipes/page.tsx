@@ -19,24 +19,25 @@
 import Image from "next/image";
 import Recipes_3 from "@/components/Recipes/Recipes_3";
 import Ingredients from "@/components/Ingredients/Ingredients";
+import OtherRecipe from "@/components/OtherRecipe/OtherRecipe";
 
 const DetailRecipe = () => {
   return (
     <>
-      <div className="bg-white w-full h-[2000px] flex gap-[20px] flex-col lg:px-[100px] lg:pt-[50px]">
+      <div className="bg-green-400 w-full h-[2000px] flex gap-[20px] flex-col lg:px-[100px] lg:pt-[50px]">
         
         
         
         
-        <div className="bg-black  w-full  flex flex-col xl:flex-row items-center justify-center aspect-w-16 aspect-h-9">
-          <video className="w-full xl:w-2/3 h-[300px] lg:h-[450px]" controls>
+        <div className="w-full gap-5 flex flex-col xl:flex-row items-center justify-center aspect-w-16 aspect-h-9">
+          <video className="bg-black w-full xl:w-2/3 h-[300px] lg:h-[450px]" controls>
             <source
               src="/videos/copy_2F59F3D5-B0A6-471A-BE61-174FB71DE42A.MOV"
               type="video/mp4"
             />
             Your browser does not support the video tag.
           </video>
-          <div className="bg-white hidden xl:flex xl:flex-col items-center gap-5  w-full h-[450px] xl:w-1/3   overflow-y-auto">
+          <div className="bg-white hidden xl:flex xl:flex-col  gap-5  w-full h-[450px] xl:w-1/3  snap-y  overflow-y-auto">
 
             <Recipes_3></Recipes_3>
             <Recipes_3></Recipes_3>
@@ -52,8 +53,8 @@ const DetailRecipe = () => {
 
 
 
-        <div className="bg-red-300 flex flex-col xl:flex-row  ">
-          <div className=" bg-white  flex flex-col xl:w-2/3 ">
+        <div className="bg-red-300 flex flex-col xl:flex-row  gap-5">
+          <div className=" bg-yellow-300 px-[12px] lg:px-0 flex flex-col xl:w-2/3 ">
 
           <div className=" space-y-4">
             <details
@@ -165,7 +166,7 @@ const DetailRecipe = () => {
           <div className="flex justify-between lg:justify-start lg:gap-[60px]  items-center py-3">
             <div className="w-fit flex justify-center items-center gap-1 lg:gap-3">
               <Image
-                className="object-cover rounded-full w-[40px] h-[40px] lg:w-[60px] lg:h-[60px]"
+                className="object-cover rounded-full w-[40px] h-[40px] lg:w-[45px] lg:h-[45px]"
                 src="/images/IMG_8991.jpg"
                 alt="avata"
                 width={60}
@@ -212,7 +213,7 @@ const DetailRecipe = () => {
           </div>
 
 
-         <Ingredients></Ingredients>
+         {/* <Ingredients></Ingredients> */}
 
 
 
@@ -222,15 +223,40 @@ const DetailRecipe = () => {
 
 
 
-            <div className="bg-blue-400 xl:w-1/3 h-[600px]">
+            <div className="bg-blue-400 hidden xl:block xl:w-1/3 h-[200px]">
 
                
             </div>
+
+            
 
 
 
 
         </div>
+
+
+
+        <div className="bg-blue-700 w-full h-fit flex flex-col xl:flex-row gap-5 ">
+
+                <div className="bg-red-300 w-full xl:w-2/3 h-fit">
+                <Ingredients></Ingredients>
+                </div>
+                <div className="bg-slate-500 w-full xl:w-1/3 h-[300px] xl:h-[750px]">
+              
+                     <OtherRecipe></OtherRecipe>
+                
+                </div>
+
+        </div>
+
+        
+
+
+
+
+
+         
       </div>
     </>
   );
