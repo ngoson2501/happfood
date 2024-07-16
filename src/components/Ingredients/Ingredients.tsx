@@ -9,7 +9,7 @@ import React from 'react';
 const Ingredients = () => {
     return (
         <div className="bg-white w-full h-fit py-4">
-            <p className="text-[20px] font-Inter font-[600]">Ingredients</p>
+            <p className="text-[20px] lg:text-[30px] font-Inter font-[600]">Ingredients</p>
             <ul className="mt-4  pb-3 leading-relaxed text-gray-700 list-disc list-inside t">
                
                 <li className="border-b-[1px] border-slate-300 py-4 flex justify-between items-center" >
