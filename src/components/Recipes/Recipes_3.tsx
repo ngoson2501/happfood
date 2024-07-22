@@ -10,9 +10,9 @@ const Recipes_3 = () => {
         <>
 
 
-            <section className="bg-red-300  h-[240px]  xl:w-[370px] snap-start  group cursor-pointer p-[10px] lg:p-[20px] xl:p-0 rounded-[15px]  flex flex-col xl:flex-row gap-[10px]   hover:shadow-lg  "
+            <section className="bg-white  h-[240px] lg:w-[275px] lg:h-[350px]  xl:w-[370px]   snap-start  group cursor-pointer p-[10px] lg:p-[20px] xl:p-3 rounded-[15px]  flex flex-col xl:flex-row gap-[10px]   hover:shadow-lg  "
             >
-                <div className=" w-[150px] xl:w-1/2 h-[130px]  relative overflow-hidden rounded-[15px] ">
+                <div className=" w-[150px] h-[130px] lg:w-[220px] lg:h-[180px] xl:h-[130px]  xl:w-1/2   relative overflow-hidden rounded-[15px] ">
                     <Image
                         className="w-full h-full object-cover object-center absolute inset-0 transition-transform duration-500 ease-in-out transform group-hover:scale-105"
                         src="/images/food-img/Pancake.svg"
@@ -37,7 +37,7 @@ const Recipes_3 = () => {
 
                 </div>
 
-                <div className=" w-1/2  flex flex-col justify-center gap-2">
+                <div className=" xl:w-1/2  flex flex-col justify-center lg:gap-2 xl:gap-0 ">
                     <p
                         className=" font-Inter font-[600] text-[16px] lg:text-[18px] line-clamp-2 truncate whitespace-normal text-clip overflow-hidden"
                         style={{ lineHeight: "1.4" }}

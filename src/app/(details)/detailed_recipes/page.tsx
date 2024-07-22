@@ -20,11 +20,12 @@ import Image from "next/image";
 import Recipes_3 from "@/components/Recipes/Recipes_3";
 import Ingredients from "@/components/Ingredients/Ingredients";
 import OtherRecipe from "@/components/OtherRecipe/OtherRecipe";
+import Directions from "@/components/Directions/Directions";
 
 const DetailRecipe = () => {
   return (
     <>
-      <div className="bg-green-400 w-full h-[2000px] flex gap-[20px] flex-col lg:px-[100px] lg:pt-[50px]">
+      <div className="bg-white w-full h-[2000px] flex gap-[20px] flex-col lg:px-[100px] lg:pt-[50px]">
         
         
         
@@ -37,7 +38,7 @@ const DetailRecipe = () => {
             />
             Your browser does not support the video tag.
           </video>
-          <div className="bg-white hidden xl:flex xl:flex-col  gap-5  w-full h-[450px] xl:w-1/3  snap-y  overflow-y-auto">
+          <div className="bg-white hidden xl:flex xl:flex-col xl:items-end   gap-5  w-full h-[450px] xl:w-1/3  snap-y  overflow-y-auto">
 
             <Recipes_3></Recipes_3>
             <Recipes_3></Recipes_3>
@@ -53,8 +54,8 @@ const DetailRecipe = () => {
 
 
 
-        <div className="bg-red-300 flex flex-col xl:flex-row  gap-5">
-          <div className=" bg-yellow-300 px-[12px] lg:px-0 flex flex-col xl:w-2/3 ">
+        <div className="bg-yellow-300 flex flex-col xl:flex-row  gap-5">
+          <div className=" h-fit xl:w-2/3 px-[12px] lg:px-0 flex flex-col  ">
 
           <div className=" space-y-4">
             <details
@@ -213,8 +214,16 @@ const DetailRecipe = () => {
           </div>
 
 
-         {/* <Ingredients></Ingredients> */}
+        
 
+         <Ingredients></Ingredients>
+         <Directions></Directions>
+
+
+            {/* <div className="bg-black w-full  h-fit">
+                    <Ingredients></Ingredients>
+                    <Directions></Directions>
+            </div> */}
 
 
 
@@ -223,9 +232,24 @@ const DetailRecipe = () => {
 
 
 
-            <div className="bg-blue-400 hidden xl:block xl:w-1/3 h-[200px]">
+            <div className="  w-full xl:block xl:w-1/3 h-fit">
+                <div className=" hidden xl:flex w-full h-[380px] relative">
+                    <Image
+                        className="w-auto h-auto max-w-full max-h-full object-contain object-center absolute inset-0 m-auto transition-transform duration-500 ease-in-out transform group-hover:scale-105"
+                        src="/images/banners/Ads.png"
+                        alt="Pancake"
+                        width={290}
+                        height={280}
+                    />
+                </div>
 
-               
+
+                <div className=" w-full  h-[260px] lg:h-[365px] xl:h-[750px]">
+                
+                <OtherRecipe></OtherRecipe>
+            
+                </div>
+
             </div>
 
             
@@ -237,18 +261,18 @@ const DetailRecipe = () => {
 
 
 
-        <div className="bg-blue-700 w-full h-fit flex flex-col xl:flex-row gap-5 ">
+        {/* <div className="bg-white w-full h-fit flex flex-col xl:flex-row gap-5 ">
 
                 <div className="bg-red-300 w-full xl:w-2/3 h-fit">
                 <Ingredients></Ingredients>
                 </div>
-                <div className="bg-slate-500 w-full xl:w-1/3 h-[300px] xl:h-[750px]">
+                <div className=" w-full xl:w-1/3 h-[260px] lg:h-[365px] xl:h-[750px]">
               
                      <OtherRecipe></OtherRecipe>
                 
                 </div>
 
-        </div>
+        </div> */}
 
         
 

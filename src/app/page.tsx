@@ -16,7 +16,7 @@ function HomePage(){
     return(
         <>
             
-            <div className="bg-red-700 w-full flex gap-[20px] flex-col lg:px-[100px] lg:pt-[50px] h-fit ">
+            <div className="bg-white w-full flex gap-[20px] flex-col lg:px-[100px] lg:pt-[50px] h-fit ">
                 
             <Slider></Slider>
             <CategoriesList></CategoriesList>

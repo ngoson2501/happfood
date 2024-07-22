@@ -4,7 +4,7 @@ const OtherRecipe = () => {
     return (
         <>
 
-            <div className="bg-yellow-300 w-full h-full  flex xl:flex-col  gap-5    snap-y  overflow-y-auto">
+            <div className=" w-full h-full  flex xl:flex-col xl:items-end  gap-5  snap-x  xl:snap-y  overflow-y-auto">
 
                 <Recipes_3></Recipes_3>
                 <Recipes_3></Recipes_3>
