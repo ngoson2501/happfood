@@ -25,7 +25,7 @@ import Directions from "@/components/Directions/Directions";
 const DetailRecipe = () => {
   return (
     <>
-      <div className="bg-white w-full h-[2000px] flex gap-[20px] flex-col lg:px-[100px] lg:pt-[50px]">
+      <div className="bg-white w-full  flex gap-[20px] flex-col lg:px-[100px] lg:pt-[50px]">
         
         
         
@@ -54,7 +54,7 @@ const DetailRecipe = () => {
 
 
 
-        <div className="bg-yellow-300 flex flex-col xl:flex-row  gap-5">
+        <div className="bg-white flex flex-col xl:flex-row  gap-5">
           <div className=" h-fit xl:w-2/3 px-[12px] lg:px-0 flex flex-col  ">
 
           <div className=" space-y-4">
@@ -244,9 +244,9 @@ const DetailRecipe = () => {
                 </div>
 
 
-                <div className=" w-full  h-[260px] lg:h-[365px] xl:h-[750px]">
-                
-                <OtherRecipe></OtherRecipe>
+                <div className=" flex flex-col w-full  h-[330px] lg:h-[465px] xl:h-[850px]">
+                    <p className="px-[12px] lg:px-[0px] xl:px-[30px] py-[20px] text-[20px] lg:text-[30px] font-Inter font-[600]">Other Recipe</p>
+                    <OtherRecipe></OtherRecipe>
             
                 </div>
 
