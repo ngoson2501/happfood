@@ -22,7 +22,7 @@ const LearnMore = () => {
             your canvas, and you are the artist.
           </p>
           <span className="bg-black text-[13px] lg:text-[15px] w-fit rounded-[10px] lg:rounded-[17px] text-white px-[60px] py-[15px] xl:px-[80px] lg:py-[20px] mt-[10px] lg:mt-[40px] xl:mt-[70px]">
-            Learn More
+          Generate
           </span>
         </div>
 

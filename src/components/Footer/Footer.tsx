@@ -8,7 +8,7 @@ const Footer = () => {
 
   return (
     <>
-      <footer className=" lg:py-[50px]">
+      <footer className="mt-[50px] lg:py-[50px]">
         <div className="relative mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8  flex flex-col justify-center">
           {/* <div className="absolute end-6 top-0 sm:end-6 sm:top-0 lg:end-8 lg:top-0"> */}
           <div className="fixed end-8 bottom-[40px] lg:bottom-[70px]   z-50">
@@ -46,7 +46,7 @@ const Footer = () => {
               </p>
             </div>
 
-            <ul className=" text-[8px] lg:text-[15px]  font-Andika flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12">
+            <ul className=" text-[8px] lg:text-[15px]  font-Inter  flex flex-wrap justify-center gap-6 md:gap-8 lg:mt-0 lg:justify-end lg:gap-12">
               <li>
                 <a
                   className="text-gray-700 transition hover:text-gray-700/75"

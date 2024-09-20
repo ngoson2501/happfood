@@ -116,6 +116,8 @@ const HotRecipes = () => {
               </div>
             </div>
           </div>
+
+          
           <div className="bg-slate-500 w-[100%] h-full  lg:rounded-r-[50px] relative overflow-hidden">
             <Image
               className="w-full h-full object-cover object-center absolute inset-0"

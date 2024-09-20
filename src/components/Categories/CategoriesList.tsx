@@ -45,24 +45,26 @@
 // export default CategoriesList
 
 import React from "react";
+import Link from "next/link";
 import Category from "./Category";
 
 interface CategoryData {
   title: string;
   coverImage: string;
   color: string;
+  href: string
 }
 
 const CategoriesList = () => {
   const listCategories: CategoryData[] = [
-    { title: "Breakfast", coverImage: "Breakfast.svg", color: "#f2f3ee" },
-    { title: "Vegan", coverImage: "Vegan.svg", color: "#f2f9ec" },
-    { title: "Meat", coverImage: "Meat.svg", color: "#fbe9e8" },
-    { title: "Dessert", coverImage: "Dessert.svg", color: "#fef5e6" },
-    { title: "Lunch", coverImage: "Lunch.svg", color: "#f3f3f3" },
-    { title: "Chocolate", coverImage: "Chocolate.svg", color: "#f3f3f3" },
-    { title: "Chicken", coverImage: "chicken.png", color: "#ffebd4" },
-    { title: "Ice Cream", coverImage: "iceCream.png", color: "#ffd7ca" }
+    { title: "Breakfast", coverImage: "Breakfast.svg", color: "#f2f3ee", href: "/categories" },
+    { title: "Vegan", coverImage: "Vegan.svg", color: "#f2f9ec", href: "/categories" },
+    { title: "Meat", coverImage: "Meat.svg", color: "#fbe9e8", href: "/categories" },
+    { title: "Dessert", coverImage: "Dessert.svg", color: "#fef5e6", href: "/categories" },
+    { title: "Lunch", coverImage: "Lunch.svg", color: "#f3f3f3", href: "/categories" },
+    { title: "Chocolate", coverImage: "Chocolate.svg", color: "#f3f3f3", href: "/categories" },
+    { title: "Chicken", coverImage: "chicken.png", color: "#ffebd4",href: "/categories" },
+    { title: "IceCream", coverImage: "iceCream.png", color: "#ffd7ca",href: "/categories" }
   ];
 
   return (
@@ -70,7 +72,7 @@ const CategoriesList = () => {
       <div className="px-[10px] xl:px-0 flex font-Inter justify-between items-center">
         <h1 className="font-[600] text-[25px] lg:text-[45px]">Categories</h1>
         <span className="bg-[#E7FAFE] text-[13px] lg:text-[16px] font-[550] rounded-[10px] lg:rounded-[20px] px-[15px] py-[10px] lg:px-[30px] lg:py-[20px]">
-            <p>View All Categories</p>
+            <Link href="/categories">View All Categories</Link>
         </span>
       </div>
       <div className=" w-full h-fit flex flex-wrap   justify-center  items-center gap-[20px] lg:gap-[40px]">
@@ -80,6 +82,7 @@ const CategoriesList = () => {
             title={category.title}
             coverImage={category.coverImage}
             color={category.color}
+            href={category.href}
           />
         ))}
       </div>

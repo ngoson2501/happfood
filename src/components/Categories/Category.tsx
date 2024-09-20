@@ -34,15 +34,17 @@
 
 
 import React from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 
 interface CategoryProps {
     title: string;
     coverImage: string;
     color: string;
+    href: string
 }
 
-const Category: React.FC<CategoryProps> = ({ title, coverImage, color }) => {
+const Category: React.FC<CategoryProps> = ({ title, coverImage, color, href }) => {
     return (
         // <section
         //     className="relative w-[180px] h-[202px] rounded-[30px] flex flex-col items-center justify-center gap-[20px] cursor-pointer hover:shadow-md"
@@ -68,10 +70,12 @@ const Category: React.FC<CategoryProps> = ({ title, coverImage, color }) => {
         //     <p className="font-Inter font-[600] text-[18px]">{title}</p>
         // </section>
 
-        <section
+        <Link href={`categories/${title}`}
         className="relative w-[150px] h-[170px] rounded-[20px] xl:w-[180px] xl:h-[202px] xl:rounded-[30px] flex flex-col items-center justify-center gap-[10px] xl:gap-[20px] cursor-pointer hover:shadow-md"
         style={{ background: `linear-gradient(to bottom, white, ${color})` }}
     >
+        
+        
         <div className="relative">
             <Image
                 src={`/icon/categories/${coverImage}`}
@@ -90,7 +94,9 @@ const Category: React.FC<CategoryProps> = ({ title, coverImage, color }) => {
             />
         </div>
         <p className="font-Inter font-[600] text-[16px] xl:text-[18px]">{title}</p>
-    </section>
+        
+        
+    </Link>
 
     );
 };

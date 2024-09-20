@@ -10,7 +10,7 @@ const Recipes_3 = () => {
         <>
 
 
-            <section className="bg-white  h-[240px] lg:w-[275px] lg:h-[350px]  xl:w-[370px]   snap-start  group cursor-pointer p-[10px] lg:p-[20px] xl:p-3 rounded-[15px]  flex flex-col xl:flex-row gap-[10px]   hover:shadow-lg  "
+            <section className="bg-[#E7FAFE] h-[240px] lg:w-[275px] lg:h-[350px]  xl:w-[370px]   snap-start  group cursor-pointer p-[10px] lg:p-[20px] xl:p-3 rounded-[15px]  flex flex-col xl:flex-row gap-[10px]   hover:shadow-lg  "
             >
                 <div className=" w-[150px] h-[130px] lg:w-[220px] lg:h-[180px] xl:h-[130px]  xl:w-1/2   relative overflow-hidden rounded-[15px] ">
                     <Image
