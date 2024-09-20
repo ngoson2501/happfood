@@ -81,19 +81,58 @@ const AddRecipe = () => {
     setNutritionInformation(newNutritionInformation);
   };
 
-  const handleDirectionChange = (index: number, field: keyof Direction, value: string) => {
+
+  const handleDirectionChange = (
+    index: number,
+    field: keyof Direction,
+    value: string | string[]
+  ) => {
     const newDirections = [...directions];
-    newDirections[index][field] = value;
+  
+    if (field === "images") {
+      // Field 'images' expects an array of strings
+      newDirections[index].images = Array.isArray(value) ? value : [value];
+    } else if (typeof value === "string") {
+      // Other fields expect a single string value
+      newDirections[index][field] = value;
+    }
+  
     setDirections(newDirections);
   };
+  
+
 
   const handleDirectionImageChange = (directionIndex: number, imageIndex: number, file: File) => {
     const newDirections = [...directions];
     const newImages = [...newDirections[directionIndex].images];
-    newImages[imageIndex] = URL.createObjectURL(file);
-    newDirections[directionIndex].images = newImages;
-    setDirections(newDirections);
+    
+    // Chắc chắn rằng file đã được chọn
+    if (file) {
+      newImages[imageIndex] = URL.createObjectURL(file); // Gán chuỗi vào mảng
+      newDirections[directionIndex].images = newImages; // Cập nhật lại mảng images
+      setDirections(newDirections);
+    }
   };
+  
+
+  // const handleDirectionChange = (index: number, field: keyof Direction, value: string) => {
+  //   const newDirections = [...directions];
+  //   newDirections[index][field] = value;
+  //   setDirections(newDirections);
+  // };
+
+  // const handleDirectionImageChange = (directionIndex: number, imageIndex: number, file: File) => {
+  //   const newDirections = [...directions];
+  //   const newImages = [...newDirections[directionIndex].images];
+  //   newImages[imageIndex] = URL.createObjectURL(file);
+  //   newDirections[directionIndex].images = newImages;
+  //   setDirections(newDirections);
+  // };
+
+
+
+  
+  
 
   const handleAddDirectionImageField = (index: number) => {
     const newDirections = [...directions];

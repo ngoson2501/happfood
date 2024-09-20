@@ -124,6 +124,7 @@ const HotRecipes = () => {
               src="/images/food-img/canh-ga-cay-thom-ngon.png"
               alt="food"
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" 
             />
           </div>
           <div className="absolute top-[10px] lg:top-[30px] xl:top-[50px]">
