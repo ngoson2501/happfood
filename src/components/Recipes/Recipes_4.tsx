@@ -10,7 +10,10 @@ const Recipes_4 = () => {
         <>
 
 
-            <section className="bg-[#E7FAFE] h-[240px] lg:w-[275px] lg:h-[350px]  xl:w-[740px]   snap-start  group cursor-pointer p-[10px] lg:p-[20px] xl:p-10 rounded-[15px]  flex flex-col xl:flex-row gap-[20px]   hover:shadow-lg  "
+            <section className="h-[240px] lg:w-[275px] lg:h-[300px] xl:w-[740px] xl:pr-7   snap-start  group cursor-pointer  rounded-[15px]  flex flex-col xl:flex-row gap-[20px]  shadow-md "
+            // p-[10px] lg:p-[20px] xl:p-7
+           
+            
             >
                 <div className=" w-[150px] h-[130px] lg:w-[220px] lg:h-[180px] xl:h-full  xl:w-1/2   relative overflow-hidden rounded-[15px] ">
                     <Image
@@ -37,7 +40,7 @@ const Recipes_4 = () => {
 
                 </div>
 
-                <div className=" xl:w-1/2  flex flex-col justify-around  lg:gap-2 xl:gap-0 ">
+                <div className=" xl:w-1/2  flex flex-col justify-around  lg:gap-2 xl:gap-0  xl:py-4">
                     <p
                         className=" font-Inter font-[600] text-[16px] lg:text-[18px] line-clamp-2 truncate whitespace-normal text-clip overflow-hidden"
                         style={{ lineHeight: "1.4" }}

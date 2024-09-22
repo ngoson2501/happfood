@@ -15,8 +15,8 @@ const category = ({ params }: Props) => {
         <h1 className="font-[600] text-[25px] lg:text-[45px]">
           {params.categoryItem}
         </h1>
-        <div className="  w-full h-fit  gap-[10px] lg:gap-[30px]  flex  xl:gap-[40px] justify-center lg:justify-between items-start ">
-          <div className="flex flex-col gap-[40px]">
+        <div className="  w-full h-fit pt-[20px]  gap-[10px] lg:gap-[30px]  flex  xl:gap-[40px] justify-center lg:justify-between items-start">
+          <div className=" flex flex-col gap-[40px]">
             <Recipes_4></Recipes_4>
             <Recipes_4></Recipes_4>
             <Recipes_4></Recipes_4>
@@ -24,7 +24,11 @@ const category = ({ params }: Props) => {
             <Recipes_4></Recipes_4>
             <Recipes_4></Recipes_4>
           </div>
-          <div className=" w-full">
+          <div className=" w-full p-[40px] rounded-[15px]"
+          style={{
+            boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)", // Điều chỉnh shadow theo ý bạn
+          }}
+          >
 
           <span className="flex items-center">
             <span className="h-px flex-1 bg-black"></span>
