@@ -10,18 +10,18 @@ const Recipes_4 = () => {
         <>
 
 
-            <section className="h-[240px] lg:w-[275px] lg:h-[300px] xl:w-[740px] xl:pr-7   snap-start  group cursor-pointer  rounded-[15px]  flex flex-col xl:flex-row gap-[20px]  shadow-md "
+            <section className="bg-red-100 h-[250px]  xl:pr-7   snap-start  group cursor-pointer  rounded-[8px]  flex flex-row gap-[20px]  hover:shadow-md "
             // p-[10px] lg:p-[20px] xl:p-7
            
             
             >
-                <div className=" w-[150px] h-[130px] lg:w-[220px] lg:h-[180px] xl:h-full  xl:w-1/2   relative overflow-hidden rounded-[15px] ">
+                <div className="bg-green-400  h-full  w-[40%]   relative overflow-hidden rounded-[8px] ">
                     <Image
                         className="w-full h-full object-cover object-center absolute inset-0 transition-transform duration-500 ease-in-out transform group-hover:scale-105"
                         src="/images/food-img/Pancake.svg"
                         alt="Pancake"
                         width={300}
-                        height={160}
+                        height={300}
                     />
 
                     {/* <div className="absolute z-10 w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] right-0 flex justify-center items-center">
@@ -40,7 +40,7 @@ const Recipes_4 = () => {
 
                 </div>
 
-                <div className=" xl:w-1/2  flex flex-col justify-around  lg:gap-2 xl:gap-0  xl:py-4">
+                <div className=" w-[60%]  flex flex-col xl:justify-around  gap-5 xl:gap-0  xl:py-4">
                     <p
                         className=" font-Inter font-[600] text-[16px] lg:text-[18px] line-clamp-2 truncate whitespace-normal text-clip overflow-hidden"
                         style={{ lineHeight: "1.4" }}
@@ -49,7 +49,7 @@ const Recipes_4 = () => {
                     </p>
                     <p
                         style={{ color: "rgba(0, 0, 0, 60%)" }}
-                        className=" font-Inter font-[300] text-[12px] lg:text-[14px] xl:text-[15px] line-clamp-2 xl:line-clamp-6 truncate whitespace-normal text-clip overflow-hidden"
+                        className=" font-Inter font-[300] text-[12px] lg:text-[14px] xl:text-[15px] line-clamp-2 xl:line-clamp-4 truncate whitespace-normal text-clip overflow-hidden"
                     >
                         Cánh gà được tẩm ướp kỹ lưỡng với các gia vị cay như ớt, tiêu,
                         và sốt cay, sau đó được nướng hoặc chiên giòn. Lớp ngoài của
