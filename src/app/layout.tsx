@@ -1,6 +1,6 @@
 import "./globals.css";
 import Header from "@/components/Header/Header";
-
+import { ThemeProvider } from "@/context/theme-provider";
 
 export default function RootLayout({
     children,
@@ -9,7 +9,8 @@ export default function RootLayout({
   }) {
     return (
       <html lang="en">
-        <body className=" flex justify-center flex-col items-center  ">
+       <ThemeProvider >
+       <body className=" flex justify-center flex-col items-center  ">
           {/* Layout UI */}
          
          {/* <div className="bg-yellow-400  w-full max-w-[1425px]">
@@ -23,6 +24,7 @@ export default function RootLayout({
 
          
         </body>
+       </ThemeProvider>
       </html>
     )
   }

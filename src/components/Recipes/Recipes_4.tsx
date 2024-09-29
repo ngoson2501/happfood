@@ -10,12 +10,12 @@ const Recipes_4 = () => {
         <>
 
 
-            <section className="bg-red-100 h-[250px]  xl:pr-7   snap-start  group cursor-pointer  rounded-[8px]  flex flex-row gap-[20px]  hover:shadow-md "
+            <section className="bg-white h-[140px] lg:h-[250px] pr-4 lg:pr-7 snap-start  group cursor-pointer  rounded-[8px]  flex flex-row gap-[10px] lg:gap-[20px]  hover:shadow-md "
             // p-[10px] lg:p-[20px] xl:p-7
            
             
             >
-                <div className="bg-green-400  h-full  w-[40%]   relative overflow-hidden rounded-[8px] ">
+                <div className=" h-full  w-[40%]   relative overflow-hidden rounded-[8px] ">
                     <Image
                         className="w-full h-full object-cover object-center absolute inset-0 transition-transform duration-500 ease-in-out transform group-hover:scale-105"
                         src="/images/food-img/Pancake.svg"
@@ -40,7 +40,7 @@ const Recipes_4 = () => {
 
                 </div>
 
-                <div className=" w-[60%]  flex flex-col xl:justify-around  gap-5 xl:gap-0  xl:py-4">
+                <div className=" w-[60%]  flex flex-col justify-around   lg:gap-3 xl:gap-0 py-2 lg:py-4">
                     <p
                         className=" font-Inter font-[600] text-[16px] lg:text-[18px] line-clamp-2 truncate whitespace-normal text-clip overflow-hidden"
                         style={{ lineHeight: "1.4" }}
@@ -49,7 +49,7 @@ const Recipes_4 = () => {
                     </p>
                     <p
                         style={{ color: "rgba(0, 0, 0, 60%)" }}
-                        className=" font-Inter font-[300] text-[12px] lg:text-[14px] xl:text-[15px] line-clamp-2 xl:line-clamp-4 truncate whitespace-normal text-clip overflow-hidden"
+                        className=" font-Inter font-[300] text-[12px] lg:text-[14px] xl:text-[15px] line-clamp-2 lg:line-clamp-4 truncate whitespace-normal text-clip overflow-hidden"
                     >
                         Cánh gà được tẩm ướp kỹ lưỡng với các gia vị cay như ớt, tiêu,
                         và sốt cay, sau đó được nướng hoặc chiên giòn. Lớp ngoài của
@@ -67,7 +67,7 @@ const Recipes_4 = () => {
 
                         <div className="w-fit flex justify-center items-center gap-1 lg:gap-3">
                             <Image
-                                className="object-cover rounded-full w-[20px] h-[20px] lg:w-[45px] lg:h-[45px]"
+                                className="object-cover rounded-full w-[30px] h-[30px] lg:w-[45px] lg:h-[45px]"
                                 src="/images/IMG_8991.jpg"
                                 alt="avata"
                                 width={45}
@@ -75,7 +75,7 @@ const Recipes_4 = () => {
                                 quality={100} // Điều chỉnh chất lượng lên mức cao nhất
                             />
 
-                            <span className="flex text-[7px] lg:text-[15px] flex-col justify-center font-Inter">
+                            <span className="flex text-[10px] lg:text-[15px] flex-col justify-center font-Inter">
                                 <p className="font-[700]">Ngo Son</p>
                                 <p style={{ color: "rgba(0, 0, 0, 60%)" }}>15/3/2024</p>
                             </span>

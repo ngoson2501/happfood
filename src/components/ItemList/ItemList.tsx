@@ -2,7 +2,7 @@ const ItemList = () => {
   return (
     <>
       <div
-        className=" w-[400px] p-[40px] rounded-[8px]"
+        className="bg-white w-full p-[40px] rounded-[8px]"
         style={{
           boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.1)", // Điều chỉnh shadow theo ý bạn
         }}
