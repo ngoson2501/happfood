@@ -165,56 +165,6 @@ import Link from "next/link";
 import { useFoodDirectory } from "@/context/FoodDirectory-provider";
 import { FoodSection } from "@/context/FoodDirectory-provider";
 
-// interface FoodSection {
-//   title: string;
-//   subItems: { label: string; coverImage: string }[];
-// }
-
-// interface FoodDirectory {
-//   Ingredient: FoodSection;
-//   CookingMethod: FoodSection;
-//   Holidays: FoodSection;
-//   Category: FoodSection;
-// }
-
-// const foodDirectory: FoodDirectory = {
-//   Ingredient: {
-//     title: "Nguyên liệu",
-//     subItems: [
-//       { label: "Bún - Mì - Miến - Phở", coverImage: "Noodles.jpeg" },
-//       { label: "Thuỷ hải sản", coverImage: "Seafood.jpeg" },
-//       { label: "Thịt lợn - Sườn", coverImage: "Spareribs.jpeg" },
-//       { label: "Thịt gà", coverImage: "Chicken.jpeg" },
-//     ],
-//   },
-//   CookingMethod: {
-//     title: "Phương pháp nấu",
-//     subItems: [
-//       { label: "Chiên - Rán", coverImage: "Fried.jpeg" },
-//       { label: "Nướng", coverImage: "Roast.jpeg" },
-//       { label: "Xào - rang - Rim", coverImage: "Stir-fry.jpeg" },
-//       { label: "Hầm -Luộc - Hấp", coverImage: "Stew-boil.jpeg" },
-//       { label: "Canh - Súp", coverImage: "Soup.jpeg" },
-//     ],
-//   },
-//   Holidays: {
-//     title: "Lễ Tết",
-//     subItems: [
-//       { label: "Tết Nguyên Đán", coverImage: "Tet.jpeg" },
-//       { label: "Trung Thu", coverImage: "Trung-Thu.jpeg" },
-//       { label: "Giáng Sinh", coverImage: "Christmas.jpeg" },
-//     ],
-//   },
-//   Category: {
-//     title: "Thể loại",
-//     subItems: [
-//       { label: "Món chính", coverImage: "Main-Dish.jpeg"},
-//       { label: "Món tráng miệng", coverImage: "Dessert.jpeg" },
-//       { label: "Món khai vị", coverImage: "Appetizer.jpeg" },
-//       { label: "Đồ uống", coverImage: "Beverage.jpeg" },
-//     ],
-//   },
-// };
 
 const FoodDirectory = () => {
 
@@ -242,7 +192,7 @@ const FoodDirectory = () => {
                     href={{
                         pathname: `/categories/${sectionKey}`,
                         query: {
-                            label: item.title
+                            item: JSON.stringify(item),
                         }
                     }} 
                     key={idx} 
