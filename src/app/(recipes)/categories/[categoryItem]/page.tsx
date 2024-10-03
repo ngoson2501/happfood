@@ -116,11 +116,13 @@ const CategoryPage = () => {
 
   return (
     <>
-      <div className="w-full h-fit flex gap-[20px] flex-col">
-        <h2 className="font-[600] text-[25px] lg:text-[45px]">
-          {item?.label} {/* Hiển thị trường 'label' từ đối tượng item */}
-        </h2>
-        <div className="w-full h-fit gap-[10px] lg:gap-[30px] flex xl:gap-[40px] justify-center lg:justify-between items-start">
+
+      <h2 className=" absolute top-[23px] lg:top-0   w-full  z-10 text-center italic  font-lobster font-[600] text-[25px] lg:text-[45px]">
+          {item?.label} 
+      </h2>
+      <div className="w-full h-fit flex gap-[20px] lg:gap-[40px]  flex-col">
+        
+        <div className=" w-full h-fit gap-[10px] lg:gap-[30px] flex xl:gap-[40px] justify-center lg:justify-between items-start">
           <div className="flex flex-col gap-[20px] lg:gap-[40px]">
             <Recipes_4 />
             <Recipes_4 />

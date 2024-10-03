@@ -489,8 +489,8 @@ const menuItems: {
   Home: { label: "Home", href: "/", subItems: [] },
   Recipes: { label: "Recipes", href: "/recipes", subItems: [] },
   Blog: { label: "Blog", href: "/blog", subItems: [] },
-  Contact: { label: "Contact", href: "/contact", subItems: [{ label: "Add recipe", href: "/add_recipe" }, { label: "Generate", href: "/generate" }] },
-  Library: { label: "Library", href: "/library", subItems: [{ label: "Add recipe", href: "/add_recipe" }, { label: "Generate", href: "/generate" }] },
+  Contact: { label: "Contact", href: "#", subItems: [{ label: "Add recipe", href: "/add_recipe" }, { label: "Generate", href: "/generate" }] },
+  Library: { label: "Library", href: "#", subItems: [{ label: "Add recipe", href: "/add_recipe" }, { label: "Generate", href: "/generate" }] },
 };
 
 const Header: React.FC = () => {
@@ -580,8 +580,8 @@ const Header: React.FC = () => {
                 className="object-cover relative"
                 src="/images/IMG_8991.jpg"
                 alt="avatar"
-                width={45}
-                height={45}
+                width={100}
+                height={100}
                 quality={100}
               />
 

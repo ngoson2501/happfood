@@ -1,30 +1,27 @@
-
-// const AddRecipe = ()=>{
-//     return(
-
-//         <>
-        
-        
-//             <div className="bg-red-400 w-full h-[1000px] flex gap-[20px] flex-col lg:px-[100px] lg:pt-[50px]">
-
-
-
-
-//             </div>
-        
-        
-//         </>
-        
-//     )
-// }
-
-// export default AddRecipe
-
 "use client";
-
-
 import { useState } from "react";
 import Image from "next/image";
+import Select, { MultiValue } from 'react-select';
+
+
+
+
+
+
+
+const hashtagOptions: HashtagOption[] = [
+  { value: 'vegan', label: 'Vegan' },
+  { value: 'gluten-free', label: 'Gluten Free' },
+  { value: 'low-carb', label: 'Low Carb' },
+  { value: 'high-protein', label: 'High Protein' },
+  // Thêm các hashtag khác mà bạn muốn
+];
+
+
+interface HashtagOption {
+  value: string;
+  label: string;
+}
 
 interface Ingredient {
   name: string;
@@ -47,15 +44,27 @@ interface Direction {
 const AddRecipe = () => {
   const [name, setName] = useState<string>("");
   const [cookTime, setCookTime] = useState<string>("");
-  const [topic, setTopic] = useState<string>("");
+  // const [topic, setTopic] = useState<string>("");
+  const [hashtags, setHashtags] = useState<MultiValue<HashtagOption>>([]);
   const [description, setDescription] = useState<string>("");
   const [ingredients, setIngredients] = useState<Ingredient[]>([]);
   const [nutritionInformation, setNutritionInformation] = useState<Nutrition[]>([]);
   const [directions, setDirections] = useState<Direction[]>([]);
   const [media, setMedia] = useState<File | null>(null);
 
+
   const unitOptions = ["", "trái", "ml", "g", "muỗng canh", "lát", "muỗng cà phê", "khác"];
   const nutritionUnitOptions = ["", "kcal", "g", "mg"];
+
+
+
+  
+
+  const handleHashtag = (selectedOptions: MultiValue<HashtagOption>) => {
+    setHashtags(selectedOptions);
+  };
+
+  
 
   const handleAddIngredient = () => {
     setIngredients([...ingredients, { name: "", quantity: "", unit: "" }]);
@@ -175,7 +184,7 @@ const AddRecipe = () => {
     const formData = {
       name,
       cookTime,
-      topic,
+      hashtags,
       description,
       nutritionInformation,
       ingredients,
@@ -186,8 +195,9 @@ const AddRecipe = () => {
   };
 
   return (
-    <div className="bg-white w-full lg:px-[100px] mx-auto p-4 xl:flex gap-9">
-      <div className="hidden xl:block xl:w-2/5 max-h-[700px] rounded-[20px] relative overflow-auto">
+
+    <div className=" w-full lg:px-[100px] mx-auto p-4 xl:flex gap-9 pt-[30px] lg:pt-[60px]">
+      <div className=" hidden xl:block xl:w-2/5 max-h-[700px] rounded-[20px] relative overflow-auto">
         <Image
           className="w-full h-full object-cover "
           src="/images/banners/cover-image.jpeg"
@@ -195,30 +205,60 @@ const AddRecipe = () => {
           layout="fill"
         />
       </div>
-      <div className="w-full xl:w-3/5 font-Inter">
-        <h1 className="text-2xl font-[600] mb-4 lg:text-[45px]">Add Recipe</h1>
+
+
+
+
+
+      {/* from add recipe */}
+      <div className="font-[300] w-full xl:w-3/5 font-Inter">
+        <h1 className=" text-2xl text-center font-[600] mb-4 lg:text-[45px] lg:mb-[50px]">Add Recipe</h1>
+        
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="block text-gray-700">Name</label>
             <input
               type="text"
-              className="w-full px-4 py-2 border rounded"
+              className=" w-full px-4 py-2 border-[1px] border-[#cbcbcb] rounded"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
             />
           </div>
+
+          
+
+
+          {/* <div className="mb-4">
+            <label className="block text-gray-700">Cook Time (minutes)</label>
+            <input
+              type="number"
+              className="w-full px-4 py-2 border rounded"
+              value={cookTime}
+              onChange={(e) => setCookTime(e.target.value)}
+              min="0"
+              placeholder="Nhập số phút"
+              required
+            />
+          </div> */}
+
+
+
           <div className="mb-4">
             <label className="block text-gray-700">Cook Time</label>
             <input
-              type="text"
-              className="w-full px-4 py-2 border rounded"
+              type="time"
+              className="w-full px-4 py-2 border-[1px] border-[#cbcbcb] rounded"
               value={cookTime}
               onChange={(e) => setCookTime(e.target.value)}
               required
             />
           </div>
-          <div className="mb-4">
+
+
+
+
+          {/* <div className="mb-4">
             <label className="block text-gray-700">Topic</label>
             <input
               type="text"
@@ -227,11 +267,46 @@ const AddRecipe = () => {
               onChange={(e) => setTopic(e.target.value)}
               required
             />
+          </div> */}
+
+
+          <div className="mb-4">
+            <label className="block text-gray-700"># Hashtags</label>
+            <Select
+              isMulti
+              value={hashtags}
+              onChange={handleHashtag}
+              options={hashtagOptions}
+              className="w-full "
+              placeholder="Chọn # hashtags..."
+            />
+            <div className="mt-2">
+              {hashtags && hashtags.length > 0 && (
+                <div className="flex flex-wrap gap-1">
+                  <span>Hashtags đã chọn: </span>
+                  {hashtags.map((hashtag) => (
+                    <span
+                      key={hashtag.value}
+                      className="inline-block bg-gray-200 text-gray-700 rounded-full px-3 py-1 text-sm font-semibold "
+                    >
+                      #{hashtag.label}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
+
+
+
+
+
+
+
           <div className="mb-4">
             <label className="block text-gray-700">Description</label>
             <textarea
-              className="w-full px-4 py-2 border rounded"
+              className="w-full px-4 py-2 border-[1px] border-[#cbcbcb] rounded"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               required
@@ -244,19 +319,19 @@ const AddRecipe = () => {
                 <input
                   type="text"
                   placeholder="Name"
-                  className="w-1/3 px-4 py-2 border rounded"
+                  className="w-1/3 px-4 py-2 border-[1px] border-[#cbcbcb] rounded"
                   value={nutrition.name}
                   onChange={(e) => handleNutritionChange(index, "name", e.target.value)}
                 />
                 <input
                   type="text"
                   placeholder="Quantity"
-                  className="w-1/3 px-4 py-2 border rounded"
+                  className="w-1/3 px-4 py-2 border-[1px] border-[#cbcbcb] rounded"
                   value={nutrition.quantity}
                   onChange={(e) => handleNutritionChange(index, "quantity", e.target.value)}
                 />
                 <select
-                  className="w-1/3 px-4 py-2 border rounded"
+                  className="w-1/3 px-4 py-2 border-[1px] border-[#cbcbcb] rounded"
                   value={nutrition.unit}
                   onChange={(e) => handleNutritionChange(index, "unit", e.target.value)}
                 >
@@ -290,7 +365,7 @@ const AddRecipe = () => {
                 <input
                   type="text"
                   placeholder="Name"
-                  className="w-1/3 px-4 py-2 border rounded"
+                  className="w-1/3 px-4 py-2 border-[1px] border-[#cbcbcb] rounded"
                   value={ingredient.name}
                   onChange={(e) => handleIngredientChange(index, "name", e.target.value)}
                   required
@@ -298,13 +373,13 @@ const AddRecipe = () => {
                 <input
                   type="text"
                   placeholder="Quantity"
-                  className="w-1/3 px-4 py-2 border rounded"
+                  className="w-1/3 px-4 py-2 border-[1px] border-[#cbcbcb] rounded"
                   value={ingredient.quantity}
                   onChange={(e) => handleIngredientChange(index, "quantity", e.target.value)}
                   required
                 />
                 <select
-                  className="w-1/3 px-4 py-2 border rounded"
+                  className="w-1/3 px-4 py-2 border-[1px] border-[#cbcbcb] rounded"
                   value={ingredient.unit}
                   onChange={(e) => handleIngredientChange(index, "unit", e.target.value)}
                   required
@@ -349,14 +424,14 @@ const AddRecipe = () => {
                 <input
                   type="text"
                   placeholder="Title"
-                  className="w-full px-4 py-2 border rounded mb-2"
+                  className="w-full px-4 py-2 border-[1px] border-[#cbcbcb] rounded mb-2"
                   value={direction.title}
                   onChange={(e) => handleDirectionChange(directionIndex, "title", e.target.value)}
                   required
                 />
                 <textarea
                   placeholder="Description"
-                  className="w-full px-4 py-2 border rounded mb-2"
+                  className="w-full px-4 py-2 border-[1px] border-[#cbcbcb] rounded mb-2"
                   value={direction.description}
                   onChange={(e) => handleDirectionChange(directionIndex, "description", e.target.value)}
                   required
@@ -370,7 +445,7 @@ const AddRecipe = () => {
                       <div key={imageIndex} className="flex items-center mb-2">
                         <input
                           type="file"
-                          className="w-full px-4 py-2 border rounded"
+                          className="w-full px-4 py-2 border-[1px] border-[#cbcbcb] rounded"
                           onChange={(e) => handleDirectionImageChange(directionIndex, imageIndex, e.target.files![0])}
                           accept="image/*"
                         />
@@ -426,24 +501,20 @@ const AddRecipe = () => {
 
 
 
-
-
-
-
           <div className="mb-4">
             <label className="block text-gray-700">Media</label>
             <input
               type="file"
-              className="w-full px-4 py-2 border rounded"
+              className="w-full px-4 py-2 border-[1px] border-[#cbcbcb] rounded"
               onChange={handleMediaChange}
               accept="image/*,video/*"
             />
           </div>
           
-          <div className="flex justify-center">
+          <div className="flex justify-center mt-[40px]">
             <button
               type="submit"
-              className="px-[100px] py-4 bg-black text-white rounded-[10px] hover:bg-[#4A4A4A]"
+              className="px-[100px] font-[400]  py-4 bg-black text-white rounded-[10px] hover:bg-[#4A4A4A]"
             >
               Submit
             </button>

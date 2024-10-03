@@ -50,6 +50,7 @@ import Category from "./Category";
 
 interface CategoryData {
   title: string;
+  label: string;
   coverImage: string;
   color: string;
   href: string
@@ -57,14 +58,14 @@ interface CategoryData {
 
 const CategoriesList = () => {
   const listCategories: CategoryData[] = [
-    { title: "Breakfast", coverImage: "Breakfast.svg", color: "#f2f3ee", href: "/categories" },
-    { title: "Vegan", coverImage: "Vegan.svg", color: "#f2f9ec", href: "/categories" },
-    { title: "Meat", coverImage: "Meat.svg", color: "#fbe9e8", href: "/categories" },
-    { title: "Dessert", coverImage: "Dessert.svg", color: "#fef5e6", href: "/categories" },
-    { title: "Lunch", coverImage: "Lunch.svg", color: "#f3f3f3", href: "/categories" },
-    { title: "Chocolate", coverImage: "Chocolate.svg", color: "#f3f3f3", href: "/categories" },
-    { title: "Chicken", coverImage: "chicken.png", color: "#ffebd4",href: "/categories" },
-    { title: "IceCream", coverImage: "iceCream.png", color: "#ffd7ca",href: "/categories" }
+    { title: "Breakfast", label: "Breakfast", coverImage: "Breakfast.svg", color: "#f2f3ee", href: "/categories" },
+    { title: "Vegan", label: "Vegan", coverImage: "Vegan.svg", color: "#f2f9ec", href: "/categories" },
+    { title: "Meat", label: "Meat", coverImage: "Meat.svg", color: "#fbe9e8", href: "/categories" },
+    { title: "Dessert", label: "Dessert", coverImage: "Dessert.svg", color: "#fef5e6", href: "/categories" },
+    { title: "Lunch", label: "Lunch", coverImage: "Lunch.svg", color: "#f3f3f3", href: "/categories" },
+    { title: "Chocolate", label: "Chocolate", coverImage: "Chocolate.svg", color: "#f3f3f3", href: "/categories" },
+    { title: "Chicken", label: "Chicken", coverImage: "chicken.png", color: "#ffebd4",href: "/categories" },
+    { title: "IceCream", label: "Ice Cream", coverImage: "iceCream.png", color: "#ffd7ca",href: "/categories" }
   ];
 
   return (
@@ -79,10 +80,12 @@ const CategoriesList = () => {
         {listCategories.map((category, index) => (
           <Category
             key={index}
-            title={category.title}
-            coverImage={category.coverImage}
-            color={category.color}
-            href={category.href}
+            category={category}
+            // label={category.label}
+            // title={category.title}
+            // coverImage={category.coverImage}
+            // color={category.color}
+            // href={category.href}
           />
         ))}
       </div>

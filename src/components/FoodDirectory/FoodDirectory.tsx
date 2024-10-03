@@ -176,14 +176,14 @@ const FoodDirectory = () => {
     
   return (
     <>
-      <div className=" p-4">
+      <div className="rounded-[8px] px-4 lg:px-0">
         {Object.keys(foodDirectory).map((sectionKey, index) => {
             
           const section = (foodDirectory as any)[sectionKey] as FoodSection;
             
           return (
-            <div key={index} className="mb-6">
-              <h3 className="font-[600] text-[18px] lg:text-[25px] mb-4">
+            <div key={index} className=" mb-6">
+              <h3 className="text-black bg-[#E7FAFE] py-3 rounded-[8px] pl-5 font-lobster font-[700] text-[18px] lg:text-[25px]  mb-4">
                 {section.title}
               </h3>
               <div className=" flex justify-center lg:justify-start  gap-[10px] flex-wrap">
@@ -196,7 +196,7 @@ const FoodDirectory = () => {
                         }
                     }} 
                     key={idx} 
-                    className="bg-white w-[150px] h-[190px]"
+                    className=" w-[150px] h-[190px]"
                   >
                     <div className="h-3/4 rounded-[5px] overflow-hidden  ">
                       <Image
@@ -208,7 +208,7 @@ const FoodDirectory = () => {
                       />
                     </div>
                     <div className="h-1/4 flex justify-center items-center">
-                      <p className="font-[600] text-center">{item.label}</p>
+                      <p className="font-[400] text-center">{item.label}</p>
                     </div>
                   </Link>
                 ))}
