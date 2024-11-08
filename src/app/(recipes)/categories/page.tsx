@@ -3,10 +3,20 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import FoodDirectory from "@/components/FoodDirectory/FoodDirectory";
 import { useFoodDirectory } from "@/context/FoodDirectory-provider";
-
+import { useCheckRefreshToken } from "../../../../hooks/useCheckRefreshToken";
+import { useRefreshAccessToken } from "../../../../hooks/useRefreshAccessToken";
+import { useAuth } from "../../../../hooks/useAuth";
+import { useUser } from '@/context/User-provider';
 const categories = ()=>{
 
-    
+    const infoUser = useUser();
+
+    if (infoUser !== null) {
+        // Sử dụng infoUser ở đây vì TypeScript biết nó không phải là null
+        console.log("<<<<<<<check infoUser>>>>>>>:",infoUser.email);
+      }
+    // useCheckRefreshToken(); // Sử dụng hook để kiểm tra refreshToken
+    // useRefreshAccessToken(); // Sử dụng hook để làm mới accessToken
    
     
 

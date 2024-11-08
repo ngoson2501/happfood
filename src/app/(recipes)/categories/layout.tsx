@@ -4,12 +4,20 @@ import Footer from "@/components/Footer/Footer"
 import ItemList from "@/components/ItemList/ItemList";
 import FavoriteRecipes from "@/components/FavoriteRecipes/FavoriteRecipe";
 import { FoodDirectoryProvider } from "@/context/FoodDirectory-provider";
+import { useAuth } from "../../../../hooks/useAuth";
+import { useCheckToken } from "../../../../hooks/checkToken";
 
 export default function AuthLayout({
     children,
   }: {
     children: React.ReactNode
   }) {
+
+    useCheckToken()
+
+    // useAuth()
+
+
     return (
         <>
             {/* <header className="bg-yellow-500 w-[100%] h-[50px]">

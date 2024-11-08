@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface SideMenuProps {
   onClick: (e: React.MouseEvent<HTMLDivElement>) => void;
@@ -68,6 +69,16 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
                 Home
               </a>
             </li>
+
+            <li>
+              <Link
+                href="/dashboard"
+                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+              >
+                Dashboard
+              </Link>
+            </li>
+
             <li>
               <a
                 href="#"
@@ -271,6 +282,8 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
               </a>
             </li>
           </ul>
+
+          
         </div>
 
         

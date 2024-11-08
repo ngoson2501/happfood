@@ -52,16 +52,30 @@ export interface FoodDirectory {
         {title: "Do-Uong", label: "Đồ uống", coverImage: "Beverage.jpeg" },
       ],
     },
+    // New: {
+    //   title: "Công thức new",
+    //   subItems: [
+    //     // {title: "Mon-Chinh", label: "Món chính", coverImage: "Main-Dish.jpeg"},
+    //     // {title: "Mon-Trang-Mieng", label: "Món tráng miệng", coverImage: "Dessert.jpeg" },
+    //     // {title: "Mon-Khai-Vi", label: "Món khai vị", coverImage: "Appetizer.jpeg" },
+    //     // {title: "Do-Uong", label: "Đồ uống", coverImage: "Beverage.jpeg" },
+    //   ],
+    // },
+    // Hot: {
+    //   title: "Công thức hot",
+    //   subItems: [
+    //     // {title: "Mon-Chinh", label: "Món chính", coverImage: "Main-Dish.jpeg"},
+    //     // {title: "Mon-Trang-Mieng", label: "Món tráng miệng", coverImage: "Dessert.jpeg" },
+    //     // {title: "Mon-Khai-Vi", label: "Món khai vị", coverImage: "Appetizer.jpeg" },
+    //     // {title: "Do-Uong", label: "Đồ uống", coverImage: "Beverage.jpeg" },
+    //   ],
+    // },
   };
 
 
 const FoodDirectoryContext = createContext<FoodDirectory>(foodDirectory)
 
-export const FoodDirectoryProvider = ({
-    children,
-  }: {
-    children: React.ReactNode
-  })=>{
+export const FoodDirectoryProvider = ({children}: {children: React.ReactNode})=>{
     return (
      
         <FoodDirectoryContext.Provider value={foodDirectory}>

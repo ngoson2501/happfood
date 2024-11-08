@@ -54,7 +54,7 @@ const AddRecipe = () => {
 
 
   const unitOptions = ["", "trái", "ml", "g", "muỗng canh", "lát", "muỗng cà phê", "khác"];
-  const nutritionUnitOptions = ["", "kcal", "g", "mg"];
+  // const nutritionUnitOptions = ["", "kcal", "g", "mg"];
 
 
 
@@ -70,9 +70,9 @@ const AddRecipe = () => {
     setIngredients([...ingredients, { name: "", quantity: "", unit: "" }]);
   };
 
-  const handleAddNutrition = () => {
-    setNutritionInformation([...nutritionInformation, { name: "", quantity: "", unit: "" }]);
-  };
+  // const handleAddNutrition = () => {
+  //   setNutritionInformation([...nutritionInformation, { name: "", quantity: "", unit: "" }]);
+  // };
 
   const handleAddDirection = () => {
     setDirections([...directions, { title: "", description: "", images: [""] }]);
@@ -161,11 +161,11 @@ const AddRecipe = () => {
     setIngredients(newIngredients);
   };
 
-  const handleRemoveNutrition = (index: number) => {
-    const newNutritionInformation = [...nutritionInformation];
-    newNutritionInformation.splice(index, 1);
-    setNutritionInformation(newNutritionInformation);
-  };
+  // const handleRemoveNutrition = (index: number) => {
+  //   const newNutritionInformation = [...nutritionInformation];
+  //   newNutritionInformation.splice(index, 1);
+  //   setNutritionInformation(newNutritionInformation);
+  // };
 
   const handleRemoveDirection = (index: number) => {
     const newDirections = [...directions];
@@ -186,7 +186,7 @@ const AddRecipe = () => {
       cookTime,
       hashtags,
       description,
-      nutritionInformation,
+      // nutritionInformation,
       ingredients,
       directions,
       media,
@@ -212,7 +212,7 @@ const AddRecipe = () => {
 
       {/* from add recipe */}
       <div className="font-[300] w-full xl:w-3/5 font-Inter">
-        <h1 className=" text-2xl text-center font-[600] mb-4 lg:text-[45px] lg:mb-[50px]">Add Recipe</h1>
+        <h1 className=" text-2xl text-center font-lobster font-[600] mb-4 lg:text-[45px] lg:mb-[50px]">Add Recipe</h1>
         
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -312,7 +312,10 @@ const AddRecipe = () => {
               required
             ></textarea>
           </div>
-          <div className="mb-4">
+
+
+
+          {/* <div className="mb-4">
             <label className="block text-gray-700">Nutrition Information</label>
             {nutritionInformation.map((nutrition, index) => (
               <div key={index} className="flex space-x-2 mb-2 items-center">
@@ -357,7 +360,11 @@ const AddRecipe = () => {
                 + Add Nutrition
               </button>
             </div>
-          </div>
+          </div> */}
+
+
+
+
           <div className="mb-4">
             <label className="block text-gray-700">Ingredients</label>
             {ingredients.map((ingredient, index) => (
@@ -510,6 +517,11 @@ const AddRecipe = () => {
               accept="image/*,video/*"
             />
           </div>
+
+
+
+
+          
           
           <div className="flex justify-center mt-[40px]">
             <button

@@ -183,7 +183,7 @@ const FoodDirectory = () => {
             
           return (
             <div key={index} className=" mb-6">
-              <h3 className="text-black bg-[#E7FAFE] py-3 rounded-[8px] pl-5 font-lobster font-[700] text-[18px] lg:text-[25px]  mb-4">
+              <h3 className="text-black  py-3 rounded-[8px] pl-5 font-lobster font-[700] text-[18px] lg:text-[25px]  mb-4">
                 {section.title}
               </h3>
               <div className=" flex justify-center lg:justify-start  gap-[10px] flex-wrap">
@@ -196,7 +196,7 @@ const FoodDirectory = () => {
                         }
                     }} 
                     key={idx} 
-                    className=" w-[150px] h-[190px]"
+                    className="mb-5 w-[150px] h-[190px]"
                   >
                     <div className="h-3/4 rounded-[5px] overflow-hidden  ">
                       <Image
@@ -207,8 +207,8 @@ const FoodDirectory = () => {
                         className="w-full h-full object-cover object-center"
                       />
                     </div>
-                    <div className="h-1/4 flex justify-center items-center">
-                      <p className="font-[400] text-center">{item.label}</p>
+                    <div className=" mt-3 h-1/4 flex justify-center ">
+                      <p style={{ color: "rgba(0, 0, 0, 60%)" }} className="font-[400] text-center">{item.label}</p>
                     </div>
                   </Link>
                 ))}
