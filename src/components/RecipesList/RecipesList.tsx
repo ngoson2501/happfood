@@ -1,4 +1,4 @@
-'use client';
+//'use client';
 
 
 import React, { useEffect } from "react";
@@ -26,7 +26,7 @@ const RecipesList = () => {
 
   const { recipes, loading, error } = useRecipeContext();  // Truy cập context
 
-  console.log('Recipesssssssssss:', recipes);
+  //console.log('Recipesssssssssss:', recipes);
 
 
 

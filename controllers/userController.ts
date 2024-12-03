@@ -2,8 +2,6 @@ import {  NextResponse } from 'next/server';
 import { JwtPayload } from 'jsonwebtoken';
 import User from '../models/user';
 import connect from '../utils/db';
-import { Types } from 'mongoose'; // Import Types từ mongoose
-import { hashPassword, comparePassword } from '../services/authService';
 import { createAccessToken, createRefreshToken, verifyRefreshToken, verifyAccessToken } from '../utils/jwt';
 
 

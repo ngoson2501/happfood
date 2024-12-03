@@ -3,7 +3,6 @@ import {  NextResponse } from 'next/server';
 import { JwtPayload } from 'jsonwebtoken';
 import User from '../models/user';
 import connect from '../utils/db';
-import { Types } from 'mongoose'; // Import Types từ mongoose
 import { hashPassword, comparePassword } from '../services/authService';
 import { createAccessToken, createRefreshToken, verifyRefreshToken, verifyAccessToken } from '../utils/jwt';
 
@@ -72,49 +71,6 @@ export const registerUser = async (req: Request) => {
 
 
 
-// export const loginUser = async (req: Request) => {
-//   const body = await req.json();
-//   const { email, password } = body;
-
-//   await connect(); // Kết nối đến cơ sở dữ liệu
-
-//   try {
-//     // Tìm người dùng bằng email
-//     const user = await User.findOne({ email });
-
-//     // Kiểm tra nếu email hoặc mật khẩu không đúng
-//     if (!user || !(await comparePassword(password, user.password))) {
-//       return new NextResponse(
-//         JSON.stringify({ message: 'Invalid credentials' }),
-//         { status: 401 }
-//       );
-//     }
-
-//     // Tạo accessToken và refreshToken với role của người dùng
-//     const accessToken = await createAccessToken({ userId: user._id, role: user.role });
-//     const refreshToken = await createRefreshToken({ userId: user._id, role: user.role });
-
-//     console.log("refreshToken:", refreshToken);
-
-//     // Cập nhật refreshToken vào cơ sở dữ liệu
-//     user.refreshToken = refreshToken; // Lưu refreshToken vào trường mới
-//     await user.save(); // Lưu thay đổi vào cơ sở dữ liệu
-
-//     // Trả về accessToken và refreshToken cho người dùng
-//     return new NextResponse(
-//       JSON.stringify({ accessToken, refreshToken }),
-//       { status: 200 }
-//     );
-//   } catch (error: any) {
-//     console.error('Error logging in:', error); // Ghi lại lỗi
-//     return new NextResponse(
-//       'Error logging in: ' + error.message,
-//       { status: 500 }
-//     );
-//   }
-// };
-
-
 
 export const loginUser = async (req: Request) => {
   const body = await req.json();
@@ -180,14 +136,7 @@ export const logoutUser = async (req: Request) => {
         return NextResponse.json({ message: 'Invalid access token' }, { status: 401 });
       }
 
-      // // Kết nối đến MongoDB
-      // await connect();
-
-      // // Xóa refreshToken của user theo userId và refreshToken
-      // const result = await User.updateOne(
-      //   { _id: payload.userId}, // Xác định userId và refreshToken
-      //   { $unset: { refreshToken: "" } } // Xóa refreshToken
-      // );
+     
 
       await connect();
       const user = await User.findById((payload as JwtPayload).userId);
@@ -197,9 +146,7 @@ export const logoutUser = async (req: Request) => {
 
       
 
-      // if (result.modifiedCount === 0) {
-      //   return NextResponse.json({ message: 'Không tìm thấy token để xóa' }, { status: 404 });
-      // }
+     
 
       return NextResponse.json({ message: 'Đăng xuất thành công' }, { status: 200 });
     } catch (error) {
@@ -305,76 +252,6 @@ export const refreshAccessToken = async (req: Request) => {
 
 
 
-
-// export const updatePassword = async (req: Request) => {
-//   try {
-//     // Lấy dữ liệu từ body yêu cầu
-//     const { email, currentPassword, newPassword, confirmPassword } = await req.json();
-
-//     // Kiểm tra xem có thiếu mật khẩu cũ hoặc mới không
-//     if (!email || !currentPassword || !newPassword || !confirmPassword) {
-//       return NextResponse.json(
-//         { message: 'Email, current, new, and confirm passwords are required' },
-//         { status: 400 }
-//       );
-//     }
-
-//     // Kiểm tra xem mật khẩu mới và mật khẩu xác nhận có khớp không
-//     if (newPassword !== confirmPassword) {
-//       return NextResponse.json(
-//         { message: 'New password and confirm password must match' },
-//         { status: 400 }
-//       );
-//     }
-
-//     // Kết nối đến cơ sở dữ liệu
-//     await connect();
-
-//     // Tìm người dùng từ cơ sở dữ liệu bằng email
-//     const user = await User.findOne({ email });
-//     if (!user) {
-//       return NextResponse.json(
-//         { message: 'User not found' },
-//         { status: 404 }
-//       );
-//     }
-
-//     // Kiểm tra mật khẩu hiện tại với mật khẩu đã băm trong cơ sở dữ liệu
-//     const isMatch = await comparePassword(currentPassword, user.password);
-//     if (!isMatch) {
-//       return NextResponse.json(
-//         { message: 'Current password is incorrect' },
-//         { status: 400 }
-//       );
-//     }
-
-//     // Kiểm tra xem mật khẩu mới có hợp lệ không (thêm validation nếu cần thiết)
-//     if (newPassword.length < 6) {
-//       return NextResponse.json(
-//         { message: 'New password must be at least 6 characters long' },
-//         { status: 400 }
-//       );
-//     }
-
-//     // Hash mật khẩu mới
-//     const hashedPassword = await hashPassword(newPassword);
-
-//     // Cập nhật mật khẩu mới vào cơ sở dữ liệu
-//     user.password = hashedPassword;
-//     await user.save();
-
-//     return NextResponse.json(
-//       { success: true, message: 'Password updated successfully' },
-//       { status: 200 }
-//     );
-//   } catch (error: any) {
-//     console.error('Error updating password:', error);
-//     return NextResponse.json(
-//       { message: 'Error updating password', error: error.message },
-//       { status: 500 }
-//     );
-//   }
-// };
 
 
 

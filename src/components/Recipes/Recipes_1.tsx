@@ -4,7 +4,6 @@
 
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
-import Link from 'next/link';
 import { useRouter } from "next/navigation"; // Import useRouter
 import { FaHeart } from "react-icons/fa";
 import { useUser } from "@/context/User-provider";
