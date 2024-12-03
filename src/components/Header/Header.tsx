@@ -30,7 +30,7 @@ const menuItems: {
   Categories: { label: "Categories", href: "/categories", subItems: [] },
   Blog: { label: "Blog", href: "/blog", subItems: [] },
   Contact: { label: "Contact", href: "#", subItems: [{ label: "Add recipe", href: "/add_recipe" }, { label: "Generate", href: "/generate" }] },
-  Library: { label: "Library", href: "#", subItems: [{ label: "Add recipe", href: "/add_recipe" }, { label: "Generate", href: "/generate" }] },
+  Library: { label: "Library", href: "#", subItems: [{ label: "Add recipe", href: "/add_recipe" }, { label: "Your recipes", href: "/your_recipes" }, { label: "Generate", href: "/generate" }] },
   //Dashboard: { label: "Dashboard", href: "/", subItems: [] },
 };
 
@@ -45,7 +45,7 @@ const Header: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false); // Thêm state để kiểm tra trạng thái đăng nhập
   
   const infoUser = useUser();
-  console.log("check info>>>>>>>>>:", infoUser)
+  
 
 
   useEffect(() => {
@@ -211,19 +211,19 @@ const Header: React.FC = () => {
           <Link href={menuItem.href || "#"}>{menuItem.label}</Link>
           {hasSubItems && (
             <div
-              className={`text-[12px] xl:text-[15px] absolute bottom-[-70px] z-20 rounded-[5px] border font-Inter w-[150px] h-[60px] bg-white flex flex-col justify-center items-center gap-2 xl:gap-1 transition-opacity duration-1000 ${
+              className={`text-[12px] xl:text-[15px] absolute xl:mt-[35px] z-20 rounded-[5px] border font-Inter w-[150px] h-fit bg-white flex flex-col justify-center items-center gap-2 xl:gap-1 transition-opacity duration-1000 ${
                 visibleItem === key ? "" : "hidden"
               }`}
               style={{
                 boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.15)",
               }}
             >
-              <div>
+              <div className='w-full cursor-pointer'>
                 {menuItem.subItems.map((subItem, idx) => (
                   <Link key={idx} href={subItem.href}>
                     <p
-                      className="cursor-pointer"
-                      style={{ color: "rgba(0, 0, 0, 60%)" }}
+                      className="w-full text-center py-1 hover:bg-[#a1e6f4] hover:text-white transition duration-150 ease-in-out hover:scale-105 rounded "
+                      //style={{ color: "rgba(0, 0, 0, 60%)" }}
                     >
                       {subItem.label}
                     </p>
@@ -302,7 +302,7 @@ const Header: React.FC = () => {
 
                 {isLoggedIn ? (
                   <>
-                    <Link href="/settings">
+                    <Link href="/profile">
                       <p className="cursor-pointer">Settings</p>
                     </Link>
                     <p className="cursor-pointer" onClick={handleLogout}>Logout</p>

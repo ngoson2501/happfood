@@ -71,7 +71,7 @@
 // export const useUser = () => useContext(UserContext);
 
 
-'use client'
+
 import { createContext, useContext, useState, useEffect } from "react";
 
 // Interface mô tả thông tin người dùng

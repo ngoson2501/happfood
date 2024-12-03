@@ -3,7 +3,7 @@
 
 import Slider from "@/components/Slider/Slider"
 import CategoriesList from "@/components/Categories/CategoriesList";
-import RecipeList from "@/components/RecipeList/RecipeList"
+import RecipesList from "@/components/RecipesList/RecipesList"
 import LearnMore from "@/components/LearnMore/LearnMore"
 import RecommendedList from "@/components/RecommendedList/RecommendedList";
 import Footer from "@/components/Footer/Footer";
@@ -20,7 +20,7 @@ function HomePage(){
                 
             <Slider></Slider>
             <CategoriesList></CategoriesList>
-            <RecipeList></RecipeList>
+            <RecipesList></RecipesList>
             <LearnMore></LearnMore>
             <RecommendedList></RecommendedList>
             

@@ -75,7 +75,7 @@ export const useAuth = () => {
   useEffect(() => {
     // Các trang không cần kiểm tra accessToken
     
-    if (pathname === '/' || pathname === '/login' || pathname === '/register') return;
+    if (pathname === '/' || pathname === '/login' || pathname === '/register' || pathname === '/forgot_password') return;
     const interval = setInterval(async () => {
       const accessToken = localStorage.getItem('accessToken');
       const currentTime = new Date().getTime();

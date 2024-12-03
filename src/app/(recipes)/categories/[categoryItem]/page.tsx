@@ -1,136 +1,39 @@
-// "use client";
-// import { usePathname } from "next/navigation";
-// import Recipes_4 from "@/components/Recipes/Recipes_4"; 
+"use client";
 
-// type Props = {
-//   params: {
-//     categoryItem: string;
-//   };
-// };
-
-// const category = ({ params }: Props) => {
-//   return (
-//     <>
-//       <div className=" w-full h-fit flex gap-[20px] flex-col ">
-//         <h2 className=" font-[600] text-[25px] lg:text-[45px]">
-//           {params.categoryItem}
-//         </h2>
-//         <div className="  w-full h-fit gap-[10px] lg:gap-[30px]  flex  xl:gap-[40px] justify-center lg:justify-between items-start">
-//           <div className=" flex flex-col gap-[20px] lg:gap-[40px] ">
-//             <Recipes_4></Recipes_4>
-//             <Recipes_4></Recipes_4>
-//             <Recipes_4></Recipes_4>
-//             <Recipes_4></Recipes_4>
-//             <Recipes_4></Recipes_4>
-//             <Recipes_4></Recipes_4>
-//           </div>
-          
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default category;
-
-
-
-
-// "use client"; // Nếu bạn cần sử dụng các hook client-side
-
-// import { useSearchParams, usePathname } from "next/navigation"; // Sử dụng useSearchParams
-// import Recipes_4 from "@/components/Recipes/Recipes_4"; 
-// import { FoodSection } from "@/context/FoodDirectory-provider"; 
-// import { useFoodDirectory } from "@/context/FoodDirectory-provider";
-
-
-// const CategoryPage = () => {
-//   // const searchParams = useSearchParams(); // Lấy search params
-//   // const label = searchParams.get('label'); // Lấy giá trị label từ search params
-
-//   // const foodDirectory = useFoodDirectory()
-
-//   // const pathname = usePathname(); // Lấy pathname từ URL
-//   // const sectionKey = pathname.split('/').pop(); // Tách sectionKey từ pathname
-
-//   // // Tìm phần tương ứng với sectionKey trong foodDirectory
-//   // const section = foodDirectory[sectionKey]
-//   // const subItem = section?.subItems.find((item: { title: string; label: string; coverImage: string }) => item.title === label);
-
-
-//   // console.log(sectionKey);
-//   // console.log(subItem?.label); // Đảm bảo 'subItem' lấy đúng giá trị 'label'
-  
-
-//   return (
-//     <>
-//       <div className="w-full h-fit flex gap-[20px] flex-col">
-//         <h2 className="font-[600] text-[25px] lg:text-[45px]">
-//           {/* {subItem?.label}  */}
-//         </h2>
-//         <div className="w-full h-fit gap-[10px] lg:gap-[30px] flex xl:gap-[40px] justify-center lg:justify-between items-start">
-//           <div className="flex flex-col gap-[20px] lg:gap-[40px]">
-//             <Recipes_4 />
-//             <Recipes_4 />
-//             <Recipes_4 />
-//             <Recipes_4 />
-//             <Recipes_4 />
-//             <Recipes_4 />
-//           </div>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default CategoryPage;
-
-
-
-
-
-
-
-"use client"; // Nếu bạn cần sử dụng các hook client-side
-
-import { useSearchParams } from "next/navigation"; // Sử dụng useSearchParams
-import Recipes_4 from "@/components/Recipes/Recipes_4"; 
-import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import Recipes_4 from "@/components/Recipes/Recipes_4";
+import useRecipesByCategory from "../../../../../hooks/useRecipesByCategory";
 
 const CategoryPage = () => {
-  const searchParams = useSearchParams(); // Lấy search params
-  const itemParam = searchParams.get('item'); // Lấy chuỗi JSON của item từ query
-  const [item, setItem] = useState<any>(null);
+  const searchParams = useSearchParams(); // Lấy search params từ URL
+  const rawTitle = decodeURIComponent(searchParams.get("title") || ""); // Lấy title
 
-  useEffect(() => {
-    if (itemParam) {
-      // Chuyển chuỗi JSON thành đối tượng và lưu vào state
-      try {
-        const parsedItem = JSON.parse(itemParam);
-        setItem(parsedItem);
-      } catch (error) {
-        console.error("Error parsing item:", error);
-      }
-    }
-  }, [itemParam]);
+  const { recipes, loading, error } = useRecipesByCategory(rawTitle);
+
+  if (loading) {
+    return <div>Đang tải dữ liệu...</div>;
+  }
+
+  if (error) {
+    return <div className="text-red-500">CÓ LỖI: {error}</div>;
+  }
 
   return (
     <>
-
-      <h2 className=" absolute top-[23px] lg:top-0   w-full  z-10 text-center italic  font-lobster font-[600] text-[25px] lg:text-[45px]">
-          {item?.label} 
-      </h2>
-      <div className="w-full h-fit flex gap-[20px] lg:gap-[40px]  flex-col">
-        
-        <div className=" w-full h-fit gap-[10px] lg:gap-[30px] flex xl:gap-[40px] justify-center lg:justify-between items-start">
-          <div className="flex flex-col gap-[20px] lg:gap-[40px]">
-            <Recipes_4 />
-            <Recipes_4 />
-            <Recipes_4 />
-            <Recipes_4 />
-            <Recipes_4 />
-            <Recipes_4 />
-          </div>
+      <div className="w-full h-fit flex gap-[20px] flex-col">
+        <h2 className="font-[600] text-[25px] lg:text-[45px] text-center">
+          {rawTitle || "Danh mục không có tiêu đề"}
+        </h2>
+        <div className="px-[10px] w-full h-fit gap-[10px] lg:gap-[30px] flex xl:gap-[40px] justify-center lg:justify-between items-start">
+          {recipes.length > 0 ? (
+            <div className="flex flex-wrap gap-[20px] lg:gap-[40px] justify-center">
+              {recipes.map((recipe, index) => (
+                <Recipes_4 key={index} recipe={recipe} />
+              ))}
+            </div>
+          ) : (
+            <p>Không tìm thấy công thức nào cho danh mục này.</p>
+          )}
         </div>
       </div>
     </>
@@ -138,4 +41,3 @@ const CategoryPage = () => {
 };
 
 export default CategoryPage;
-

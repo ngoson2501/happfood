@@ -9,9 +9,6 @@ export default function AuthLayout({
   }) {
     return (
         <>
-            {/* <header className="bg-yellow-500 w-[100%] h-[50px]">
-            
-            </header> */}
             <div>{children}</div>
             <Footer></Footer>
         </>

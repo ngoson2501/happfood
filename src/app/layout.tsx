@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header/Header";
 import { ThemeProvider } from "@/context/theme-provider";
 import { UserProvider } from "@/context/User-provider";
+import { RecipeProvider } from "@/context/RecipeContext";
 import { useAuth } from "../../hooks/useAuth";
 
 export default function RootLayout({
@@ -16,8 +17,8 @@ export default function RootLayout({
     return (
       <html lang="en">
        <UserProvider>
-       
-          <body className=" flex justify-center flex-col items-center  ">
+        <RecipeProvider>
+        <body className=" flex justify-center flex-col items-center  ">
             {/* Layout UI */}
           
           {/* <div className="bg-yellow-400  w-full max-w-[1425px]">
@@ -31,7 +32,8 @@ export default function RootLayout({
 
             
           </body>
-      
+        </RecipeProvider>
+       
           </UserProvider>
       </html>
     )

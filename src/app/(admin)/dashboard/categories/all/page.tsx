@@ -1,45 +1,17 @@
-
-
-
 "use client";
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Table, Button, Pagination, message } from 'antd';
 import AddCategoryForm from '@/components/AddCategoryForm/AddCategoryForm';
-
-interface Category {
-    _id: string;
-    title: string;
-    data: string; // Dữ liệu Base64 của ảnh
-    contentType: string;
-    topic: string;
-    createdAt: string;
-}
+import useCategories from '../../../../../../hooks/useCategories';
 
 const AllCategoriesPage: React.FC = () => {
-    const [categories, setCategories] = useState<Category[]>([]);
+    const { categories, fetchCategories } = useCategories();
     const [currentPage, setCurrentPage] = useState<number>(1);
     const pageSize = 10;
     const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
 
-    useEffect(() => {
-        fetchCategories();  // Gọi API để lấy danh sách categories
-    }, []);
 
-    const fetchCategories = async () => {
-        try {
-            const response = await fetch('/api/dashboard/categories', { method: 'GET' });
-            if (response.ok) {
-                const data = await response.json();
-                setCategories(data);
-            } else {
-                message.error("Failed to fetch categories.");
-                console.error("Error:", await response.text());
-            }
-        } catch (error) {
-            message.error("Failed to fetch categories.");
-            console.error("Error:", error);
-        }
-    };
+    console.log("check categories:", categories)
 
     const handlePageChange = (page: number) => {
         setCurrentPage(page);
@@ -64,7 +36,7 @@ const AllCategoriesPage: React.FC = () => {
             if (response.ok) {
                 message.success("Category added successfully!");
                 setIsModalVisible(false);
-                fetchCategories();  // Cập nhật danh sách categories
+                fetchCategories();
             } else {
                 message.error("Failed to add category");
                 console.error("Error:", await response.text());
@@ -74,14 +46,6 @@ const AllCategoriesPage: React.FC = () => {
             console.error("Error:", error);
         }
     };
-
-
-
-    // const formatDate = (dateString: string) => {
-    //     const date = new Date(dateString);
-    //     return date.toLocaleDateString(); // Chỉ lấy ngày tháng năm
-    // };
-
 
     const formatDate = (dateString: string) => {
         const date = new Date(dateString);
@@ -99,28 +63,27 @@ const AllCategoriesPage: React.FC = () => {
             dataIndex: 'data',
             key: 'coverImage',
             render: (data: string) => (
-                <img src={data} alt="Cover" style={{ width: '50px', height: '50px', objectFit: 'cover' }} />
+                <img src={data} alt="Cover" className="w-12 h-12 object-cover" />
             ),
         },
         { title: 'Created', dataIndex: 'createdAt', key: 'created', render: (text: string) => formatDate(text) },
         {
             title: 'Actions',
             key: 'actions',
-            render: (_: any, record: Category) => (
-                <div>
-                    <Button type="primary" style={{ marginRight: '8px' }}>Edit</Button>
-                    <Button danger>Delete</Button>
+            render: (_: any, record: any) => (
+                <div className="flex space-x-2">
+                    <Button type="primary" className="w-[90px] text-xs">Edit</Button>
+                    <Button danger className="w-[90px] text-xs">Delete</Button>
                 </div>
             ),
         },
     ];
 
     return (
-        <div className="flex justify-center items-center w-full p-4">
-            <div className="w-full max-w-4xl">
-                {/* Wrapper div to align Button and Pagination to the right */}
+        <div className="flex justify-center items-center w-full p-2 sm:p-4">
+            <div className="w-full max-w-full sm:max-w-4xl">
                 <div className="flex justify-end mb-4">
-                    <Button type="primary" onClick={handleAddCategory} className="mr-4">
+                    <Button type="primary" onClick={handleAddCategory} className="mr-4 text-xs sm:text-base">
                         Add Category
                     </Button>
                 </div>
@@ -129,18 +92,19 @@ const AllCategoriesPage: React.FC = () => {
                     dataSource={categories.slice((currentPage - 1) * pageSize, currentPage * pageSize)}
                     columns={columns}
                     pagination={false}
+                    className="w-full overflow-auto"
                 />
 
-                {/* Wrapper div to align Pagination to the right */}
                 <div className="flex justify-end mt-4">
                     <Pagination
                         current={currentPage}
                         pageSize={pageSize}
                         total={categories.length}
                         onChange={handlePageChange}
+                        className="text-xs sm:text-base"
                     />
                 </div>
-                
+
                 <AddCategoryForm
                     visible={isModalVisible}
                     onClose={() => setIsModalVisible(false)}
@@ -152,17 +116,3 @@ const AllCategoriesPage: React.FC = () => {
 };
 
 export default AllCategoriesPage;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
