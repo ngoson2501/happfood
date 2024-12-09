@@ -1,14 +1,12 @@
-"use client"
-
 import ListYourRecipes from "@/components/ListYourRecipes/ListYourRecipes";
 import { useUser } from '@/context/User-provider';
 import { AuthorRecipesProvider } from "@/context/AuthorRecipesContext";
-const yourRecipes = ()=>{
+const YourRecipes = ()=>{
     const infoUser = useUser();
    
 
 
-    console.log("infoUser>>>>>>>>>>>:", infoUser?.id)
+    //console.log("infoUser>>>>>>>>>>>:", infoUser?.id)
     
     
 
@@ -28,4 +26,4 @@ const yourRecipes = ()=>{
 
 
 
-export default yourRecipes
+export default YourRecipes
