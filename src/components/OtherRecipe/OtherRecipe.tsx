@@ -6,6 +6,8 @@ import { useRecipeContext } from "@/context/RecipeContext";
 const OtherRecipe = () => {
 
     const { recipes, loading, error } = useRecipeContext();
+
+    console.log("check thông tin của recipe:", recipes)
     if (loading) {
         return (
           <>

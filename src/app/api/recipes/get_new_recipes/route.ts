@@ -23,9 +23,9 @@ export async function GET(request: NextRequest) {
 
     // Xử lý dữ liệu trước khi gửi
     const formattedRecipes = recentRecipes.map((recipe) => {
-      const mediaBase64 = recipe.media
-        ? `data:${recipe.contentType};base64,${recipe.media.toString("base64")}`
-        : null;
+      // const mediaBase64 = recipe.media
+      //   ? `data:${recipe.contentType};base64,${recipe.media.toString("base64")}`
+      //   : null;
 
       return {
         id: recipe._id.toString(), // Chuyển ObjectId thành chuỗi
@@ -36,7 +36,8 @@ export async function GET(request: NextRequest) {
         views: recipe.views,
         likes: recipe.likes,
         description: recipe.description,
-        media: mediaBase64, // Chuyển đổi media sang base64 nếu có
+        //media: mediaBase64, // Chuyển đổi media sang base64 nếu có
+        media: recipe.media,
         createdAt: recipe.createdAt,
         updatedAt: recipe.updatedAt,
       };

@@ -76,6 +76,8 @@ const EditRecipe = () => {
   const infoUser = useUser();
   const fetchedHashTags = useGetHashTags();
 
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const hashtagOptions: HashtagOption[] = fetchedHashTags.map((tag) => ({
     value: tag,
     label: tag,
@@ -178,14 +180,12 @@ useEffect(() => {
     setDirections(newDirections);
   };
 
-//   const handleDirectionImageChange = (index: number, file: File | null) => {
-//     const newDirections = [...directions];
-//     newDirections[index].image = file;
-//     setDirections(newDirections);
-//     if (!file && fileInputRefs.current[index]) {
-//       fileInputRefs.current[index]!.value = "";
-//     }
-//   };
+
+
+
+
+
+
 
 const handleDirectionImageChange = (index: number, file: File | null) => {
     const newDirections = [...directions];
@@ -209,6 +209,13 @@ const handleDirectionImageChange = (index: number, file: File | null) => {
       fileInputRefs.current[index]!.value = "";
     }
   };
+
+
+
+
+
+
+  
   
   
 
@@ -243,6 +250,8 @@ const handleDirectionImageChange = (index: number, file: File | null) => {
 
 const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+    setIsLoading(true); // Hiển thị loading
+
     const formData = new FormData();
     formData.append("name", name);
     formData.append("videoLink", videoLink);
@@ -314,6 +323,7 @@ const handleSubmit = async (event: React.FormEvent) => {
   
       if (response.ok) {
         message.success("Recipe updated successfully!");
+        setIsLoading(false); // Ẩn loading
       } else {
         message.error("Failed to update recipe");
         console.error("Error:", await response.text());
@@ -334,6 +344,17 @@ const handleSubmit = async (event: React.FormEvent) => {
   return (
 
     <div className=" w-full lg:px-[100px] mx-auto p-4 xl:flex gap-9 pt-[30px] lg:pt-[60px]">
+
+      {isLoading && (
+        <div className="fixed inset-0 z-20 flex items-center justify-center bg-white bg-opacity-75">
+          <div
+            style={{ borderTopColor: "transparent" }}
+            className="w-8 h-8 border-4 border-blue-200 rounded-full animate-spin"
+          ></div>
+          <p className="ml-2">Updating...</p>
+        </div>
+      )}
+
       <div className=" hidden xl:block xl:w-2/5 max-h-[700px] rounded-[20px] relative overflow-auto">
         <Image
           className="w-full h-full object-cover "

@@ -8,11 +8,11 @@ const UserSchema = new Schema(
         username: {type: String, required: true, unique:true},
         password: {type: String, required: true},
         refreshToken: { type:  String, required: false },
-        //avatar: { type:  String, required: false },
-        avatar: {
-            data: Buffer, // Lưu dữ liệu ảnh
-            contentType: String, // Loại file (e.g., image/png)
-          },
+        avatar: { type:  String, required: false },
+        // avatar: {
+        //     data: Buffer, // Lưu dữ liệu ảnh
+        //     contentType: String, // Loại file (e.g., image/png)
+        //   },
         role: { type: String, enum: ['user', 'admin'], default: 'user' },
        
          

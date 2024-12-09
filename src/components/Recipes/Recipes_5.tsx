@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation"; // Import useRouter
 import { FaHeart } from "react-icons/fa";
 import { useUser } from "@/context/User-provider";
 import useIncreaseView from "../../../hooks/useIncreaseView";
+import { Modal, Button, message } from "antd";
 
 interface RecipeProps {
   recipe: {
@@ -92,36 +93,86 @@ const Recipes_5: React.FC<RecipeProps> = ({ recipe }) => {
   };
 
 
+
+
+
+  // const handleDeleteRecipe = async () => {
+  //   // Hiển thị thông báo xác nhận trước khi thực hiện hành động xóa với tên của công thức
+  //   const confirmDelete = window.confirm(`Bạn có chắc chắn muốn xoá công thức: "${recipe.name}" ?`);
+    
+  //   // Nếu người dùng nhấn Cancel, không làm gì và thoát khỏi hàm
+  //   if (!confirmDelete) return;
+  
+  //   try {
+  //     // Gửi yêu cầu DELETE đến API
+  //     const response = await fetch(`/api/recipes/recipe/delete_recipe/${recipe.id}`, {
+  //       method: "DELETE",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //     });
+  
+  //     // Kiểm tra phản hồi từ server
+  //     if (response.ok) {
+  //       // Nếu xóa thành công, hiển thị thông báo và điều hướng về danh sách công thức
+  //       alert(`Recipe "${recipe.name}" deleted successfully!`);
+  //       router.push("/recipes"); // Điều hướng về danh sách công thức sau khi xóa
+  //     } else {
+  //       // Nếu có lỗi khi xóa, lấy thông báo lỗi từ phản hồi
+  //       const errorBody = await response.json();
+  //       console.error("Delete failed:", errorBody);
+  //       alert("Failed to delete recipe.");
+  //     }
+  //   } catch (error) {
+  //     // Xử lý lỗi khi gọi API
+  //     console.error("Error while deleting recipe:", error);
+  //     alert("An error occurred while deleting the recipe.");
+  //   }
+  // };
+
+
   const handleDeleteRecipe = async () => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this recipe?"
-    );
+    // Hiển thị Modal xác nhận xóa với tên công thức
+    Modal.confirm({
+      title: (
+        <span>
+          {`Bạn có chắc chắn muốn xoá công thức: `}<br />
+          <span
+            className="text-red-500 font-bold text-lg md:text-xl lg:text-2xl xl:text-[20px] "  // Sử dụng lớp Tailwind với responsive design
+          >
+            {recipe.name}
+          </span>
+          
+        </span>
+      ),
+      onOk: async () => {
+        try {
+          const response = await fetch(`/api/recipes/recipe/delete_recipe/${recipe.id}`, {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
   
-    if (!confirmDelete) return;
-  
-    try {
-      const response = await fetch(
-        `/api/recipes/recipe/delete_recipe/${recipe.id}`,
-        {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
+          if (response.ok) {
+            message.success(`Recipe "${recipe.name}" deleted successfully!`);
+            // router.push("/recipes"); // Điều hướng về danh sách công thức sau khi xóa
+          } else {
+            const errorBody = await response.json();
+            console.error("Delete failed:", errorBody);
+            message.error("Failed to delete recipe.");
+          }
+        } catch (error) {
+          console.error("Error while deleting recipe:", error);
+          message.error("An error occurred while deleting the recipe.");
         }
-      );
-  
-      if (response.ok) {
-        alert("Recipe deleted successfully!");
-        router.push("/recipes"); // Điều hướng về danh sách công thức sau khi xóa
-      } else {
-        const errorBody = await response.json();
-        console.error("Delete failed:", errorBody);
-        alert("Failed to delete recipe.");
-      }
-    } catch (error) {
-      console.error("Error while deleting recipe:", error);
-      alert("An error occurred while deleting the recipe.");
-    }
+      },
+      onCancel: () => {
+        console.log("Delete canceled");
+      },
+      okText: "Delete",
+      cancelText: "Cancel",
+    });
   };
   
 

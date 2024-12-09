@@ -2,65 +2,6 @@
 
 
 
-// import { useEffect } from 'react';
-// import jwt, { JwtPayload } from 'jsonwebtoken';
-// import { refreshAccessToken } from '../utils/refreshToken';
-
-// export const useAuth = () => {
-//   useEffect(() => {
-//     const interval = setInterval(async () => {
-//       const accessToken = localStorage.getItem('accessToken');
-//       const currentTime = new Date().getTime();
-
-//       // Kiểm tra accessToken
-//       if (accessToken) {
-//         const decodedAccessToken = jwt.decode(accessToken) as JwtPayload;
-
-//         console.log("decodedAccessToken>>>:",decodedAccessToken)
-
-//         if (decodedAccessToken) {
-//           const tokenExpiration = decodedAccessToken.exp! * 1000; // Lấy thời gian hết hạn
-
-//           // Nếu accessToken gần hết hạn trong 1 phút, thực hiện làm mới
-//           if (tokenExpiration - currentTime <= 60 * 1000 || tokenExpiration <= currentTime) {
-//             console.log("assecToken het han>>>>>>>>")
-//             const newAccessToken = await refreshAccessToken(accessToken);
-
-            
-//             // Nếu không thể làm mới accessToken, thực hiện đăng xuất
-//             if (!newAccessToken) {
-//               handleLogout();
-//             }
-
-//           }
-
-//         }
-//       } else {
-//         handleLogout(); // Đăng xuất nếu không tìm thấy accessToken
-//       }
-//     }, 5 * 1000); // Kiểm tra mỗi 30 giây
-
-//     return () => clearInterval(interval);
-//   }, []);
-
-
-
-//   const handleLogout = async () => {
-   
-//     // Nếu logout thành công
-//     localStorage.removeItem('accessToken'); // Xóa accessToken khỏi localStorage
-  
-//     //alert('Your session has expired. Please log in again.'); // Thông báo cho người dùng
-//     window.location.href = '/login'; // Điều hướng đến trang đăng nhập
-  
-   
-//   };
-  
-
-// };
-
-
-
 "use client";
 
 import { useEffect } from 'react';
@@ -70,7 +11,7 @@ import { refreshAccessToken } from '../utils/refreshToken';
 
 export const useAuth = () => {
   const pathname = usePathname();
-  const router = useRouter();
+  //const router = useRouter();
 
   useEffect(() => {
     // Các trang không cần kiểm tra accessToken

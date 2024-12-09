@@ -3,14 +3,15 @@
 
 import Link from "next/link";
 import useCategories from "../../../hooks/useCategories";
+import useItemList from "../../../hooks/useItemList";
 import useRecipesByCategory from "../../../hooks/useRecipesByCategory";
 
 const ItemList = () => {
-  const { categories } = useCategories();
+  const { categories } = useItemList()
 
   
 
-  console.log("check categories list", categories);
+  //console.log("check categories list", categories);
 
   // Nhóm danh mục theo "topic"
   const groupedCategories = categories.reduce((acc: any, category: any) => {
@@ -86,23 +87,33 @@ export default ItemList;
 
 
 
+
+
+
+
+
+
+
+
+
 // import Link from "next/link";
 
 // interface Category {
 //   _id: string;
 //   title: string;
+//   data: string; // Dữ liệu Base64 của ảnh
+//   contentType: string;
 //   topic: string;
+//   createdAt: string;
 // }
 
 // interface ItemListProps {
-//   categories: Category[]; // Expected categories as an array
+//   categories: Category[];
 // }
 
-// const ItemList = ({ categories = [] }: ItemListProps) => {  // Default to an empty array if undefined
-//   console.log("Categories in ItemList:", categories);  // Kiểm tra dữ liệu categories
-
+// const ItemList = ({ categories }: ItemListProps) => {
 //   // Nhóm danh mục theo "topic"
-//   const groupedCategories = categories.reduce((acc: any, category: any) => {
+//   const groupedCategories = (categories || []).reduce((acc: any, category: Category) => {
 //     const { topic } = category;
 //     if (!acc[topic]) {
 //       acc[topic] = [];
@@ -110,8 +121,6 @@ export default ItemList;
 //     acc[topic].push(category);
 //     return acc;
 //   }, {});
-
-//   console.log("Grouped Categories:", groupedCategories);  // Kiểm tra nhóm danh mục theo topic
 
 //   return (
 //     <div
@@ -130,41 +139,37 @@ export default ItemList;
 //       </div>
 
 //       {/* Main content */}
-//       {Object.entries(groupedCategories).length > 0 ? (
-//         <ul className="list-none space-y-4">
-//           {Object.entries(groupedCategories).map(([topic, items]: any) => (
-//             <li key={topic}>
-//               {/* Main category */}
-//               <div className="flex justify-between items-center py-2 text-left font-semibold text-[18px]">
-//                 {topic} <span>({items.length})</span>
-//               </div>
+//       <ul className="list-none space-y-4">
+//         {Object.entries(groupedCategories).map(([topic, items]: any) => (
+//           <li key={topic}>
+//             {/* Main category */}
+//             <div className="flex justify-between items-center py-2 text-left font-semibold text-[18px]">
+//               {topic} <span>({items.length})</span>
+//             </div>
 
-//               {/* Sub-items */}
-//               <ul className="list-none pl-6 text-gray-600">
-//                 {items.map((item: any, index: number) => (
-//                   <li key={index}>
-//                     <Link
-//                       href={{
-//                         pathname: `/categories/${encodeURIComponent(item.title)}`,
-//                         query: {
-//                           title: encodeURIComponent(item.title),
-//                           id: item._id, // Mã hóa id trong query
-//                         },
-//                       }}
-//                       className="py-1 flex justify-between hover:text-black transition"
-//                     >
-//                       <span>{item.title}</span>
-//                       <span>(0)</span>
-//                     </Link>
-//                   </li>
-//                 ))}
-//               </ul>
-//             </li>
-//           ))}
-//         </ul>
-//       ) : (
-//         <div className="text-center text-gray-500">Không có danh mục nào để hiển thị.</div>
-//       )}
+//             {/* Sub-items */}
+//             <ul className="list-none pl-6 text-gray-600">
+//               {items.map((item: Category, index: number) => (
+//                 <li key={index}>
+//                   <Link
+//                     href={{
+//                       pathname: `/categories/${encodeURIComponent(item.title)}`,
+//                       query: {
+//                         title: encodeURIComponent(item.title),
+//                         id: item._id, // Mã hóa id trong query
+//                       },
+//                     }}
+//                     className="py-1 flex justify-between hover:text-black transition"
+//                   >
+//                     <span>{item.title}</span>
+//                     <span>(0)</span>
+//                   </Link>
+//                 </li>
+//               ))}
+//             </ul>
+//           </li>
+//         ))}
+//       </ul>
 //     </div>
 //   );
 // };

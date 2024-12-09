@@ -5,13 +5,13 @@ import { message } from 'antd';
 interface Category {
     _id: string;
     title: string;
-    data: string; // Dữ liệu Base64 của ảnh
-    contentType: string;
+    //data: string; // Dữ liệu Base64 của ảnh
+    //contentType: string;
     topic: string;
-    createdAt: string;
+    //createdAt: string;
 }
 
-const useCategories = () => {
+const useItemList = () => {
     const [categories, setCategories] = useState<Category[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
@@ -21,7 +21,7 @@ const useCategories = () => {
         setError(null);
 
         try {
-            const response = await fetch('/api/dashboard/categories', { method: 'GET' });
+            const response = await fetch('/api/dashboard/categories/itemList', { method: 'GET' });
             if (response.ok) {
                 const data = await response.json();
                 setCategories(data);
@@ -47,7 +47,7 @@ const useCategories = () => {
     return { categories, loading, error, fetchCategories };
 };
 
-export default useCategories;
+export default useItemList
 
 
 

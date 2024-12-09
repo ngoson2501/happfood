@@ -1,30 +1,4 @@
-// import React from "react";
-// import { Carousel } from "antd";
-// import HotRecipes from "./HotRecipes"; 
-// import "../../css/custom-carousel.css";
-
-// const Slider = () => {
-//   return (
-//     <>
-//       <Carousel
-//         className="custom-carousel"
-//         arrows
-//         autoplay
-//         draggable={true}
-//         infinite={true}
-        
-//       >
-//        <HotRecipes />
-
-//       </Carousel>
-//     </>
-//   );
-// };
-
-// export default Slider;
-
-
-
+"use client"
 import React from "react";
 import { Carousel } from "antd";
 import HotRecipes from "./HotRecipes";
@@ -40,11 +14,24 @@ const Slider = () => {
   console.log("Hot Recipes Data:", hotRecipes);
 
   if (loading) {
-    return <div>Loading...</div>; // Hiển thị trạng thái loading
+    return(
+      <>
+          <div className='flex items-center justify-center h-full'>
+              <div style={{ borderTopColor: 'transparent' }} className="w-8 h-8 border-4 border-blue-200 rounded-full animate-spin"></div>
+              <p className="ml-2">Recipes Hot...</p>
+          </div>
+      </>
+    )
   }
 
   if (error) {
-    return <div>Error: {error}</div>; // Hiển thị lỗi nếu có
+    return(
+      <>
+          <div className='flex items-center justify-center h-full'>
+              <p className="ml-2">Error: {error}</p>
+          </div>
+      </>
+    )
   }
 
   return (
@@ -55,8 +42,8 @@ const Slider = () => {
       draggable={true}
       infinite={true}
     >
-      {hotRecipes.map((recipe) => (
-        <HotRecipes key={recipe._id} recipe={recipe} />
+      {hotRecipes.map((recipe, key) => (
+        <HotRecipes key={recipe.id || key} recipe={recipe} />
       ))}
     </Carousel>
   );

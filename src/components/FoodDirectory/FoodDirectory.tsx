@@ -6,7 +6,7 @@ import Link from "next/link";
 import useCategories from "../../../hooks/useCategories";
 
 const FoodDirectory = () => {
-  const { categories, fetchCategories } = useCategories();
+  const { categories} = useCategories();
 
   // Phân nhóm categories theo topic
   const groupedCategories = categories.reduce((acc: any, category: any) => {

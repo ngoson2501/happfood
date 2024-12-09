@@ -181,16 +181,16 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ message: "User not found" }, { status: 404 });
     }
 
-    // Xử lý và định dạng dữ liệu avatar
-    let avatar = null;
+   // Xử lý và định dạng dữ liệu avatar
+   let avatar = null;
 
-    if (user.avatar?.data && user.avatar?.contentType) {
-      avatar = `data:${user.avatar.contentType};base64,${user.avatar.data.toString("base64")}`;
-    } else if (typeof user.avatar === "string" && user.avatar.startsWith("/defaultAvatars")) {
-      avatar = user.avatar; // Sử dụng avatar mặc định nếu là chuỗi
-    } else {
-      avatar = "/defaultAvatars/elephant.png"; // Avatar mặc định
-    }
+   if (user.avatar?.data && user.avatar?.contentType) {
+     // Nếu avatar là một file binary
+     avatar = `data:${user.avatar.contentType};base64,${user.avatar.data.toString("base64")}`;
+   } else  {
+     // Nếu avatar là chuỗi mặc định từ database
+     avatar = user.avatar;
+   }
 
     const formattedUser = {
       id: user._id,

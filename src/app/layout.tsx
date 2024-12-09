@@ -1,7 +1,6 @@
-"use client";
+"use client"
 import "./globals.css";
 import Header from "@/components/Header/Header";
-import { ThemeProvider } from "@/context/theme-provider";
 import { UserProvider } from "@/context/User-provider";
 import { RecipeProvider } from "@/context/RecipeContext";
 import { useAuth } from "../../hooks/useAuth";

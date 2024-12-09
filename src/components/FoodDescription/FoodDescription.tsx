@@ -18,7 +18,7 @@ const FoodDescription: React.FC<DescriptionComponentProps> = ({ name, descriptio
 
   return (
     <div className="space-y-4">
-      <details className="group [&_summary::-webkit-details-marker]:hidden">
+      <details className="group [&_summary::-webkit-details-marker]:hidden" open>
         <summary className="flex flex-col cursor-pointer items-center justify-between gap-1.5 py-3 text-gray-900">
           <div className='w-full'>
             <p

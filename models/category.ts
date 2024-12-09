@@ -24,7 +24,8 @@ import { Schema, model, models } from 'mongoose';
 const CategorySchema = new Schema(
   {
     title: { type: String, required: true },
-    data: { type: Buffer, required: true },
+    //data: { type: Buffer, required: true },
+    data: { type: String, required: true },
     contentType: { type: String, required: true },
     topic: { type: String, required: true }, // Thêm trường topic vào schema
   },

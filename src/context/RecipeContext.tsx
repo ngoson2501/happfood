@@ -1,3 +1,5 @@
+"use client"
+
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 import { message } from 'antd';
 
@@ -12,7 +14,7 @@ interface IRecipe {
   name: string;
   cookTime: string;
   hashtags: IHashtag[];
-  media?: string; // Base64 string of media
+  media?: string; 
   user: { _id: string; username: string };
   //user: string;
   views: number;

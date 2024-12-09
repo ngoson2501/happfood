@@ -72,6 +72,8 @@
 
 
 
+'use client'
+
 import { createContext, useContext, useState, useEffect } from "react";
 
 // Interface mô tả thông tin người dùng
@@ -80,7 +82,7 @@ export interface User {
   username: string;
   email: string;
   role: string;
-  avatar: string;
+  avatar: string | null;
   refreshToken: string
 }
 

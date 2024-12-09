@@ -21,8 +21,7 @@ export async function POST(request: Request) {
       "hashtags.value": categoryTitle,
     });
 
-    // Console ra danh sách công thức thỏa mãn yêu cầu
-    console.log("Recipes found matching the category title:", recipes);
+    
 
     if (recipes.length === 0) {
       return NextResponse.json({ message: "Không tìm thấy công thức cho danh mục này" }, { status: 404 });
@@ -43,7 +42,8 @@ export async function POST(request: Request) {
         views: recipe.views,
         likes: recipe.likes,
         description: recipe.description,
-        media: mediaBase64, // Chuyển đổi media sang base64 nếu có
+        //media: mediaBase64, // Chuyển đổi media sang base64 nếu có
+        media: recipe.media,
         createdAt: recipe.createdAt,
         updatedAt: recipe.updatedAt,
       };

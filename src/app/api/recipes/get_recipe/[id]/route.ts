@@ -19,7 +19,8 @@ type Ingredient = {
 type Direction = {
   title: string;
   description: string;
-  image?: Buffer;
+  //image?: Buffer;
+  image?: string;
 };
 
 // Hàm xử lý GET request
@@ -62,13 +63,16 @@ export async function GET(req: NextRequest, { params }: { params: { id: string }
       directions: recipe.directions.map((direction: Direction) => ({
         title: direction.title,
         description: direction.description,
-        image: direction.image
-          ? `data:${recipe.contentType || 'image/jpeg'};base64,${direction.image.toString('base64')}`  // Chuyển hình ảnh sang Base64 nếu có
-          : null,
+        // image: direction.image
+        //   ? `data:${recipe.contentType || 'image/jpeg'};base64,${direction.image.toString('base64')}`  // Chuyển hình ảnh sang Base64 nếu có
+        //   : null,
+        image: direction.image || null,
+        
       })),
-      media: recipe.media
-        ? `data:${recipe.contentType || 'application/octet-stream'};base64,${recipe.media.toString('base64')}` // Chuyển đổi media sang Base64 nếu có
-        : null,
+      // media: recipe.media
+      //   ? `data:${recipe.contentType || 'application/octet-stream'};base64,${recipe.media.toString('base64')}` // Chuyển đổi media sang Base64 nếu có
+      //   : null,
+      media: recipe.media || null,
       user: recipe.user ? recipe.user.toString() : null, // Chuyển ObjectId của user sang chuỗi
       views: recipe.views,
       likes: recipe.likes.map((like: string) => like.toString()),  // Chuyển tất cả ObjectId trong likes thành chuỗi

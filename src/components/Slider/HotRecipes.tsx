@@ -1,5 +1,6 @@
+"use client"
 import React from "react";
-import { Carousel } from "antd";
+//import { Carousel } from "antd";
 import { useRouter } from "next/navigation"; // Import useRouter
 import Image from "next/image";
 import "../../css/custom-carousel.css";
@@ -69,13 +70,17 @@ const HotRecipes: React.FC<RecipeProps> = ({ recipe }) => {
           <div className="bg-[#E7FAFE] w-[100%] h-full  lg:rounded-l-[50px]">
             <div className=" w-full h-full flex flex-col justify-between xl:gap-[40px] p-[20px] lg:p-[50px]">
               <div className="bg-white w-fit flex gap-1 lg:gap-3 px-[8px] xl:px-[20px] py-[5px] xl:py-[10px] rounded-full justify-center items-center">
+                <div className="w-[11px] h-[12px] lg:w-[24px] lg:h-[24px]">
+
                 <Image
-                  className="w-[11px] h-[12px] lg:w-[24px] lg:h-[24px]"
+                  className="w-[11px] h-[11px] lg:w-[24px] lg:h-[24px]"
                   src="/icon/note.svg"
                   alt="icon-note"
-                  width={11}
-                  height={11}
+                  width={20}
+                  height={20}
                 />
+                </div>
+                
 
                 <p className="text-[8px] lg:text-[12px] xl:text-[14px] font-[600] lg:font-[600] font-Inter">
                   Công thức Hot
@@ -98,7 +103,7 @@ const HotRecipes: React.FC<RecipeProps> = ({ recipe }) => {
               <div className=" flex gap-[5px] xl:gap-[20px] items-center">
                 <div
                   className="px-[10px] h-fit w-[50%] xl:w-[30%] lg:px-[15px] gap-1 lg:gap-2 py-[2px] lg:py-[7px] flex justify-start items-center rounded-[10px] lg:rounded-full"
-                  style={{ backgroundColor: "rgba(0, 0, 0, 5%)" }}
+                  //style={{ backgroundColor: "rgba(0, 0, 0, 5%)" }}
                 >
                   <Image
                     className="w-[11px] h-[11px] lg:w-[24px] lg:h-[24px]"
@@ -117,7 +122,7 @@ const HotRecipes: React.FC<RecipeProps> = ({ recipe }) => {
                 </div>
                 <div
                   className=" px-[10px] lg:px-[15px] w-[50%] xl:w-[70%] h-fit gap-1 lg:gap-2 py-[2px] lg:py-[7px] flex justify-start items-center rounded-full"
-                  style={{ backgroundColor: "rgba(0, 0, 0, 5%)" }}
+                  //style={{ backgroundColor: "rgba(0, 0, 0, 5%)" }}
                 >
                   <Image
                     className="w-[11px] h-[11px] lg:w-[24px] lg:h-[24px]"
@@ -133,8 +138,8 @@ const HotRecipes: React.FC<RecipeProps> = ({ recipe }) => {
                   >
                     {/* Hiển thị hashtags */}
                     {recipe?.hashtags.map((hashtag, index) => (
-                      <span key={hashtag.label} className="px-[3px]">
-                        <span className="underline">{hashtag.label}</span>
+                      <span key={index} className="px-[3px]">
+                        <span key={hashtag.label} className="underline">{hashtag.label}</span>
                         {index < recipe?.hashtags.length - 1 && <span className="text-red-500">, </span>}
                       </span>
                     ))}
@@ -189,10 +194,11 @@ const HotRecipes: React.FC<RecipeProps> = ({ recipe }) => {
               src={recipe?.media || "/images/default_image.png"}
               alt={recipe?.name}
               fill
+              priority
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" 
             />
           </div>
-          <div className="absolute top-[10px] lg:top-[30px] xl:top-[50px]">
+          <div className="absolute top-[10px] lg:top-[30px] xl:top-[40px]">
             <Image
               className="w-[70px] h-[70px] lg:w-[150px] lg:h-[150px]"
               src="/images/Badge.svg"

@@ -21,16 +21,17 @@ export const GET = async (request: NextRequest, { params }: { params: { authorId
   
       // Chuyển đổi media Buffer sang chuỗi Base64 cho các công thức nấu ăn
       const recipesWithBase64 = recipes.map(recipe => {
-        const mediaBase64 = recipe.media
-          ? `data:${recipe.contentType};base64,${recipe.media.toString('base64')}`
-          : null;
+        // const mediaBase64 = recipe.media
+        //   ? `data:${recipe.contentType};base64,${recipe.media.toString('base64')}`
+        //   : null;
   
         return {
           id: recipe._id.toString(),
           name: recipe.name,
           cookTime: recipe.cookTime,
           hashtags: recipe.hashtags,
-          media: mediaBase64,
+          //media: mediaBase64,
+          media: recipe.media,
           user: recipe.user,
           views: recipe.views,
           likes: recipe.likes,

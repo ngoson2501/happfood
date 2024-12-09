@@ -1,5 +1,5 @@
 import { getUser } from "../../../../../controllers/userController";
-import { NextRequest, NextResponse } from 'next/server';
+//import { NextRequest, NextResponse } from 'next/server';
 
 
 export const POST = async (req: Request)=>{

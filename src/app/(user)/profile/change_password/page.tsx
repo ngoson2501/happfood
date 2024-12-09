@@ -9,9 +9,11 @@ export default function ChangePasswordPage() {
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsLoading(true); // Hiển thị loading
 
     if (!infoUser?.email) {
       message.error("Email is required");
@@ -36,6 +38,7 @@ export default function ChangePasswordPage() {
 
     if (data.success) {
       message.success(data.message);
+      setIsLoading(false); // Ẩn loading
     } else {
       message.error(data.message);
     }
@@ -43,6 +46,15 @@ export default function ChangePasswordPage() {
 
   return (
     <div>
+       {isLoading && (
+        <div className="fixed inset-0 z-20 flex items-center justify-center bg-white bg-opacity-75">
+          <div
+            style={{ borderTopColor: "transparent" }}
+            className="w-8 h-8 border-4 border-blue-200 rounded-full animate-spin"
+          ></div>
+          <p className="ml-2">loading...</p>
+        </div>
+      )}
       <h1 className="text-2xl font-bold">Change Password</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-10">
         <div>

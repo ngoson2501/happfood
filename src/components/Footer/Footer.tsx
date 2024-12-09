@@ -1,3 +1,5 @@
+"use client"
+
 import React from "react";
 import Image from "next/image";
 
@@ -82,14 +84,14 @@ const Footer = () => {
             </ul>
           </div>
 
-          <ul className=" md:border-t md:mt-[40px] py-[10px] lg:py-[30px] flex items-center  justify-center md:justify-end  gap-[40px] ">
+          {/* <ul className=" md:border-t md:mt-[40px] py-[10px] lg:py-[30px] flex items-center  justify-center md:justify-end  gap-[40px] ">
             <li className=" cursor-pointer flex justify-center">
               <Image
                 className=" xl:w-[27px] xl:h-[27px]"
                 src="/icon/001-facebook.svg"
                 alt="icon-facebook"
-                width={7}
-                height={7}
+                width={16}
+                height={16}
               />
             </li>
             <li className=" cursor-pointer">
@@ -110,7 +112,52 @@ const Footer = () => {
                 height={16}
               />
             </li>
-          </ul>
+          </ul> */}
+
+<ul className="md:border-t md:mt-[40px] py-[10px] lg:py-[30px] flex items-center justify-center md:justify-end gap-[40px]">
+  <li className="cursor-pointer flex justify-center">
+    <div className="xl:w-[27px] xl:h-[27px]">
+      <Image
+        src="/icon/001-facebook.svg"
+        alt="icon-facebook"
+        width={100} // đặt chiều rộng
+    height={100} // đặt chiều cao
+    style={{ width: 'auto', height: '100%' }} // điều chỉnh tỷ lệ
+        // width={27}
+        // height={27}
+      />
+    </div>
+  </li>
+  <li className="cursor-pointer">
+    <div className="xl:w-[32px] xl:h-[32px]">
+      <Image
+        src="/icon/003-twitter.svg"
+        alt="icon-twitter"
+        width={100} // đặt chiều rộng
+    height={100} // đặt chiều cao
+    style={{ width: 'auto', height: '100%' }} // điều chỉnh tỷ lệ
+        // width={32}
+        // height={32}
+      />
+    </div>
+  </li>
+  <li className="cursor-pointer">
+    <div className="xl:w-[30px] xl:h-[30px]">
+      <Image
+        src="/icon/004-instagram.svg"
+        alt="icon-instagram"
+        width={100} // đặt chiều rộng
+    height={100} // đặt chiều cao
+    style={{ width: 'auto', height: '100%' }} // điều chỉnh tỷ lệ
+        // width={30}
+        // height={30}
+      />
+    </div>
+  </li>
+</ul>
+
+
+
         </div>
       </footer>
     </>

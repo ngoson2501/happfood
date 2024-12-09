@@ -1,13 +1,10 @@
-"use client";
-// import { useState } from "react";
-
 import Slider from "@/components/Slider/Slider"
 import CategoriesList from "@/components/Categories/CategoriesList";
 import RecipesList from "@/components/RecipesList/RecipesList"
 import LearnMore from "@/components/LearnMore/LearnMore"
 import RecommendedList from "@/components/RecommendedList/RecommendedList";
 import Footer from "@/components/Footer/Footer";
-import SideMenu from "@/components/SideMenu/SideMenu";
+
 
 function HomePage(){
 

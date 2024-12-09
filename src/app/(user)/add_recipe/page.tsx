@@ -51,6 +51,8 @@ const AddRecipe = () => {
 
   const [isModalVisible, setIsModalVisible] = useState(false);
 
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const infoUser = useUser();
   const fetchedHashTags = useGetHashTags();
 
@@ -187,6 +189,8 @@ const setFileInputRef = (index: number, ref: HTMLInputElement | null) => {
 
           const handleSubmit = async (event: React.FormEvent) => {
             event.preventDefault();
+            setIsLoading(true); // Hiển thị loading
+
           
             const formData = new FormData();
             formData.append('name', name);
@@ -251,13 +255,15 @@ const setFileInputRef = (index: number, ref: HTMLInputElement | null) => {
 
           
             try {
-              const response = await fetch('/api/recipes/recipe/add_recipe', {
+              //const response = await fetch('/api/recipes/recipe/add_recipe', {
+                const response = await fetch('/api/recipes/recipe/add_recipe_2', {
                 method: 'POST',
                 body: formData,
               });
           
               if (response.ok) {
                 message.success("Recipe added successfully!");
+                setIsLoading(false); // Ẩn loading
           
                 // Reset tất cả các trường
                 // setName('');
@@ -298,6 +304,19 @@ const setFileInputRef = (index: number, ref: HTMLInputElement | null) => {
   return (
 
     <div className=" w-full lg:px-[100px] mx-auto p-4 xl:flex gap-9 pt-[30px] lg:pt-[60px]">
+      
+      
+      {isLoading && (
+        <div className="fixed inset-0 z-20 flex items-center justify-center bg-white bg-opacity-75">
+          <div
+            style={{ borderTopColor: "transparent" }}
+            className="w-8 h-8 border-4 border-blue-200 rounded-full animate-spin"
+          ></div>
+          <p className="ml-2">Adding Recipe...</p>
+        </div>
+      )}
+      
+      
       <div className=" hidden xl:block xl:w-2/5 max-h-[700px] rounded-[20px] relative overflow-auto">
         <Image
           className="w-full h-full object-cover "
@@ -572,7 +591,7 @@ const setFileInputRef = (index: number, ref: HTMLInputElement | null) => {
           <div className="flex justify-center">
             <button
               type="button"
-              className="font-[300] px-4 py-2 text-[#999999] hover:text-black"
+              className="font-[300] px-4 py-2 text-red-500 hover:text-black"
               onClick={() => handleRemoveDirection(index)}
             >
               - Remove Step

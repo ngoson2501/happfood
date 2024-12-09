@@ -1,5 +1,3 @@
-
-
 "use client";
 
 import Image from "next/image";
@@ -31,8 +29,6 @@ const Recipes_1: React.FC<RecipeProps> = ({ recipe }) => {
   const infoUser = useUser();
   const { increaseView } = useIncreaseView();
 
-  
-
   useEffect(() => {
     // Kiểm tra xem recipe và recipe.likes có phải là mảng hợp lệ không
     if (infoUser && Array.isArray(recipe?.likes)) {
@@ -47,15 +43,18 @@ const Recipes_1: React.FC<RecipeProps> = ({ recipe }) => {
 
   const sendLikeToServer = async (isLiked: boolean) => {
     console.log(">>>>>>>>>>>>>>>>", { user: recipe.id }); // In ra userId thay vì toàn bộ đối tượng
-    
+
     try {
-      const response = await fetch(`/api/recipes/recipe/like_recipe/${recipe.id}`, {
-        method: isLiked ? "POST" : "DELETE", // POST khi like, DELETE khi unlike
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ user: infoUser?.id }), // Chỉ truyền userId
-      });
+      const response = await fetch(
+        `/api/recipes/recipe/like_recipe/${recipe.id}`,
+        {
+          method: isLiked ? "POST" : "DELETE", // POST khi like, DELETE khi unlike
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ user: infoUser?.id }), // Chỉ truyền userId
+        }
+      );
 
       if (!response.ok) {
         const errorBody = await response.text();
@@ -66,10 +65,9 @@ const Recipes_1: React.FC<RecipeProps> = ({ recipe }) => {
     }
   };
 
-
   const formatCookTime = (cookTime: string | undefined) => {
     if (!cookTime || typeof cookTime !== "string") {
-        return "N/A"; // Hoặc giá trị mặc định bạn muốn hiển thị
+      return "N/A"; // Hoặc giá trị mặc định bạn muốn hiển thị
     }
 
     // Tách giờ và phút từ chuỗi
@@ -77,12 +75,10 @@ const Recipes_1: React.FC<RecipeProps> = ({ recipe }) => {
 
     // Tạo định dạng hiển thị
     if (hours > 0) {
-        return `${hours}h ${minutes}m`;
+      return `${hours}h ${minutes}m`;
     }
     return `${minutes}m`;
-};
-
-
+  };
 
   const handleNavigate = async () => {
     await increaseView(recipe.id); // Gửi yêu cầu tăng view
@@ -106,10 +102,10 @@ const Recipes_1: React.FC<RecipeProps> = ({ recipe }) => {
       className="bg-[#E7FAFE] lg:bg-gradient-to-b lg:from-white lg:to-[#E7FAFE] group w-[180px] lg:w-[380px] lg:h-[400px] h-[240px] px-[10px] py-[10px] lg:px-[20px] lg:py-[20px] rounded-[10px] sm:rounded-[20px] cursor-pointer flex flex-col justify-between hover:shadow-lg"
       // onClick={handleNavigate} // Gán sự kiện điều hướng
     >
-      <div  className="w-full h-[130px] lg:h-[230px] relative overflow-hidden rounded-[8px] sm:rounded-[15px] lg:rounded-[20px]">
+      <div className="w-full h-[130px] lg:h-[230px] relative overflow-hidden rounded-[8px] sm:rounded-[15px] lg:rounded-[20px]">
         <Image
           className="w-full h-full object-cover object-center absolute inset-0 transition-transform duration-500 ease-in-out transform group-hover:scale-110"
-          src={recipe?.media || "/images/default_image.png"}
+          src={recipe?.media ?? "/images/default_image.png"}
           alt={recipe?.name}
           width={180}
           height={130}
@@ -139,13 +135,7 @@ const Recipes_1: React.FC<RecipeProps> = ({ recipe }) => {
         {recipe?.name}
       </p>
 
-
-
       <div className=" flex  lg:gap-[25px]">
-        
-        
-        
-        
         <div className=" w-[50%] lg:w-[30%] gap-1 py-[5px] lg:gap-2 lg:py-[7px] flex  items-center rounded-full">
           <Image
             className="lg:w-[25px] lg:h-[25px]"
@@ -162,9 +152,6 @@ const Recipes_1: React.FC<RecipeProps> = ({ recipe }) => {
           </p>
         </div>
 
-
-
-
         <div className=" w-[50%] lg:w-[70%] gap-1 py-[5px] lg:gap-2 lg:py-[7px] flex  items-center rounded-full">
           <Image
             className="lg:w-[25px] lg:h-[25px]"
@@ -179,26 +166,19 @@ const Recipes_1: React.FC<RecipeProps> = ({ recipe }) => {
           >
             {/* Đoạn này đã thay bằng hashtags */}
             {recipe?.hashtags.map((hashtag, index) => (
-                      <span key={hashtag.label} className="px-[3px]">
-                        <span className="underline ">{hashtag.label}</span>
-                        {/* Kiểm tra nếu không phải phần tử cuối cùng thì thêm dấu phẩy */}
-                        {index < recipe?.hashtags.length - 1 && (
-                          <span className="text-red-500">{","}</span>
-                        )}
-                      </span>
+              <span key={hashtag.label} className="px-[3px]">
+                <span className="underline ">{hashtag.label}</span>
+                {/* Kiểm tra nếu không phải phần tử cuối cùng thì thêm dấu phẩy */}
+                {index < recipe?.hashtags.length - 1 && (
+                  <span className="text-red-500">{","}</span>
+                )}
+              </span>
             ))}
           </p>
         </div>
       </div>
-
-
-
-
-
     </section>
   );
 };
 
 export default Recipes_1;
-
-

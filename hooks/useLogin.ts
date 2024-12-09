@@ -1,5 +1,5 @@
 // hooks/useLogin.ts
-import { useState } from "react";
+
 
 // const useLogin = () => {
 //   const [emailOrUsername, setEmailOrUsername] = useState("");
@@ -53,6 +53,11 @@ import { useState } from "react";
 
 
 //hooks/useLogin.ts
+
+"use client"
+import { message } from "antd";
+import { useState } from "react";
+
 const useLogin = () => {
     const [emailOrUsername, setEmailOrUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -78,8 +83,14 @@ const useLogin = () => {
         if (res.ok) {
           console.log("Access Token:", data.accessToken);
           localStorage.setItem("accessToken", data.accessToken);
-          alert("Login successful");
-          window.location.href = "/"; // Điều hướng về trang Home
+          //alert("Login successful");
+          // Hiển thị thông báo thành công
+        message.success("Login successful");
+
+        // Điều hướng sau khi hiển thị thông báo trong 2 giây
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 2000);
         } else {
           console.error("Error:", data.message);
         }

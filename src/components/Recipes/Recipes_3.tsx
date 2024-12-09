@@ -20,6 +20,7 @@ interface RecipeProps {
       hashtags: { value: string; label: string; _id: string }[];
       // user: { _id: string; username: string };
       user: { _id: string; username: string };
+      //user?: string, 
       views: number;
       likes: string[];
     };
@@ -32,6 +33,7 @@ const Recipes_3: React.FC<RecipeProps> = ({ recipe }) => {
     const infoUser = useUser();
     // const { userInfo} = useUserInfo(recipe?.user ?? null);
     console.log("<check>:",infoUser?.id)
+    //console.log("check id của người user>>>>", { user: recipe.user._id }); 
     useEffect(() => {
         // Kiểm tra xem recipe và recipe.likes có phải là mảng hợp lệ không
         if (infoUser && Array.isArray(recipe?.likes)) {
@@ -45,7 +47,7 @@ const Recipes_3: React.FC<RecipeProps> = ({ recipe }) => {
       }, [infoUser, recipe?.likes]); // Thực hiện khi infoUser hoặc recipe.likes thay đổi
     
       const sendLikeToServer = async (isLiked: boolean) => {
-        console.log("check id user>>>>", { user: recipe.user._id }); // In ra userId thay vì toàn bộ đối tượng
+        //console.log("check id của người user>>>>", { user: recipe.user._id }); // In ra userId thay vì toàn bộ đối tượng
     
         try {
           const response = await fetch(`/api/recipes/recipe/like_recipe/${recipe.id}`, {
@@ -160,7 +162,7 @@ const Recipes_3: React.FC<RecipeProps> = ({ recipe }) => {
                     >
                         {recipe?.name}
                     </p>
-                    <p className="text-[12px] lg:text-[15px]" style={{ color: "rgba(0, 0, 0, 60%)" }}>By {recipe?.user?.username}</p>
+                    <p className="text-[12px] lg:text-[15px]" style={{ color: "rgba(0, 0, 0, 60%)" }}>By {recipe?.user.username}</p>
                     <div className=" flex gap-1 xl:gap-2 flex-1 xl:flex-none xl:flex-wrap-reverse ">
                         <div className=" w-full gap-[2px] py-2 xl:py-0  flex  items-center rounded-full">
                             <Image className=" lg:w-[23px] lg:h-[23px]" src="/icon/Timer.svg" alt="Timer" width={16} height={16} />

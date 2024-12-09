@@ -67,8 +67,6 @@ const MediaComponent: React.FC<MediaComponentProps> = ({ src, alt = 'Media conte
             // placeholder="blur"
             // blurDataURL="/icon/loading.png" // URL của hình ảnh mờ
             priority
-            // width={180}
-            // height={130}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" // Thêm thuộc tính sizes
           />
         </div>

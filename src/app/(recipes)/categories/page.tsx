@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import FoodDirectory from "@/components/FoodDirectory/FoodDirectory";
-import { useFoodDirectory } from "@/context/FoodDirectory-provider";
+//import { useFoodDirectory } from "@/context/FoodDirectory-provider";
 import { useCheckRefreshToken } from "../../../../hooks/useCheckRefreshToken";
 //import { useRefreshAccessToken } from "../../../../hooks/useRefreshAccessToken";
 import { useAuth } from "../../../../hooks/useAuth";

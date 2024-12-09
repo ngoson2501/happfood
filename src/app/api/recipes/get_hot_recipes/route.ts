@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import Recipe from "../../../../../models/recipe"; // Import model Recipe
 import connect from "../../../../../utils/db"; // Import hàm kết nối DB
 
-export async function GET(request: NextRequest) {
+export async function GET() {
+  //request: NextRequest
   try {
     // Kết nối tới cơ sở dữ liệu
     await connect();
@@ -17,9 +18,9 @@ export async function GET(request: NextRequest) {
 
     // Xử lý dữ liệu trước khi gửi
     const formattedRecipes = hotRecipes.map((recipe) => {
-      const mediaBase64 = recipe.media
-        ? `data:${recipe.contentType};base64,${recipe.media.toString("base64")}`
-        : null;
+      // const mediaBase64 = recipe.media
+      //   ? `data:${recipe.contentType};base64,${recipe.media.toString("base64")}`
+      //   : null;
 
       return {
         id: recipe._id.toString(), // Chuyển ObjectId thành chuỗi
@@ -31,7 +32,8 @@ export async function GET(request: NextRequest) {
         views: recipe.views,
         likes: recipe.likes,
         description: recipe.description,
-        media: mediaBase64, // Chuyển đổi media sang base64 nếu có
+        //media: mediaBase64, // Chuyển đổi media sang base64 nếu có
+        media: recipe.media,
         createdAt: recipe.createdAt,
         updatedAt: recipe.updatedAt,
       };
