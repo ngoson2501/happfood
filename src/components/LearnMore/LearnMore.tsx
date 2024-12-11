@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const LearnMore = () => {
   return (
@@ -21,9 +22,9 @@ const LearnMore = () => {
             are following a recipe or experimenting with flavors, the kitchen is
             your canvas, and you are the artist.
           </p>
-          <span className="bg-black text-[13px] lg:text-[15px] w-fit rounded-[10px] lg:rounded-[17px] text-white px-[60px] py-[15px] xl:px-[80px] lg:py-[20px] mt-[10px] lg:mt-[40px] xl:mt-[70px]">
+          <Link href="/generate" className="bg-black text-[13px] lg:text-[15px] w-fit rounded-[10px] lg:rounded-[17px] text-white px-[60px] py-[15px] xl:px-[80px] lg:py-[20px] mt-[10px] lg:mt-[40px] xl:mt-[70px]">
           Generate
-          </span>
+          </Link>
         </div>
 
         <div className="bg-gradient-to-b from-white to-[#E7FAFE] lg:rounded-[30px] w-full h-full relative overflow-hidden flex items-end">

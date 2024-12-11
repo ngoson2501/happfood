@@ -1,5 +1,3 @@
-
-
 import { NextRequest, NextResponse } from 'next/server';
 import connect from '../../../../../../utils/db'; // Hàm connect giống như trong mã bạn đã cung cấp
 import Recipe from '../../../../../../models/recipe'; // Model Recipe

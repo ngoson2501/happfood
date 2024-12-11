@@ -1,4 +1,3 @@
-
 "use client";
 import { useRouter } from 'next/navigation';
 import React, { useState, useEffect } from "react";
@@ -31,7 +30,7 @@ const menuItems: {
   Categories: { label: "Categories", href: "/categories", subItems: [] },
   Blog: { label: "Blog", href: "/blog", subItems: [] },
   Contact: { label: "Contact", href: "#", subItems: [{ label: "Add recipe", href: "/add_recipe" }, { label: "Generate", href: "/generate" }] },
-  Library: { label: "Library", href: "#", subItems: [{ label: "Add recipe", href: "/add_recipe" }, { label: "Your recipes", href: "/your_recipes" }, { label: "Generate", href: "/generate" }] },
+  Library: { label: "Library", href: "#", subItems: [{ label: "Add recipe", href: "/add_recipe" }, { label: "Your recipes", href: "/your_recipes" }, { label: "Favorite recipes", href: "/favorite" }, { label: "Generate", href: "/generate" }] },
   //Dashboard: { label: "Dashboard", href: "/", subItems: [] },
 };
 
@@ -144,9 +143,9 @@ const Header: React.FC = () => {
     <header className="w-full max-w-[1425px] flex justify-center items-center h-[80px] relative">
       <div className="bg-white w-full max-w-[1425px] h-[80px] border-b-[1px] border-b-[#e1e1e1] fixed top-0 z-50 flex items-center justify-between px-[20px] lg:px-[50px]">
         <div>
-          <span className="font-lobster italic text-[16px] lg:text-[20px] xl:text-[25px] font-[600] cursor-pointer">
+          <Link href="/" className="font-lobster italic text-[16px] lg:text-[20px] xl:text-[25px] font-[600] cursor-pointer">
             HappyFood
-          </span>
+          </Link>
         </div>
 
         {/* <div className="hidden md:block md:text-[13px] lg:text-[14px] xl:text-[15px]">
