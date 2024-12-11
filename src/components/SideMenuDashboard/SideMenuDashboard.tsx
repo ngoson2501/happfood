@@ -99,9 +99,9 @@ const SideMenuDashboard: React.FC = () => {
                       All
                     </li>
                   </Link>
-                  <li className="hover:scale-105 text-sm font-medium text-gray-600 py-1 px-2 hover:bg-[#e6f7fa] hover:text-gray-900 rounded-md transition duration-150 ease-in-out">
+                  {/* <li className="hover:scale-105 text-sm font-medium text-gray-600 py-1 px-2 hover:bg-[#e6f7fa] hover:text-gray-900 rounded-md transition duration-150 ease-in-out">
                     Roles
-                  </li>
+                  </li> */}
                 </ul>
               </div>
 

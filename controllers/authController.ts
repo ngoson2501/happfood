@@ -3,6 +3,7 @@ import {  NextResponse } from 'next/server';
 import { JwtPayload } from 'jsonwebtoken';
 import User from '../models/user';
 import connect from '../utils/db';
+import updateLastActive from '../utils/updateLastActive';
 import { hashPassword, comparePassword } from '../services/authService';
 import { createAccessToken, createRefreshToken, verifyRefreshToken, verifyAccessToken } from '../utils/jwt';
 
@@ -101,6 +102,7 @@ export const loginUser = async (req: Request) => {
     // Cập nhật refreshToken vào cơ sở dữ liệu
     user.refreshToken = refreshToken; // Lưu refreshToken vào trường mới
     await user.save(); // Lưu thay đổi vào cơ sở dữ liệu
+    await updateLastActive(user._id); // Cập nhật thời gian hoạt động gần nhất
 
     // Trả về accessToken và refreshToken cho người dùng
     return new NextResponse(

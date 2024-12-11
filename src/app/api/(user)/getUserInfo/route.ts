@@ -165,6 +165,7 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import User from "../../../../../models/user"; // Đường dẫn tới mô hình User
+import connect from "../../../../../utils/db";
 
 export async function POST(req: NextRequest) {
   try {
@@ -173,6 +174,8 @@ export async function POST(req: NextRequest) {
     if (!userId) {
       return NextResponse.json({ message: "User ID is required" }, { status: 400 });
     }
+
+    await connect()
 
     // Tìm người dùng bằng ID
     const user = await User.findById(userId).select("-password -refreshToken");

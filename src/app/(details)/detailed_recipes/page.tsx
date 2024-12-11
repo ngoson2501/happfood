@@ -13,7 +13,7 @@ import Ingredients from "@/components/Ingredients/Ingredients";
 import OtherRecipe from "@/components/OtherRecipe/OtherRecipe";
 import Directions from "@/components/Directions/Directions";
 import AuthorRecipes from "@/components/AuthorRecipes/AuthorRecipes";
-import NutritionInformation from "@/components/NutritionInformation/NutritionInformation";
+//import NutritionInformation from "@/components/NutritionInformation/NutritionInformation";
 import FoodDescription from "@/components/FoodDescription/FoodDescription";
 import MediaComponent from "@/components/MediaComponentProps/MediaComponentProps";
 

@@ -1,3 +1,4 @@
+"use client"
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import { UserProvider } from "@/context/User-provider";

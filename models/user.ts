@@ -9,12 +9,8 @@ const UserSchema = new Schema(
         password: {type: String, required: true},
         refreshToken: { type:  String, required: false },
         avatar: { type:  String, required: false },
-        // avatar: {
-        //     data: Buffer, // Lưu dữ liệu ảnh
-        //     contentType: String, // Loại file (e.g., image/png)
-        //   },
         role: { type: String, enum: ['user', 'admin'], default: 'user' },
-       
+        lastActive: { type: Date, default: null }, // Thời điểm hoạt động gần nhất
          
     },
     {
@@ -27,3 +23,9 @@ const UserSchema = new Schema(
 const User = models.User || model("User", UserSchema)
 
 export default User
+
+
+
+ 
+
+

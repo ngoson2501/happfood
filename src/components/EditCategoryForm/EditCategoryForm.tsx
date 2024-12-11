@@ -140,6 +140,7 @@
 
 
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 interface EditCategoryFormProps {
   visible: boolean;
@@ -215,9 +216,11 @@ const EditCategoryForm: React.FC<EditCategoryFormProps> = ({ visible, onClose, o
             />
             {imagePreview && (
               <div className="mt-2">
-                <img
+                <Image
                   src={imagePreview}
                   alt="Selected cover"
+                  width={96} // Kích thước cố định tương ứng với w-24
+                  height={96} // Kích thước cố định tương ứng với h-24
                   className="w-full h-40 object-cover rounded-md border border-gray-300"
                 />
               </div>

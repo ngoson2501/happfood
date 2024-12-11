@@ -388,20 +388,20 @@ const AllCategoriesPage: React.FC = () => {
             key: 'actions',
             render: (_: any, record: any) => (
                 <div className="flex space-x-2">
-                <Button
-                    type="primary"
+                    <Button
+                        type="primary"
+                        className="w-[90px] text-xs"
+                        onClick={() => handleEditCategory(record)}
+                    >
+                        Edit
+                    </Button>
+                    <Button
+                    danger
                     className="w-[90px] text-xs"
-                    onClick={() => handleEditCategory(record)}
-                >
-                    Edit
-                </Button>
-                <Button
-                danger
-                className="w-[90px] text-xs"
-                onClick={() => handleDeleteCategory(record)} // Truyền categoryId vào
-            >
-                Delete
-            </Button>
+                    onClick={() => handleDeleteCategory(record)} // Truyền categoryId vào
+                    >
+                        Delete
+                    </Button>
             </div>
             ),
         },
