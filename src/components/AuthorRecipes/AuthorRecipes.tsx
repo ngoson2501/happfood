@@ -1,4 +1,3 @@
-
 "use client"
 import { useEffect, useState } from "react";
 import Recipes_3 from "../Recipes/Recipes_3"

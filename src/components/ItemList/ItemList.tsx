@@ -1,10 +1,8 @@
-
 "use client";
 
 import Link from "next/link";
-import useCategories from "../../../hooks/useCategories";
 import useItemList from "../../../hooks/useItemList";
-import useRecipesByCategory from "../../../hooks/useRecipesByCategory";
+
 
 const ItemList = () => {
   const { categories } = useItemList()

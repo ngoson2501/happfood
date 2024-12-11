@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 
 // Định nghĩa kiểu dữ liệu cho một nguyên liệu

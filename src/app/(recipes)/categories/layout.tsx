@@ -1,6 +1,6 @@
 "use client";
 
-import Footer from "@/components/Footer/Footer"
+
 import ItemList from "@/components/ItemList/ItemList";
 
 

@@ -1,7 +1,6 @@
 
-//'use client'
+'use client'
 
-// import { useAuth } from "../../../hooks/useAuth"
 
 export default function AuthLayout({
     children,

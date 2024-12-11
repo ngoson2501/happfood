@@ -1,5 +1,4 @@
 "use client"
-
 import { useState, useEffect } from "react";
 
 // Define the User type

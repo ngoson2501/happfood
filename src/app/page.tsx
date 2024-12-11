@@ -1,3 +1,4 @@
+"use client"
 import Slider from "@/components/Slider/Slider"
 import CategoriesList from "@/components/Categories/CategoriesList";
 import RecipesList from "@/components/RecipesList/RecipesList"

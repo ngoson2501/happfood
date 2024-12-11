@@ -1,6 +1,3 @@
-
-
-
 "use client"; // Đảm bảo dùng chính xác "use client" ở đây
 import React, { useState, useEffect } from "react";
 import { Table, Button, Pagination, message, Image, Select, Input } from "antd";

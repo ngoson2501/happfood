@@ -1,5 +1,4 @@
 "use client";
-
 import { useSearchParams } from "next/navigation";
 import Recipes_4 from "@/components/Recipes/Recipes_4";
 import useRecipesByCategory from "../../../../../hooks/useRecipesByCategory";

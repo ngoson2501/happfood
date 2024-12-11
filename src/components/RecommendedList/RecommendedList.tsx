@@ -1,5 +1,4 @@
 "use client"
-
 import React from "react";
 import Recipes_2 from "../Recipes/Recipes_2";
 import useFetchNewRecipes from "../../../hooks/useFetchNewRecipes";
@@ -10,11 +9,25 @@ const RecommendedList = () => {
   ); // Gọi API để lấy dữ liệu công thức mới
 
   if (loading) {
-    return <div>Loading...</div>; // Hiển thị trạng thái loading
+    return (
+      <>
+        <div className='flex items-center justify-center h-full'>
+            <div style={{ borderTopColor: 'transparent' }} className="w-8 h-8 border-4 border-blue-200 rounded-full animate-spin"></div>
+            <p className="ml-2">Loading recipes...</p>
+        </div>
+      </>
+    ) // Hiển thị trạng thái loading
   }
 
   if (error) {
-    return <div>Error: {error}</div>; // Hiển thị lỗi nếu có
+    return (
+      <>
+        <div className='flex items-center justify-center h-full'>
+            <div style={{ borderTopColor: 'transparent' }} className="w-8 h-8 border-4 border-blue-200 rounded-full animate-spin"></div>
+            <p className="ml-2">Error: {error}</p>
+        </div>
+      </>
+    )// Hiển thị lỗi nếu có
   }
 
   return (

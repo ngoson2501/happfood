@@ -1,20 +1,19 @@
 "use client";
 
-import Footer from "@/components/Footer/Footer"
+import Footer from "@/components/Footer/Footer";
 
 export default function AuthLayout({
-    children,
-  }: {
-    children: React.ReactNode
-  }) {
-    return (
-        <>
-            {/* <header className="bg-yellow-500 w-[100%] h-[50px]">
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <>
+      {/* <header className="bg-yellow-500 w-[100%] h-[50px]">
             
             </header> */}
-            <div>{children}</div>
-            <Footer></Footer>
-        </>
-        
-    )
-  }
+      <div>{children}</div>
+      <Footer></Footer>
+    </>
+  );
+}
