@@ -4,6 +4,7 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { Suspense } from "react";
 import { AuthorRecipesProvider } from "@/context/AuthorRecipesContext";
 import { useSearchParams } from "next/navigation";
 import useRecipe from "../../../../hooks/useRecipe";
@@ -94,7 +95,7 @@ const DetailRecipe = () => {
 
 
   return (
-    <>
+    <Suspense fallback={<div>Loading...</div>}>
       <div className="bg-white w-full  flex gap-[20px] flex-col lg:px-[100px] lg:pt-[50px]">
         
         
@@ -296,7 +297,7 @@ const DetailRecipe = () => {
 
          
       </div>
-    </>
+    </Suspense>
   );
 };
 
