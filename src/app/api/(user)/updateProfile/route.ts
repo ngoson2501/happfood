@@ -1,19 +1,3 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { NextRequest, NextResponse } from "next/server";
 import connect from "../../../../../utils/db";
 import User from "../../../../../models/user";
