@@ -70,7 +70,7 @@ const Recipes_3: React.FC<RecipeProps> = ({ recipe }) => {
 
       const handleNavigate = async () => {
         await increaseView(recipe.id); // Gửi yêu cầu tăng view
-        router.push(`/detailed_recipes?id=${recipe.id}`); // Điều hướng đến detailed_recipes với id
+        router.push(`/detailed_recipes/${recipe.id}`); // Điều hướng đến detailed_recipes với id
       };
 
 

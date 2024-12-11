@@ -14,15 +14,10 @@
 // import FoodDescription from "@/components/FoodDescription/FoodDescription";
 // import MediaComponent from "@/components/MediaComponentProps/MediaComponentProps";
 
-
-
-
 // // type User = {
 // //   avatar: string;
 // //   username: string;
 // // };
-
-
 
 // const DetailRecipe = () => {
 
@@ -34,15 +29,12 @@
 //   // const infoUser = useUser();
 //   const { userInfo} = useUserInfo(recipe?.user ?? null);
 
-  
-
 //   console.log("check avatar nguoi dung:", userInfo?.avatar)
-
 
 //   const formatCookTime = (cookTime: string) => {
 //     // Tách giờ và phút từ chuỗi
 //     const [hours, minutes] = cookTime.split(":").map(Number);
-  
+
 //     // Tạo định dạng hiển thị
 //     if (hours > 0) {
 //       return `${hours}h ${minutes}m`;
@@ -58,83 +50,57 @@
 //     const year = date.getFullYear(); // Lấy năm đầy đủ
 //     return `${day}/${month}/${year}`;
 //   }
-  
-
-
 
 //   if (loading){
 //     return(
 //       <>
 //        <div className=" h-screen flex items-center justify-center w-full">
 //           <div className="flex justify-center items-center space-x-1 text-sm text-gray-700">
-              
+
 //                   <svg fill='none' className="w-6 h-6 lg:w-10 lg:h-10 animate-spin" viewBox="0 0 32 32" xmlns='http://www.w3.org/2000/svg'>
 //                     <path clipRule='evenodd'
 //                       d='M15.165 8.53a.5.5 0 01-.404.58A7 7 0 1023 16a.5.5 0 011 0 8 8 0 11-9.416-7.874.5.5 0 01.58.404z'
 //                       fill='currentColor' fillRule='evenodd' />
 //                   </svg>
 
-            
 //             <div className="lg:text-[20px]">Loading ...</div>
 //           </div>
 //         </div>
 //       </>
 //     )
-//   } 
+//   }
 
 //   if (error) return <p>Error: {error}</p>;
 //   if (!recipe) return <p>No recipe found.</p>;
 
-
-
-
-
-
 //   return (
 //     <Suspense fallback={<div>Loading...</div>}>
 //       <div className="bg-white w-full  flex gap-[20px] flex-col lg:px-[100px] lg:pt-[50px]">
-        
-        
-        
-        
-//         <div className="w-full gap-5 flex flex-col xl:flex-row items-center justify-center aspect-w-16 aspect-h-9">
-          
 
-//           <MediaComponent 
+//         <div className="w-full gap-5 flex flex-col xl:flex-row items-center justify-center aspect-w-16 aspect-h-9">
+
+//           <MediaComponent
 //             // src="/videos/copy_2F59F3D5-B0A6-471A-BE61-174FB71DE42A.MOV"
 //             // src="/images/food-img/ha-cao.jpeg"
 //             src={recipe?.media || "/images/default_image.png"}
 //             // isVideo={false}
 //           />
-          
+
 //           {/* <MediaComponent src="/images/background.png" isVideo={false} alt="Example image" /> */}
-         
+
 //            <AuthorRecipesProvider>
 //                 <AuthorRecipes idAuthorRecipe={userInfo?.id || ""}></AuthorRecipes>
 //            </AuthorRecipesProvider>
-          
+
 //         </div>
-
-
-
-
 
 //         <div className="bg-white flex flex-col xl:flex-row  gap-5">
 //           <div className=" h-fit xl:w-2/3 px-[12px] lg:px-0 flex flex-col  ">
-
-          
 
 //               <FoodDescription
 //                 name = {recipe?.name}
 //                 description = {recipe?.description}
 //               ></FoodDescription>
-              
-
-         
-
-
-
-
 
 //               <div className="flex justify-between flex-wrap-reverse  gap-[30px] lg:gap-0 lg:justify-between lg:items-center py-3">
 //                 <div className=" w-fit flex justify-center items-center gap-1 lg:gap-3">
@@ -155,8 +121,6 @@
 //                     </p>
 //                   </span>
 //                 </div>
-
-
 
 //                 <div className="flex flex-wrap-reverse gap-2 lg:gap-5">
 
@@ -198,19 +162,12 @@
 //                       </span>
 //                     ))}
 
-
 //                   </p>
 //                 </div>
 
 //                 </div>
 
-
-
-
 //               </div>
-
-
-        
 
 //               <Ingredients
 //                 ingredients= {recipe?.ingredients}
@@ -220,15 +177,7 @@
 //                 videoLink = {recipe?.videoLink}
 //               ></Directions>
 
-
-           
-
-
-
 //           </div>
-
-
-
 
 //             <div className="  w-full xl:block xl:w-1/3 h-fit">
 //                 <div className=" hidden xl:flex w-full h-[380px] relative">
@@ -241,33 +190,16 @@
 //                     />
 //                 </div>
 
-
 //                 <div className=" flex flex-col w-full  h-[330px] lg:h-[465px] xl:h-[940px]">
 //                     <p className="px-[12px] lg:px-[0px] xl:px-[30px] py-[20px] text-[20px] lg:text-[30px] font-Inter font-[600]">Other Recipe</p>
 //                     <OtherRecipe></OtherRecipe>
-            
+
 //                 </div>
 
 //             </div>
 
-            
-
-
-
-
 //         </div>
 
-
-
-       
-
-        
-
-
-
-
-
-         
 //       </div>
 //     </Suspense>
 //   );
@@ -275,21 +207,15 @@
 
 // export default DetailRecipe;
 
-
-
-
-
-
-
-
 "use client";
 
 import Image from "next/image";
 import { Suspense, useEffect, useState } from "react";
 import { AuthorRecipesProvider } from "@/context/AuthorRecipesContext";
-import { useSearchParams } from "next/navigation";
-import useRecipe from "../../../../hooks/useRecipe";
-import useUserInfo from "../../../../hooks/useUserInfo";
+import { useParams } from "next/navigation";
+//import { useSearchParams } from "next/navigation";
+import useRecipe from "../../../../../hooks/useRecipe";
+import useUserInfo from "../../../../../hooks/useUserInfo";
 import Ingredients from "@/components/Ingredients/Ingredients";
 import OtherRecipe from "@/components/OtherRecipe/OtherRecipe";
 import Directions from "@/components/Directions/Directions";
@@ -298,21 +224,25 @@ import FoodDescription from "@/components/FoodDescription/FoodDescription";
 import MediaComponent from "@/components/MediaComponentProps/MediaComponentProps";
 
 const DetailRecipe = () => {
-  const searchParams = useSearchParams();
-  const id = searchParams.get("id");
+  // const searchParams = useSearchParams();
+  // const id = searchParams.get("id");
+  const params = useParams();
+  const id = Array.isArray(params.id) ? params.id[0] : params.id; // Xử lý để lấy chuỗi duy nhất
 
   // Fetch dữ liệu recipe và thông tin người dùng
-  const { recipe, loading, error } = useRecipe(id);
+  const { recipe, loading, error } = useRecipe(id ?? "");
   const { userInfo } = useUserInfo(recipe?.user ?? null);
 
-  const formatCookTime = (cookTime:string) => {
+  const formatCookTime = (cookTime: string) => {
     const [hours, minutes] = cookTime.split(":").map(Number);
     return hours > 0 ? `${hours}h ${minutes}m` : `${minutes} minutes`;
   };
 
-  const formatDate = (dateString:string) => {
+  const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return `${String(date.getDate()).padStart(2, "0")}/${String(date.getMonth() + 1).padStart(2, "0")}/${date.getFullYear()}`;
+    return `${String(date.getDate()).padStart(2, "0")}/${String(
+      date.getMonth() + 1
+    ).padStart(2, "0")}/${date.getFullYear()}`;
   };
 
   if (loading) {
@@ -342,12 +272,10 @@ const DetailRecipe = () => {
   if (!recipe) return <p>No recipe found.</p>;
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <>
       <div className="bg-white w-full flex gap-[20px] flex-col lg:px-[100px] lg:pt-[50px]">
         <div className="w-full gap-5 flex flex-col xl:flex-row items-center justify-center aspect-w-16 aspect-h-9">
-          <MediaComponent
-            src={recipe?.media || "/images/default_image.png"}
-          />
+          <MediaComponent src={recipe?.media || "/images/default_image.png"} />
 
           <AuthorRecipesProvider>
             <AuthorRecipes idAuthorRecipe={userInfo?.id || ""} />
@@ -374,7 +302,9 @@ const DetailRecipe = () => {
                 <span className="flex text-[14px] lg:text-[15px] flex-col justify-center font-Inter">
                   <p className="font-[700]">{userInfo?.username}</p>
                   <p style={{ color: "rgba(0, 0, 0, 60%)" }}>
-                    {recipe?.createdAt ? formatDate(recipe.createdAt) : "No date available"}
+                    {recipe?.createdAt
+                      ? formatDate(recipe.createdAt)
+                      : "No date available"}
                   </p>
                 </span>
               </div>
@@ -401,10 +331,15 @@ const DetailRecipe = () => {
                     width={16}
                     height={16}
                   />
-                  <p className="text-[14px] lg:text-[15px]" style={{ color: "rgba(0, 0, 0, 60%)" }}>
+                  <p
+                    className="text-[14px] lg:text-[15px]"
+                    style={{ color: "rgba(0, 0, 0, 60%)" }}
+                  >
                     {recipe?.hashtags.map((hashtag, index) => (
                       <span key={hashtag.label} className="px-[3px]">
-                        <span className="underline text-[#004C99]">{hashtag.label}</span>
+                        <span className="underline text-[#004C99]">
+                          {hashtag.label}
+                        </span>
                         {index < recipe?.hashtags.length - 1 && ", "}
                       </span>
                     ))}
@@ -414,7 +349,10 @@ const DetailRecipe = () => {
             </div>
 
             <Ingredients ingredients={recipe?.ingredients} />
-            <Directions directions={recipe?.directions} videoLink={recipe?.videoLink} />
+            <Directions
+              directions={recipe?.directions}
+              videoLink={recipe?.videoLink}
+            />
           </div>
 
           <div className="w-full xl:block xl:w-1/3 h-fit">
@@ -429,13 +367,15 @@ const DetailRecipe = () => {
             </div>
 
             <div className="flex flex-col w-full h-[330px] lg:h-[465px] xl:h-[940px]">
-              <p className="px-[12px] lg:px-[0px] xl:px-[30px] py-[20px] text-[20px] lg:text-[30px] font-Inter font-[600]">Other Recipe</p>
+              <p className="px-[12px] lg:px-[0px] xl:px-[30px] py-[20px] text-[20px] lg:text-[30px] font-Inter font-[600]">
+                Other Recipe
+              </p>
               <OtherRecipe />
             </div>
           </div>
         </div>
       </div>
-    </Suspense>
+    </>
   );
 };
 

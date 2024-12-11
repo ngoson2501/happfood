@@ -83,12 +83,12 @@ const Recipes_5: React.FC<RecipeProps> = ({ recipe }) => {
 
   const NavigateEditRecipe = async () => {
     
-    router.push(`/edit_recipe?id=${recipe.id}`); // Điều hướng đến detailed_recipes với id
+    router.push(`/edit_recipe/${recipe.id}`); // Điều hướng đến detailed_recipes với id
   };
 
   const handleNavigate = async () => {
     await increaseView(recipe.id); // Gửi yêu cầu tăng view
-    router.push(`/detailed_recipes?id=${recipe.id}`); // Điều hướng đến detailed_recipes với id
+    router.push(`/detailed_recipes/${recipe.id}`); // Điều hướng đến detailed_recipes với id
   };
 
 
