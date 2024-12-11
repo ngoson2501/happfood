@@ -7,6 +7,7 @@ import RecommendedList from "@/components/RecommendedList/RecommendedList";
 import Footer from "@/components/Footer/Footer";
 
 
+
 function HomePage(){
 
     
