@@ -36,6 +36,33 @@ export const RecipeProvider: React.FC<{ children: ReactNode }> = ({ children }) 
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
+  // useEffect(() => {
+  //   const fetchRecipes = async () => {
+  //     setLoading(true);
+  //     try {
+  //       const response = await fetch('/api/recipes/get_recipes', { method: 'GET' });
+  //       if (response.ok) {
+  //         const data = await response.json();
+  //         setRecipes(data);
+  //         setError(null);
+  //       } else {
+  //         const errorMessage = await response.text();
+  //         setError(errorMessage);
+  //         message.error("Failed to fetch recipes.");
+  //         console.error("Error:", errorMessage);
+  //       }
+  //     } catch (err) {
+  //       setError("An unexpected error occurred.");
+  //       message.error("Failed to fetch recipes.");
+  //       console.error("Error:", err);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchRecipes();
+  // }, []);
+
   useEffect(() => {
     const fetchRecipes = async () => {
       setLoading(true);
@@ -43,8 +70,14 @@ export const RecipeProvider: React.FC<{ children: ReactNode }> = ({ children }) 
         const response = await fetch('/api/recipes/get_recipes', { method: 'GET' });
         if (response.ok) {
           const data = await response.json();
-          setRecipes(data);
-          setError(null);
+          if (Array.isArray(data)) {
+            setRecipes(data); // Gán nếu là mảng
+            setError(null);
+          } else {
+            console.error("API did not return an array:", data);
+            setRecipes([]); // Gán mảng rỗng nếu không đúng định dạng
+            setError("Invalid data format from API.");
+          }
         } else {
           const errorMessage = await response.text();
           setError(errorMessage);
@@ -59,9 +92,10 @@ export const RecipeProvider: React.FC<{ children: ReactNode }> = ({ children }) 
         setLoading(false);
       }
     };
-
+  
     fetchRecipes();
   }, []);
+  
 
   return (
     <RecipeContext.Provider value={{ recipes, loading, error, setRecipes, setLoading, setError }}>
