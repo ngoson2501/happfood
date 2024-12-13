@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from 'next/navigation'; // Sử dụng usePathname
 import { useUser } from '@/context/User-provider';
+import Image from 'next/image';
 
 const SideMenuDashboard: React.FC = () => {
   const pathname = usePathname(); // Lấy đường dẫn hiện tại
@@ -27,17 +28,26 @@ const SideMenuDashboard: React.FC = () => {
             <h1 className="font-bold text-4xl text-center md:hidden">
               D<span className="text-[#a1e6f4]">.</span>
             </h1>
-            <h1 className="hidden md:block font-bold text-sm md:text-xl text-center">
+            <h1 className=" hidden md:block font-bold text-sm md:text-xl text-center">
               Dashboard<span className="text-[#a1e6f4]">.</span>
             </h1>
-            <div id="profile" className="space-y-3">
-              <img
+            <div id="profile" className=" space-y-3">
+              {/* <img
                 src={infoUser?.avatar ?? '/icon/default_avatar.png'}
                 alt="Avatar user"
                 className="w-10 md:w-16 rounded-full mx-auto"
+              /> */}
+              <div className="flex justify-center mt-2">
+              <Image
+                  src={infoUser?.avatar ?? '/icon/default_avatar.png'}
+                  alt="Avatar user"
+                  width={96} // Kích thước cố định tương ứng với w-24
+                  height={96} // Kích thước cố định tương ứng với h-24
+                  className="w-[80px] h-[80px] object-cover rounded-full border border-gray-300"
               />
+            </div>
               <div>
-                <h2 className="font-medium text-xs md:text-sm text-center text-[#a1e6f4]">
+                <h2 className="font-medium text-[16px] md:text-[18px] text-center text-[#a1e6f4]">
                 {infoUser?.username || "Guest"}
                 </h2>
                 <p className="text-xs text-gray-500 text-center">

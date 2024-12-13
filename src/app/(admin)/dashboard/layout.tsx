@@ -10,7 +10,7 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const [isSideMenuVisible, setIsSideMenuVisible] = useState(true);
+  const [isSideMenuVisible, setIsSideMenuVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   // Cập nhật trạng thái màn hình (di động hoặc không)
