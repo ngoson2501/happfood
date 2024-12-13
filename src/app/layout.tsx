@@ -4,7 +4,7 @@ import Header from "@/components/Header/Header";
 import { UserProvider } from "@/context/User-provider";
 import { RecipeProvider } from "@/context/RecipeContext";
 import { useAuth } from "../../hooks/useAuth";
-import useAuthCheck from "../../hooks/useAuthCheck";
+
 
 export default function RootLayout({
   children,
@@ -12,8 +12,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
 
-  useAuthCheck()
   
+
   useAuth();
 
   return (
