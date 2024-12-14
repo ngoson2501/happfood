@@ -4,9 +4,7 @@ import Recipes_2 from "../Recipes/Recipes_2";
 import useFetchNewRecipes from "../../../hooks/useFetchNewRecipes";
 
 const RecommendedList = () => {
-  const { data: newRecipes, loading, error } = useFetchNewRecipes(
-    "/api/recipes/get_new_recipes"
-  ); // Gọi API để lấy dữ liệu công thức mới
+  const { data: newRecipes, loading, error } = useFetchNewRecipes(); // Gọi API để lấy dữ liệu công thức mới
 
   if (loading) {
     return (

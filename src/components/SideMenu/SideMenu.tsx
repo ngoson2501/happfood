@@ -1,7 +1,10 @@
 "use client"
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from 'next/navigation'; // Sử dụng usePathname
+import { useUser } from '@/context/User-provider';
+import { FiX } from "react-icons/fi";
 
 interface SideMenuProps {
   onClick: (e: React.MouseEvent<HTMLDivElement>) => void;
@@ -9,6 +12,48 @@ interface SideMenuProps {
 }
 
 const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
+
+  const pathname = usePathname(); // Lấy đường dẫn hiện tại
+  const [currentPath, setCurrentPath] = useState<string>("");
+  const infoUser = useUser();
+  const categories = ["Break Fast", "Lunch", "Vegan", "Meat", "Chicken", "Dessert", "Ice Cream", "Chocolate"];
+  // Kiểm tra nếu accessToken tồn tại
+  const accessToken = localStorage.getItem('accessToken');
+
+  const handleLogout = async () => {
+    const confirmLogout = window.confirm("Bạn có chắc chắn muốn đăng xuất?");
+    if (confirmLogout) {
+      try {
+        const accessToken = localStorage.getItem("accessToken");
+        const  res = await fetch('/api/auth/logout', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ accessToken }), // Gửi refreshToken để backend xử lý
+        });
+
+        
+  
+        // Xoá token trong localStorage
+        localStorage.removeItem("accessToken");
+        //localStorage.removeItem("refreshToken");
+        //setIsLoggedIn(false);
+  
+        // Chuyển hướng về trang đăng nhập
+        window.location.href = '/login';
+      } catch (error) {
+        console.error("Đăng xuất thất bại:", error);
+        alert("Có lỗi xảy ra khi đăng xuất. Vui lòng thử lại.");
+      }
+    }
+  };
+
+
+  useEffect(() => {
+    setCurrentPath(pathname);
+  }, [pathname]);
+
   return (
     <>
       <div
@@ -31,7 +76,8 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
                 width={20}
                 height={20}
                 /> */}
-              <svg
+
+              {/* <svg
                 style={{
                   color: "rgba(0, 0, 0, 0.3)",
                 }}
@@ -48,7 +94,9 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
               >
                 <line x1="18" y1="6" x2="6" y2="18" />
                 <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
+              </svg> */}
+
+              <FiX className=" text-[20px] text-gray-600 transition-all hover:scale-105"></FiX>
             </span>
           </div>
 
@@ -64,8 +112,9 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
 
             <li>
               <Link
+                key={currentPath}
                 href="/dashboard"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+                className={`block rounded-lg px-4 py-2 text-sm font-medium text-gray-500  transition-all ${currentPath === "/dashboard" ? "bg-[#E7FAFE] text-gray-700 scale-105" : "hover:bg-[#E7FAFE] hover:text-gray-700 hover:scale-105"}`}
               >
                 Dashboard
               </Link>
@@ -73,8 +122,9 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
 
             <li>
               <Link
+                key={currentPath}
                 href="/"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+                className={`block rounded-lg px-4 py-2 text-sm font-medium text-gray-500  transition-all ${currentPath === "/" ? "bg-[#E7FAFE] text-gray-700 scale-105" : "hover:bg-[#E7FAFE] hover:text-gray-700 hover:scale-105"}`}
               >
                 Home
               </Link>
@@ -84,17 +134,24 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
 
             <li>
               <Link
+                key={currentPath}
                 href="/recipes"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+                className={`block rounded-lg px-4 py-2 text-sm font-medium text-gray-500  transition-all ${currentPath === "/recipes" ? "bg-[#E7FAFE] text-gray-700 scale-105" : "hover:bg-[#E7FAFE] hover:text-gray-700 hover:scale-105"}`}
               >
                 Recipes
               </Link>
             </li>
 
             <li>
-              <details className="group [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700">
-                  <span className="text-sm font-medium"> Categories </span>
+              <details className=" group [&_summary::-webkit-details-marker]:hidden">
+                <summary 
+                //className={`flex justify-between rounded-lg px-4 py-2 text-sm font-medium text-gray-500  transition-all ${currentPath === "/categories" ||`/categories/${encodeURIComponent("Breakfast")}`||`/categories/${encodeURIComponent("Vegan")}`||`/categories/${encodeURIComponent("Meat")}`||`/categories/${encodeURIComponent("Dessert")}`||`/categories/${encodeURIComponent("Lunch")}`||`/categories/${encodeURIComponent("Chocolate")}`||`/categories/${encodeURIComponent("Chicken")}`||`/categories/${encodeURIComponent("/Ice Cream")}` ? "bg-[#E7FAFE] text-gray-700 scale-105" : "hover:bg-[#E7FAFE]  hover:text-gray-700 hover:scale-105"}`}
+                  className="flex cursor-pointer items-center justify-between rounded-lg px-4 py-2 text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700  transition-all   hover:scale-105"
+                  >
+                  <span 
+                    className=" w-full h-full text-sm font-medium"
+                    //className={`block rounded-lg px-4 py-2 text-sm font-medium text-gray-500  transition-all ${currentPath === "/recipes" ? "bg-[#E7FAFE] text-gray-700 scale-105" : "hover:bg-[#E7FAFE] hover:text-gray-700 hover:scale-105"}`}
+                    > Categories </span>
 
                   <span className="shrink-0 transition duration-300 group-open:-rotate-180">
                     <svg
@@ -115,82 +172,149 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
                 <ul className="mt-2 space-y-1 px-4">
                   <li>
                     <Link
+                      key={currentPath}
                       href="/categories"
-                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+                      // className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+                      className={`block rounded-lg px-4 py-2 text-sm font-medium text-gray-500  transition-all ${currentPath === "/categories" ? "bg-[#E7FAFE] text-gray-700 scale-105" : "hover:bg-[#E7FAFE] hover:text-gray-700 hover:scale-105"}`}
                     >
                       All
                     </Link>
                   </li>
                   <li>
-                    <a
-                      href="#"
-                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+                    <Link
+                      key={currentPath}
+                      href={{
+                        pathname: `/categories/${encodeURIComponent("Break Fast")}`,
+                        query: {
+                          title: encodeURIComponent("Break Fast"),
+                          //id: category._id,
+                           // Mã hóa title trong query
+                        },
+                      }}
+
+                      className={`block rounded-lg px-4 py-2 text-sm font-medium text-gray-500  transition-all ${currentPath === `/categories/${encodeURIComponent("Break Fast")}` ? "bg-[#E7FAFE] text-gray-700 scale-105" : "hover:bg-[#E7FAFE] hover:text-gray-700 hover:scale-105"}`}
                     >
                       Break Fast
-                    </a>
+                    </Link>
                   </li>
 
                   <li>
-                    <a
-                      href="#"
-                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+                    <Link
+                      key={currentPath}
+                      href={{
+                        pathname: `/categories/${encodeURIComponent("Lunch")}`,
+                        query: {
+                          title: encodeURIComponent("Lunch"),
+                          //id: category._id,
+                           // Mã hóa title trong query
+                        },
+                      }}
+                      className={`block rounded-lg px-4 py-2 text-sm font-medium text-gray-500  transition-all ${currentPath === `/categories/${encodeURIComponent("Lunch")}` ? "bg-[#E7FAFE] text-gray-700 scale-105" : "hover:bg-[#E7FAFE] hover:text-gray-700 hover:scale-105"}`}
                     >
                       Lunch
-                    </a>
+                    </Link>
                   </li>
 
                   <li>
-                    <a
-                      href="#"
-                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+                    <Link
+                      key={currentPath}
+                      href={{
+                        pathname: `/categories/${encodeURIComponent("Vegan")}`,
+                        query: {
+                          title: encodeURIComponent("Vegan"),
+                          //id: category._id,
+                           // Mã hóa title trong query
+                        },
+                      }}
+                      className={`block rounded-lg px-4 py-2 text-sm font-medium text-gray-500  transition-all ${currentPath === `/categories/${encodeURIComponent("Vegan")}` ? "bg-[#E7FAFE] text-gray-700 scale-105" : "hover:bg-[#E7FAFE] hover:text-gray-700 hover:scale-105"}`}
                     >
                       Vegan
-                    </a>
+                    </Link>
                   </li>
 
                   <li>
-                    <a
-                      href="#"
-                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+                    <Link
+                      key={currentPath}
+                      href={{
+                        pathname: `/categories/${encodeURIComponent("Meat")}`,
+                        query: {
+                          title: encodeURIComponent("Meat"),
+                          //id: category._id,
+                           // Mã hóa title trong query
+                        },
+                      }}
+                      className={`block rounded-lg px-4 py-2 text-sm font-medium text-gray-500  transition-all ${currentPath === `/categories/${encodeURIComponent("Meat")}` ? "bg-[#E7FAFE] text-gray-700 scale-105" : "hover:bg-[#E7FAFE] hover:text-gray-700 hover:scale-105"}`}
                     >
                       Meat
-                    </a>
+                    </Link>
                   </li>
 
                   <li>
-                    <a
-                      href="#"
-                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+                    <Link
+                      key={currentPath}
+                      href={{
+                        pathname: `/categories/${encodeURIComponent("Chicken")}`,
+                        query: {
+                          title: encodeURIComponent("Chicken"),
+                          //id: category._id,
+                           // Mã hóa title trong query
+                        },
+                      }}
+                      className={`block rounded-lg px-4 py-2 text-sm font-medium text-gray-500  transition-all ${currentPath === `/categories/${encodeURIComponent("Chicken")}` ? "bg-[#E7FAFE] text-gray-700 scale-105" : "hover:bg-[#E7FAFE] hover:text-gray-700 hover:scale-105"}`}
                     >
                       Chicken
-                    </a>
+                    </Link>
                   </li>
 
                   <li>
-                    <a
-                      href="#"
-                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+                    <Link
+                      key={currentPath}
+                      href={{
+                        pathname: `/categories/${encodeURIComponent("Dessert")}`,
+                        query: {
+                          title: encodeURIComponent("Dessert"),
+                          //id: category._id,
+                           // Mã hóa title trong query
+                        },
+                      }}
+                      className={`block rounded-lg px-4 py-2 text-sm font-medium text-gray-500  transition-all ${currentPath === `/categories/${encodeURIComponent("Dessert")}` ? "bg-[#E7FAFE] text-gray-700 scale-105" : "hover:bg-[#E7FAFE] hover:text-gray-700 hover:scale-105"}`}
                     >
                       Dessert
-                    </a>
+                    </Link>
                   </li>
 
                   <li>
-                    <a
-                      href="#"
-                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+                    <Link
+                      key={currentPath}
+                      href={{
+                        pathname: `/categories/${encodeURIComponent("Ice Cream")}`,
+                        query: {
+                          title: encodeURIComponent("Ice Cream"),
+                          //id: category._id,
+                           // Mã hóa title trong query
+                        },
+                      }}
+                      className={`block rounded-lg px-4 py-2 text-sm font-medium text-gray-500  transition-all ${currentPath === `/categories/${encodeURIComponent("Ice Cream")}` ? "bg-[#E7FAFE] text-gray-700 scale-105" : "hover:bg-[#E7FAFE] hover:text-gray-700 hover:scale-105"}`}
                     >
                       Ice Cream
-                    </a>
+                    </Link>
                   </li>
 
                   <li>
-                    <a
-                      href="#"
-                      className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+                    <Link
+                      key={currentPath}
+                      href={{
+                        pathname: `/categories/${encodeURIComponent("Chocolate")}`,
+                        query: {
+                          title: encodeURIComponent("Ice Cream"),
+                          //id: category._id,
+                           // Mã hóa title trong query
+                        },
+                      }}
+                      className={`block rounded-lg px-4 py-2 text-sm font-medium text-gray-500  transition-all ${currentPath === `/categories/${encodeURIComponent("Chocolate")}` ? "bg-[#E7FAFE] text-gray-700 scale-105" : "hover:bg-[#E7FAFE] hover:text-gray-700 hover:scale-105"}`}
                     >
                       Chocolate
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </details>
@@ -199,56 +323,59 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
 
             <li>
               <Link
+                
                 href="/blog"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+                className={`block rounded-lg px-4 py-2 text-sm font-medium text-gray-500  transition-all ${currentPath === "/blog" ? "bg-[#E7FAFE] text-gray-700 scale-105" : "hover:bg-[#E7FAFE] hover:text-gray-700 hover:scale-105"}`}
               >
                 Blog
               </Link>
             </li>
 
-            <li>
-              <a
-                href="#"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
-              >
-                Contact
-              </a>
-            </li>
+           
 
             <li>
-              <a
+              <Link
+                key={currentPath}
                 href="/profile"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+                className={`block rounded-lg px-4 py-2 text-sm font-medium text-gray-500  transition-all ${currentPath === "/profile" ? "bg-[#E7FAFE] text-gray-700 scale-105" : "hover:bg-[#E7FAFE] hover:text-gray-700 hover:scale-105"}`}
               >
                 Setting
-              </a>
+              </Link>
             </li>
             
-
+            <div className={`${accessToken  ? "hidden" : "block" }`}>
             <li>
-              <a
+              <Link
+                key={currentPath}
                 href="/login"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
+                className={`block rounded-lg px-4 py-2 text-sm font-medium text-gray-500  transition-all ${currentPath === "/login" ? "bg-[#E7FAFE] text-gray-700 scale-105" : "hover:bg-[#E7FAFE] hover:text-gray-700 hover:scale-105"}`}
               >
                 Login
-              </a>
+              </Link>
             </li>
-            <li>
-              <a
-                href="#"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
-              >
-                Logout
-              </a>
-            </li>
-            <li>
-              <a
-                href="/register"
-                className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-[#E7FAFE] hover:text-gray-700"
-              >
-                Singn Up
-              </a>
-            </li>
+            
+              <li>
+                <Link
+                  key={currentPath}
+                  href="/register"
+                  className={`block rounded-lg px-4 py-2 text-sm font-medium text-gray-500  transition-all ${currentPath === "/register" ? "bg-[#E7FAFE] text-gray-700 scale-105" : "hover:bg-[#E7FAFE] hover:text-gray-700 hover:scale-105"}`}
+                >
+                  Singn Up
+                </Link>
+              </li>
+
+              </div>
+              <li className={`${accessToken  ? "block" : "hidden" }`} >
+                <Link
+                  key={currentPath}
+                  href="#"
+                  className={`block rounded-lg px-4 py-2 text-sm font-medium text-gray-500  transition-all ${currentPath === "#" ? "bg-[#E7FAFE] text-gray-700 scale-105" : "hover:bg-[#E7FAFE] hover:text-gray-700 hover:scale-105"}`}
+                  onClick={handleLogout}
+                >
+                  Logout
+                </Link>
+              </li>
+            
           </ul>
 
           
@@ -260,7 +387,7 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
           <div className="bg-white flex flex-col items-center gap-2 p-4 hover:bg-gray-50">
             <Image
               className="w-[80px] h-[80px] object-cover relative size-10 rounded-full"
-              src="/images/IMG_8991.jpg"
+              src={infoUser?.avatar ?? '/icon/default_avatar.png'}
               alt="avata"
               width={80} // Điều chỉnh width và height để khớp với kích thước mong muốn
               height={80}
@@ -271,9 +398,9 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
             <div className="flex justify-center items-center">
               <div className="text-xs">
                 <p className="block text-[15px] font-[700] text-center">
-                  Ngo Son
+                  {infoUser?.username}
                 </p>
-                <p className="block text-center">eric@frusciante.com</p>
+                <p className="block text-center">{infoUser?.email}</p>
               </div>
             </div>
           </div>

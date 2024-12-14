@@ -9,7 +9,7 @@ export async function GET(request: NextRequest) {
 
     // Tính toán mốc thời gian 2 ngày trước
     const twoDaysAgo = new Date();
-    twoDaysAgo.setDate(twoDaysAgo.getDate() - 5);
+    twoDaysAgo.setDate(twoDaysAgo.getDate() - 7);
 
     // Lấy tất cả công thức được thêm vào cách đây 2 ngày trở lại
     const recentRecipes = await Recipe.find({

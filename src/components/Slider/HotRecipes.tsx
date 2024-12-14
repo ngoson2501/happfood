@@ -1,6 +1,6 @@
 "use client"
 import React from "react";
-//import { Carousel } from "antd";
+import Link from "next/link";
 import { useRouter } from "next/navigation"; // Import useRouter
 import Image from "next/image";
 import "../../css/custom-carousel.css";
@@ -32,8 +32,6 @@ const HotRecipes: React.FC<RecipeProps> = ({ recipe }) => {
   const { userInfo} = useUserInfo(recipe?.user ?? null);
 
 
-  console.log("id use recipe hot:",recipe?.user)
-
 
   function formatDate(dateString: string) {
     const date = new Date(dateString);
@@ -61,31 +59,38 @@ const HotRecipes: React.FC<RecipeProps> = ({ recipe }) => {
 
   const handleNavigate = async () => {
     await increaseView(recipe.id); // Gửi yêu cầu tăng view
-    router.push(`/detailed_recipes?id=${recipe.id}`); // Điều hướng đến detailed_recipes với id
+    router.push(`/detailed_recipes/${recipe.id}`); // Điều hướng đến detailed_recipes với id
   };
+
+  const navigationAthorRecipes = async()=>{
+    router.push(`/author_recipes/${recipe?.user}`); 
+
+  }
   return (
     <>
       <div className=" lg:px-[0px] w-full h-[250px] lg:h-[500px] xl:h-[626px] flex justify-center items-center">
         <div className=" h-full relative flex flex-row justify-center items-center">
           <div className="bg-[#E7FAFE] w-[100%] h-full  lg:rounded-l-[50px]">
             <div className=" w-full h-full flex flex-col justify-between xl:gap-[40px] p-[20px] lg:p-[50px]">
-              <div className="bg-white w-fit flex gap-1 lg:gap-3 px-[8px] xl:px-[20px] py-[5px] xl:py-[10px] rounded-full justify-center items-center">
+              
+              <Link href="/recipes"
+                className="bg-white cursor-pointer w-fit flex gap-1 lg:gap-3 px-[8px] xl:px-[20px] py-[5px] xl:py-[10px] rounded-full justify-center items-center transform transition-transform duration-200 hover:scale-105"
+                >
                 <div className="w-[11px] h-[12px] lg:w-[24px] lg:h-[24px]">
-
-                <Image
-                  className="w-[11px] h-[11px] lg:w-[24px] lg:h-[24px]"
-                  src="/icon/note.svg"
-                  alt="icon-note"
-                  width={20}
-                  height={20}
-                />
+                  <Image
+                    className="w-[11px] h-[11px] lg:w-[24px] lg:h-[24px]"
+                    src="/icon/note.svg"
+                    alt="icon-note"
+                    width={20}
+                    height={20}
+                  />
                 </div>
-                
 
                 <p className="text-[8px] lg:text-[12px] xl:text-[14px] font-[600] lg:font-[600] font-Inter">
                   Công thức Hot
                 </p>
-              </div>
+              </Link>
+
               <p
                 className="  text-[20px] lg:text-[40px]  xl:text-[55px] font-[700] font-Inter  line-clamp-2 truncate whitespace-normal text-clip overflow-hidden"
                 style={{ lineHeight: "1.2", minHeight: "1em" }}
@@ -151,7 +156,8 @@ const HotRecipes: React.FC<RecipeProps> = ({ recipe }) => {
               <div className="flex justify-between">
                 <div className="w-fit flex justify-center items-center gap-1 lg:gap-3">
                   <Image
-                    className="object-cover rounded-full w-[20px] h-[20px] lg:w-[45px] lg:h-[45px]"
+                    onClick={navigationAthorRecipes}
+                    className="object-cover cursor-pointer rounded-full w-[20px] h-[20px] lg:w-[40px] lg:h-[40px]"
                     src={userInfo?.avatar ?? '/icon/default_avatar.png'}
                     alt="avata"
                     width={45}
@@ -167,22 +173,28 @@ const HotRecipes: React.FC<RecipeProps> = ({ recipe }) => {
                   </span>
                 </div>
 
-                <div className="bg-black w-fit flex justify-center items-center gap-1 lg:gap-4 cursor-pointer rounded-[5px]  xl:rounded-[10px]  xl:py-[12px] px-[7px] lg:px-[20px] xl:px-[30px]">
+                
+
+                <div className="bg-black w-fit flex justify-center items-center gap-1 lg:gap-4 cursor-pointer rounded-[5px] lg:rounded-[10px] xl:rounded-[10px] xl:py-[12px] px-[7px] lg:px-[15px] xl:px-[30px] transform transition-transform duration-200 hover:scale-105">
                   <p 
-                  className="text-white w-fit font-Inter text-[7px] lg:text-[12px] xl:text-[14px] font-[500]"
-                  onClick={handleNavigate}
+                    className="text-white w-fit font-Inter text-[7px] lg:text-[12px] xl:text-[14px] font-[500]"
+                    onClick={handleNavigate}
                   >
                     View Recipes
                   </p>
 
                   <Image
-                    className="w-[12] h-[12px] lg:w-[24px] lg:h-[24px] "
+                    className="w-[12] h-[12px] lg:w-[24px] lg:h-[24px]"
                     src="/icon/PlayCircle.svg"
                     alt="PlayCircle"
                     width={12}
                     height={12}
                   />
                 </div>
+
+
+
+
               </div>
             </div>
           </div>

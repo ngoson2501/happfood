@@ -1,15 +1,16 @@
 "use client";
-import Recipes_5 from "../Recipes/Recipes_5";
+import Recipes_1 from "../Recipes/Recipes_1";
 import { useAuthorRecipes } from "@/context/AuthorRecipesContext";
 import { useEffect } from "react";
+import useUserInfo from "../../../hooks/useUserInfo";
 
-const ListYourRecipes = ({
+const ListAuthorRecipes = ({
   idAuthorRecipe,
 }: {
   idAuthorRecipe: string | undefined;
 }) => {
   const { recipes, loading, error, fetchRecipesByAuthor } = useAuthorRecipes();
-
+  const { userInfo } = useUserInfo(idAuthorRecipe ?? null);
   useEffect(() => {
     if (idAuthorRecipe) {
       fetchRecipesByAuthor(idAuthorRecipe);
@@ -17,6 +18,9 @@ const ListYourRecipes = ({
   }, [idAuthorRecipe]);
 
 
+//   if (!idAuthorRecipe) {
+//     return <p className="text-gray-500">No author selected.</p>;
+//   }
 
   if (loading) {
     return (
@@ -40,22 +44,27 @@ const ListYourRecipes = ({
     <>
       <div className="flex flex-col gap-[60px] xl:gap-[114px] mt-[50px]  xl:mt-[120px]">
         <div className=" px-[10px] xl:px-0 flex flex-col justify-center font-Inter items-center gap-[20px] lg:gap-[30px]">
-          <h1 className=" text-[25px] lg:text-[30px] text-center xl:text-[40px] font-[700]">
-            Những công thức nấu ăn tuyệt vời của bạn
-          </h1>
-          <p
-            className="text-[14px] lg:text-[15px] xl:text-[16px] text-center max-w-[700px] font-light"
-            style={{ color: "rgba(0, 0, 0, 60%)" }}
-          >
-            Đây là tổng hợp những công thức nấu ăn tuyệt vời mà bạn đã chia sẻ
-            cho chính tôi. Với sự đa dạng từ những cách chế biến và nguyên liệu,
-            chúng tôi cảm ơn vì những công thức vô cùng tuyệt vời mà bạn đã chia
-            sẻ với chúng tôi.
-          </p>
+        
+        
+
+<h1 className="text-[25px] lg:text-[30px] text-center xl:text-[40px] font-[700]">
+  Những công thức nấu ăn tuyệt vời của{" "}
+  <span className="text-[#FF6347] font-bold">{userInfo?.username}</span>
+</h1>
+<p
+  className="text-[14px] lg:text-[15px] xl:text-[16px] text-center max-w-[700px] font-light"
+  style={{ color: "rgba(0, 0, 0, 60%)" }}
+>
+  Chào mừng đến với bộ sưu tập công thức nấu ăn của{" "}
+  <span className="text-[#FF6347] font-bold">{userInfo?.username}</span>! 
+  Tại đây, bạn sẽ khám phá những món ăn độc đáo và đầy sáng tạo của tôi.
+</p>
+
+
         </div>
         <div className="w-full  gap-[10px] lg:gap-[30px] flex flex-wrap xl:gap-[40px] justify-center xl:px-0 lg:justify-center items-center">
           {recipes.map((recipe) => (
-            <Recipes_5 key={recipe.id} recipe={recipe} />
+            <Recipes_1 key={recipe.id} recipe={recipe} />
           ))}
         </div>
       </div>
@@ -63,4 +72,4 @@ const ListYourRecipes = ({
   );
 };
 
-export default ListYourRecipes;
+export default ListAuthorRecipes;

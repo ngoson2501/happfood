@@ -1,7 +1,7 @@
 "use client"
 import { useState, useEffect } from "react";
 
-const useFetchNewRecipes = (url: string) => {
+const useFetchNewRecipes = () => {
   const [data, setData] = useState<any[]>([]); // State lưu dữ liệu
   const [loading, setLoading] = useState(true); // State hiển thị trạng thái loading
   const [error, setError] = useState<string | null>(null); // State lưu lỗi nếu có
@@ -12,7 +12,7 @@ const useFetchNewRecipes = (url: string) => {
       setError(null);
 
       try {
-        const response = await fetch(url);
+        const response = await fetch("/api/recipes/get_new_recipes");
         const result = await response.json();
 
         if (response.ok) {
@@ -28,7 +28,7 @@ const useFetchNewRecipes = (url: string) => {
     };
 
     fetchData();
-  }, [url]);
+  }, []);
 
   return { data, loading, error }; // Trả về dữ liệu, loading, và lỗi
 };

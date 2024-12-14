@@ -19,7 +19,7 @@ export default function SettingLayout({
       >
         {/* Sidebar */}
         <div className=" w-full  lg:w-1/3 h-fit p-4">
-          <ul className="w-full text-gray-400 flex gap-5 items-center lg:items-start flex-row lg:flex-col">
+          <ul className="w-full text-gray-400 flex flex-wrap gap-5 items-center lg:items-start flex-row lg:flex-col">
             <li className=" h-full">
               <Link
                 href="/profile"
@@ -38,6 +38,26 @@ export default function SettingLayout({
                 }`}
               >
                 Password
+              </Link>
+            </li>
+            <li className=" h-full">
+              <Link
+                href="/add_recipe"
+                className={`hover:underline ${
+                  pathname === "/add_recipe" ? "text-black font-bold" : ""
+                }`}
+              >
+                Add Recipe
+              </Link>
+            </li>
+            <li className=" h-full">
+              <Link
+                href="/your_recipes"
+                className={`hover:underline ${
+                  pathname === "/your_recipes" ? "text-black font-bold" : ""
+                }`}
+              >
+                Edit Recipe
               </Link>
             </li>
           </ul>

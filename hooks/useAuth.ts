@@ -9,14 +9,14 @@ import { message } from 'antd';
 export const useAuth = () => {
   const pathname = usePathname();
   const router = useRouter();
-  const accessToken = localStorage.getItem('accessToken');
-      const refreshToken = localStorage.getItem('refreshToken');
+ 
 
   useEffect(() => {
     // Các trang không cần kiểm tra accessToken
     
     if (pathname === '/' || pathname === '/login' || pathname === '/register' || pathname === '/forgot_password') return;
-    
+    const accessToken = localStorage.getItem('accessToken');
+    const refreshToken = localStorage.getItem('refreshToken');
     
     if (!accessToken && !refreshToken) {
       //window.location.href = '/login';

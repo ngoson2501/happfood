@@ -20,7 +20,7 @@ const menuItems: {
   Recipes: MenuItem;
   Categories: MenuItem;
   Blog: MenuItem;
-  Contact: MenuItem;
+  //Contact: MenuItem;
   Library: MenuItem;
   Dashboard?: MenuItem;
   
@@ -29,7 +29,7 @@ const menuItems: {
   Recipes: { label: "Recipes", href: "/recipes", subItems: [] },
   Categories: { label: "Categories", href: "/categories", subItems: [] },
   Blog: { label: "Blog", href: "/blog", subItems: [] },
-  Contact: { label: "Contact", href: "#", subItems: [{ label: "Add recipe", href: "/add_recipe" }, { label: "Generate", href: "/generate" }] },
+  //Contact: { label: "Contact", href: "#", subItems: [{ label: "Add recipe", href: "/add_recipe" }, { label: "Generate", href: "/generate" }] },
   Library: { label: "Library", href: "#", subItems: [{ label: "Add recipe", href: "/add_recipe" }, { label: "Your recipes", href: "/your_recipes" }, { label: "Favorite recipes", href: "/favorite" }, { label: "Generate", href: "/generate" }] },
   //Dashboard: { label: "Dashboard", href: "/", subItems: [] },
 };
@@ -47,7 +47,7 @@ const Header: React.FC = () => {
   const infoUser = useUser();
   
 
-  console.log("check infoUser?.avatar", infoUser?.avatar)
+
 
 
   useEffect(() => {

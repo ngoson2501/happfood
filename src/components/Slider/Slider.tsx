@@ -10,8 +10,7 @@ const Slider = () => {
     "/api/recipes/get_hot_recipes"
   ); // Sử dụng custom hook
 
-  // Log dữ liệu nhận được
-  console.log("Hot Recipes Data:", hotRecipes);
+
 
   if (loading) {
     return(

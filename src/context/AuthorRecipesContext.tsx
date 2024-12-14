@@ -1,7 +1,6 @@
 "use client"
 import React, { createContext, useContext, useState} from "react";
 
-
 interface IHashtag {
     value: string;
     label: string;

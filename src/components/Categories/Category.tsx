@@ -11,7 +11,7 @@ interface CategoryData {
   label: string;
   coverImage: string;
   color: string;
-  href: string;
+  //href: string;
 }
 
 interface CategoryProps {
@@ -24,9 +24,11 @@ const Category: React.FC<CategoryProps> = ({ category }) => {
     <>
       <Link
         href={{
-          pathname: `/categories/${category.title}`,
+          pathname: `/categories/${encodeURIComponent(category.title)}`,
           query: {
-            item: JSON.stringify(category),
+            title: encodeURIComponent(category.title),
+            //id: category._id,
+             // Mã hóa title trong query
           },
         }}
         className="relative w-[150px] h-[170px] rounded-[20px] xl:w-[180px] xl:h-[202px] xl:rounded-[30px] flex flex-col items-center justify-center gap-[10px] xl:gap-[20px] cursor-pointer hover:shadow-md"
@@ -41,6 +43,7 @@ const Category: React.FC<CategoryProps> = ({ category }) => {
             width={60}
             height={60}
             className="xl:w-[80px] xl:h-[80px] relative z-10"
+            priority
           />
           <Image
             src={`/icon/categories/${category.coverImage}`}
@@ -49,6 +52,7 @@ const Category: React.FC<CategoryProps> = ({ category }) => {
             height={60}
             className="xl:w-[80px] xl:h-[80px] absolute top-0 left-0 blur-md opacity-50"
             style={{ transform: "translate(5px, 5px)" }}
+            priority
           />
         </div>
         <p className="font-Inter font-[600] text-[16px] xl:text-[18px]">

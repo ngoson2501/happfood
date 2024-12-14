@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { message } from 'antd';
 
+
 interface Category {
     _id: string;
     title: string;
@@ -15,6 +16,7 @@ const useCategories = () => {
     const [categories, setCategories] = useState<Category[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
+   
 
     const fetchCategories = async () => {
         setLoading(true);
