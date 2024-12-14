@@ -15,31 +15,36 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
 
   const pathname = usePathname(); // Lấy đường dẫn hiện tại
   const [currentPath, setCurrentPath] = useState<string>("");
+  const [accessToken, setAccessToken] = useState<string | null>(null); // Quản lý state cho accessToken
   const infoUser = useUser();
   const categories = ["Break Fast", "Lunch", "Vegan", "Meat", "Chicken", "Dessert", "Ice Cream", "Chocolate"];
-  // Kiểm tra nếu accessToken tồn tại
-  const accessToken = localStorage.getItem('accessToken');
+
+  // Kiểm tra nếu accessToken tồn tại trong useEffect (chỉ thực hiện trên client)
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const token = localStorage.getItem('accessToken');
+      setAccessToken(token);
+    }
+  }, []); // Empty dependency array ensures this runs only once after component mounts
 
   const handleLogout = async () => {
     const confirmLogout = window.confirm("Bạn có chắc chắn muốn đăng xuất?");
     if (confirmLogout) {
       try {
-        const accessToken = localStorage.getItem("accessToken");
-        const  res = await fetch('/api/auth/logout', {
+        // Gửi token đăng xuất
+        const res = await fetch('/api/auth/logout', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ accessToken }), // Gửi refreshToken để backend xử lý
+          body: JSON.stringify({ accessToken }), // Gửi accessToken để backend xử lý
         });
 
-        
-  
         // Xoá token trong localStorage
-        localStorage.removeItem("accessToken");
-        //localStorage.removeItem("refreshToken");
-        //setIsLoggedIn(false);
-  
+        if (typeof window !== "undefined") {
+          localStorage.removeItem("accessToken");
+        }
+
         // Chuyển hướng về trang đăng nhập
         window.location.href = '/login';
       } catch (error) {
@@ -48,7 +53,6 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
       }
     }
   };
-
 
   useEffect(() => {
     setCurrentPath(pathname);
