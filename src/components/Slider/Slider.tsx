@@ -6,9 +6,7 @@ import useFetchHotRecipes from "../../../hooks/useFetchHotRecipes";
 import "../../css/custom-carousel.css";
 
 const Slider = () => {
-  const { data: hotRecipes, loading, error } = useFetchHotRecipes(
-    "/api/recipes/get_hot_recipes"
-  ); // Sử dụng custom hook
+  const { data: hotRecipes, loading, error } = useFetchHotRecipes(); // Sử dụng custom hook
 
 
 

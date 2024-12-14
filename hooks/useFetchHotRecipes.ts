@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 
-const useFetchHotRecipes = (url: string) => {
+const useFetchHotRecipes = () => {
   const [data, setData] = useState<any[]>([]); // State để lưu dữ liệu
   const [loading, setLoading] = useState(true); // State để hiển thị trạng thái loading
   const [error, setError] = useState<string | null>(null); // State để lưu lỗi (nếu có)
@@ -13,7 +13,7 @@ const useFetchHotRecipes = (url: string) => {
       setError(null);
 
       try {
-        const response = await fetch(url);
+        const response = await fetch("/api/recipes/get_hot_recipes");
         const result = await response.json();
 
         if (response.ok) {
@@ -29,7 +29,7 @@ const useFetchHotRecipes = (url: string) => {
     };
 
     fetchData();
-  }, [url]);
+  }, []);
 
   return { data, loading, error }; // Trả về các state và hàm
 };

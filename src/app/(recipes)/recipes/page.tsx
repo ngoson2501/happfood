@@ -17,8 +17,8 @@ const Recipes = () => {
     const [currentBatch1, setCurrentBatch1] = useState(1);
     const [currentBatch2, setCurrentBatch2] = useState(1);
 
-    const { data: hotRecipes, loading: loadingHotRecipes, error: errorHotRecipes } = useFetchHotRecipes("/api/recipes/get_hot_recipes");
-    const { data: newRecipes, loading: loadingNewRecipes, error: errorNewRecipes } = useFetchNewRecipes("/api/recipes/get_new_recipes");
+    const { data: hotRecipes, loading: loadingHotRecipes, error: errorHotRecipes } = useFetchHotRecipes();
+    const { data: newRecipes, loading: loadingNewRecipes, error: errorNewRecipes } = useFetchNewRecipes();
 
     // Nếu có lỗi hoặc đang tải dữ liệu
     if (loadingHotRecipes || loadingNewRecipes) {
