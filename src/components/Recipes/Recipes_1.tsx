@@ -115,6 +115,16 @@ const Recipes_1: React.FC<RecipeProps> = ({ recipe }) => {
           height={130}
           onClick={handleNavigate}
         />
+        {/* <div className="relative w-[180px] h-[130px]">
+  <Image
+    className="object-cover object-center transition-transform duration-500 ease-in-out transform group-hover:scale-110"
+    src={recipe?.media ?? "/images/default_image.png"}
+    alt={recipe?.name}
+    fill
+    sizes="(max-width: 768px) 100vw, 180px"
+    onClick={handleNavigate}
+  />
+</div> */}
        
         <div className="absolute z-10 w-[40px] h-[40px] lg:w-[60px] lg:h-[60px] right-0 flex justify-center items-center">
           {/* <div className="bg-white w-[30px] h-[30px] lg:w-[40px] lg:h-[40px] rounded-full flex gap-1 justify-center items-center">

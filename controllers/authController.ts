@@ -11,25 +11,53 @@ import { createAccessToken, createRefreshToken, verifyRefreshToken, verifyAccess
 
 
 
+
+
 export const registerUser = async (req: Request) => {
   try {
     const body = await req.json();
     const { username, email, password, role } = body;
-    
+
     console.log("body", body);
 
     await connect();
 
-    // Kiểm tra xem người dùng đã tồn tại trong csdl chưa
-    const existingUser = await User.findOne({ email });
-    if (existingUser) {
+    // Kiểm tra định dạng email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
       return NextResponse.json(
-        { message: 'User already exists' },
+        { message: 'Invalid email format' },
         { status: 400 }
       );
     }
 
-    // Hash mật khẩu của người dùng
+    // Kiểm tra độ dài và cấu trúc mật khẩu
+    if (password.length < 6 || !/[A-Za-z]/.test(password)) {
+      return NextResponse.json(
+        { message: 'Password must be at least 6 characters long and contain at least one letter' },
+        { status: 400 }
+      );
+    }
+
+    // Kiểm tra xem username đã tồn tại chưa
+    const existingUsername = await User.findOne({ username });
+    if (existingUsername) {
+      return NextResponse.json(
+        { message: 'Username already exists' },
+        { status: 400 }
+      );
+    }
+
+    // Kiểm tra xem email đã tồn tại chưa
+    const existingEmail = await User.findOne({ email });
+    if (existingEmail) {
+      return NextResponse.json(
+        { message: 'Email already exists' },
+        { status: 400 }
+      );
+    }
+
+    // Hash mật khẩu
     const hashedPassword = await hashPassword(password);
 
     // URL avatar mặc định
@@ -39,20 +67,20 @@ export const registerUser = async (req: Request) => {
       '/defaultAvatars/frog.png',
       '/defaultAvatars/elephant.png',
     ];
-    
-    // Chọn một URL avatar ngẫu nhiên từ danh sách avatar mặc định
+
+    // Chọn avatar ngẫu nhiên
     const avatarUrl = defaultAvatars[Math.floor(Math.random() * defaultAvatars.length)];
 
-    // Tạo người dùng mới với role từ client
+    // Tạo người dùng mới
     const newUser = await User.create({
       username,
       email,
       password: hashedPassword,
-      role, // Thêm trường role vào đây
+      role,
       avatar: avatarUrl,
     });
 
-    // Gửi thông báo thành công
+    // Gửi phản hồi thành công
     return NextResponse.json(
       { message: 'User registered successfully', user: newUser },
       { status: 201 }
@@ -66,8 +94,6 @@ export const registerUser = async (req: Request) => {
     );
   }
 };
-
-
 
 
 

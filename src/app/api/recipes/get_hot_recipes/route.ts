@@ -9,7 +9,7 @@ export async function GET() {
     await connect();
 
     // Lấy 2 công thức có số views cao nhất
-    const hotRecipes = await Recipe.find().sort({ views: -1 }).limit(2);
+    const hotRecipes = await Recipe.find().sort({ views: -1 }).limit(4);
 
     // Kiểm tra nếu không có công thức nào
     if (!hotRecipes || hotRecipes.length === 0) {

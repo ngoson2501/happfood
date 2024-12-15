@@ -114,7 +114,7 @@ const SideMenu: React.FC<SideMenuProps> = ({ onClick, setSatteSideMenu }) => {
               </a>
             </li> */}
 
-            <li>
+            <li className={`${infoUser?.role === "admin"  ? "block" : "hidden" }`}>
               <Link
                 key={currentPath}
                 href="/dashboard"

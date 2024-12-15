@@ -19,10 +19,10 @@ const LoginPage: React.FC = () => {
 
   return (
     <>
-      <main className="w-screen h-screen flex justify-center items-center">
+      <main className=" w-screen h-screen flex justify-center py-[80px]">
 
         <div
-          className="bg-white w-[80%] py-[30px] lg:py-0 lg:h-[600px] rounded-lg flex flex-col lg:flex-row"
+          className="bg-white w-[80%] h-fit py-[30px] lg:py-0 lg:h-[600px] rounded-lg flex flex-col lg:flex-row"
           style={{
             boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.15)",
           }}
@@ -104,30 +104,8 @@ const LoginPage: React.FC = () => {
             </form>
           </div>
 
-          {/* <div
-            className="w-full   bg-no-repeat bg-center bg-cover rounded-r-lg"
-            style={{
-              backgroundImage: "url('/images/background.png')",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          >
-            <Link
-              href="/register"
-              className="bg-[#FFCA42] hover:bg-[#ffbe1a] w-fit flex justify-center items-center gap-2 p-[5px] cursor-pointer"
-            >
-              <p>Sign up</p>
-              <Image
-                className="object-cover object-center "
-                src="/icon/Vector-right.png"
-                alt="Vector-right"
-                width={30}
-                height={15}
-              />
-            </Link>
-          </div> */}
           
-          <div className="hidden lg:block w-full h-full  relative overflow-hidden">
+          <div className="hidden lg:block w-full h-full  relative rounded-r-[8px] overflow-hidden">
             <Image
             className="z-10 w-full h-full object-cover object-center absolute inset-0"
             src="/images/background.png"
