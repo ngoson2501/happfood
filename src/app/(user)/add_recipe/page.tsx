@@ -32,7 +32,7 @@ interface Ration {
   unit: string;
 }
 
-const rationUnitOptions = ["cái", "phần", "người", "suất", "hộp", "đĩa", "gram"]; // Đơn vị cho Ration
+const rationUnitOptions = ["cái", "phần", "người", "suất", "hộp", "đĩa", "gram", "chiếc", "cốc", "bát"]; // Đơn vị cho Ration
 const unitOptions = ["", "trái", "quả", "củ", "cây", "lá", "ml", "lít", "gram", "kg", "muỗng canh", "cup", "bát", "tép", "nhánh", "lát", "muỗng cà phê", "nhúm nhỏ", "chút xíu", "lượng vừa đủ", "khác"];
 
 const AddRecipe = () => {

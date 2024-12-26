@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import SideMenu from "../SideMenu/SideMenu";
 import { useUser } from '@/context/User-provider';
+import Search from '../Search/Search';
 
 
 // Định nghĩa kiểu MenuItem với href
@@ -30,8 +31,8 @@ const menuItems: {
   Categories: { label: "Categories", href: "/categories", subItems: [] },
   Blog: { label: "Blog", href: "/blog", subItems: [] },
   //Contact: { label: "Contact", href: "#", subItems: [{ label: "Add recipe", href: "/add_recipe" }, { label: "Generate", href: "/generate" }] },
-  Library: { label: "Library", href: "#", subItems: [{ label: "Add recipe", href: "/add_recipe" }, { label: "Your recipes", href: "/your_recipes" }, { label: "Favorite recipes", href: "/favorite" }, { label: "Generate", href: "/generate" }] },
-  //Dashboard: { label: "Dashboard", href: "/", subItems: [] },
+  Library: { label: "Library", href: "#", subItems: [{ label: "Add recipe", href: "/add_recipe" }, { label: "Your recipes", href: "/your_recipes" }, { label: "Favorite recipes", href: "/favorite" }] },
+
 };
 
 
@@ -52,7 +53,7 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("accessToken");
-    console.log("het phien")
+    //console.log("het phien")
     setIsLoggedIn(token !== null && infoUser !== null); // Đặt isLoggedIn là true chỉ khi có cả token và infoUser
   }, [infoUser]);
 
@@ -143,7 +144,7 @@ const Header: React.FC = () => {
     <header className="w-full max-w-[1425px] flex justify-center items-center h-[80px] relative">
       <div className="bg-white w-full max-w-[1425px] h-[80px] border-b-[1px] border-b-[#e1e1e1] fixed top-0 z-50 flex items-center justify-between px-[20px] lg:px-[50px]">
         <div>
-          <Link href="/" className="font-lobster italic text-[16px] lg:text-[20px] xl:text-[25px] font-[600] cursor-pointer">
+          <Link href="/" className="font-lobster italic text-[18px] lg:text-[20px] xl:text-[25px] font-[600] cursor-pointer">
             HappyFood
           </Link>
         </div>
@@ -191,8 +192,8 @@ const Header: React.FC = () => {
           </ul>
         </div> */}
 
-<div className="hidden md:block md:text-[13px] lg:text-[14px] xl:text-[15px]">
-  <ul className="flex gap-[50px] font-Inter">
+<div className=" hidden md:block md:text-[13px] lg:text-[14px] xl:text-[15px]">
+  <ul className="flex md:gap-[15px] xl:gap-[50px] font-Inter">
     {Object.keys(menuItems).map((key) => {
       const menuItem = menuItems[key as keyof typeof menuItems];
 
@@ -206,14 +207,14 @@ const Header: React.FC = () => {
       return (
         <li
           key={key}
-          className="cursor-pointer relative flex justify-center"
+          className=" cursor-pointer relative flex justify-center"
           onMouseEnter={() => setHoverItem(key)}
           onMouseLeave={() => setHoverItem(null)}
         >
           <Link href={menuItem.href || "#"}>{menuItem.label}</Link>
           {hasSubItems && (
             <div
-              className={`text-[12px] xl:text-[15px] absolute xl:mt-[35px] z-20 rounded-[5px] border font-Inter w-[150px] h-fit bg-white flex flex-col justify-center items-center gap-2 xl:gap-1 transition-opacity duration-1000 ${
+              className={`bg-white text-[12px] xl:text-[15px] absolute md:mt-[35px] z-20 rounded-[5px] border font-Inter w-[150px] h-fit flex flex-col justify-center items-center gap-2 xl:gap-1 transition-opacity duration-1000 ${
                 visibleItem === key ? "" : "hidden"
               }`}
               style={{
@@ -247,8 +248,25 @@ const Header: React.FC = () => {
         <Link href="/dashboard">Dashboard</Link>
       </li>
     )}
+
+    
   </ul>
+
+  
+    
+  
+
 </div>
+
+        {isLoggedIn && (
+
+          <div className=' w-[200px] lg:w-[210px] xl:w-[300px]'>
+            <Search></Search>
+          </div>
+
+        )}
+
+        
 
 
 

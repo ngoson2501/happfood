@@ -57,7 +57,27 @@ export default function SettingLayout({
                   pathname === "/your_recipes" ? "text-black font-bold" : ""
                 }`}
               >
+                All Recipes
+              </Link>
+            </li>
+            <li className=" h-full">
+              <Link
+                href="/your_recipes"
+                className={`hover:underline ${
+                  pathname === "/your_recipes" ? "text-black font-bold" : ""
+                }`}
+              >
                 Edit Recipe
+              </Link>
+            </li>
+            <li className=" h-full">
+              <Link
+                href="/favorite"
+                className={`hover:underline ${
+                  pathname === "/your_recipes" ? "text-black font-bold" : ""
+                }`}
+              >
+                Favorite Recipes
               </Link>
             </li>
           </ul>

@@ -24,7 +24,7 @@ export async function POST(request: Request) {
     
 
     if (recipes.length === 0) {
-      return NextResponse.json({ message: "Không tìm thấy công thức cho danh mục này" }, { status: 404 });
+      return NextResponse.json({ message: "Chưa có công thức liên quan" }, { status: 404 });
     }
 
     // Xử lý dữ liệu trước khi gửi

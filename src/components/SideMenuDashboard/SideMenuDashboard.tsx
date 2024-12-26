@@ -11,7 +11,7 @@ const SideMenuDashboard: React.FC = () => {
   const [currentPath, setCurrentPath] = useState<string>("");
 
   const infoUser = useUser();
-  console.log("check info>>>>>>>>>role:", infoUser)
+  //console.log("check info>>>>>>>>>role:", infoUser)
 
   useEffect(() => {
     setCurrentPath(pathname);
@@ -109,27 +109,73 @@ const SideMenuDashboard: React.FC = () => {
 
 
 
+
               <div className=" relative">
 
-                <input type="checkbox" id="toggleSubMenuCategories" className="hidden peer" />
-                <label
-                  htmlFor="toggleSubMenuCategories"
-                  className={`w-full block text-sm font-medium py-2 px-2 rounded-md transition duration-150 ease-in-out cursor-pointer ${
-                    currentPath === "/dashboard/categories/all" ? "bg-[#a1e6f4] text-white" : "text-gray-700 hover:bg-[#a1e6f4] hover:text-white hover:scale-105"
-                  }`}
-                >
-                  <span>Categories</span>
-                </label>
+              <input type="checkbox" id="toggleSubMenuCategories" className="hidden peer" />
+              <label
+                htmlFor="toggleSubMenuCategories"
+                className={`w-full block text-sm font-medium py-2 px-2 rounded-md transition duration-150 ease-in-out cursor-pointer ${
+                  currentPath === "/dashboard/recipes/all" ? "bg-[#a1e6f4] text-white" : "text-gray-700 hover:bg-[#a1e6f4] hover:text-white hover:scale-105"
+                }`}
+              >
+                <span>Recipes</span>
+              </label>
 
-                <ul className="hidden peer-checked:block ml-4 space-y-1 mt-1">
-                  <Link href="/dashboard/categories/all">
-                    <li className={`block hover:scale-105 text-sm font-medium py-1 px-2 rounded-md transition duration-150 ease-in-out ${currentPath === "/dashboard/categories/all" ? "bg-[#e6f7fa] text-gray-900" : "text-gray-600 hover:bg-[#e6f7fa] hover:text-gray-900"}`}>
-                      All
-                    </li>
-                  </Link>
-                 
-                </ul>
+              <ul className="hidden peer-checked:block ml-4 space-y-1 mt-1">
+                <Link href="/dashboard/recipes/all">
+                  <li className={`block hover:scale-105 text-sm font-medium py-1 px-2 rounded-md transition duration-150 ease-in-out ${currentPath === "/dashboard/recipes/all" ? "bg-[#e6f7fa] text-gray-900" : "text-gray-600 hover:bg-[#e6f7fa] hover:text-gray-900"}`}>
+                    All
+                  </li>
+                </Link>
+
+              </ul>
+
+              <ul className="hidden peer-checked:block ml-4 space-y-1 mt-1">
+                <Link href="/dashboard/post_management">
+                  <li className={`block hover:scale-105 text-sm font-medium py-1 px-2 rounded-md transition duration-150 ease-in-out ${currentPath === "/dashboard/post_management" ? "bg-[#e6f7fa] text-gray-900" : "text-gray-600 hover:bg-[#e6f7fa] hover:text-gray-900"}`}>
+                    New post
+                  </li>
+                </Link>
+
+              </ul>
               </div>
+
+
+
+
+              <div className=" relative">
+
+              <input type="checkbox" id="toggleSubMenuRecipes" className="hidden peer" />
+              <label
+                htmlFor="toggleSubMenuRecipes"
+                className={`w-full block text-sm font-medium py-2 px-2 rounded-md transition duration-150 ease-in-out cursor-pointer ${
+                  currentPath === "/dashboard/categories/all" ? "bg-[#a1e6f4] text-white" : "text-gray-700 hover:bg-[#a1e6f4] hover:text-white hover:scale-105"
+                }`}
+              >
+                <span>Categories</span>
+              </label>
+
+              <ul className="hidden peer-checked:block ml-4 space-y-1 mt-1">
+                <Link href="/dashboard/categories/all">
+                  <li className={`block hover:scale-105 text-sm font-medium py-1 px-2 rounded-md transition duration-150 ease-in-out ${currentPath === "/dashboard/categories/all" ? "bg-[#e6f7fa] text-gray-900" : "text-gray-600 hover:bg-[#e6f7fa] hover:text-gray-900"}`}>
+                    All
+                  </li>
+                </Link>
+              
+              </ul>
+              </div>
+
+
+
+              
+
+
+
+
+
+
+              
 
 
 

@@ -112,7 +112,7 @@ export const getUser = async (req: Request) => {
     };
 
     // Console giá trị userData trước khi gửi cho client
-    console.log('User data being sent to client:', userData);
+    //console.log('User data being sent to client:', userData);
 
     return new NextResponse(JSON.stringify(userData), { status: 200 });
   } catch (error: any) {

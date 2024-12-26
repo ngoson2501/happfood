@@ -7,11 +7,13 @@ import Recipes_2 from "@/components/Recipes/Recipes_2";
 import useFetchHotRecipes from '../../../../hooks/useFetchHotRecipes';
 import useFetchNewRecipes from '../../../../hooks/useFetchNewRecipes';
 
+
 const PAGE_SIZE_1 = 9;
 const PAGE_SIZE_2 = 8;
 const PAGES_PER_BATCH = 6;
 
 const Recipes = () => {
+    
     const [currentPage1, setCurrentPage1] = useState(1);
     const [currentPage2, setCurrentPage2] = useState(1);
     const [currentBatch1, setCurrentBatch1] = useState(1);

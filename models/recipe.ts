@@ -40,6 +40,7 @@ interface IRecipe extends Document {
   views: number;  // Trường đếm số lượt xem
   likes: Types.ObjectId[];  // Mảng lưu ID người dùng đã thả tim
   videoLink?: string; // Trường gắn link video
+  status?:boolean
 }
 
 // Định nghĩa schema cho mỗi loại dữ liệu
@@ -83,6 +84,7 @@ const RecipeSchema: Schema = new Schema<IRecipe>(
   views: { type: Number, default: 0 },  // Trường đếm số lượt xem
   likes: [{ type: Schema.Types.ObjectId, ref: 'User' }],  // Mảng lưu ID người dùng đã thả tim
   videoLink: { type: String, required: false, default: null }, // Trường gắn link video
+  status:{type:Boolean, required:false, default: false}
 },
 {
   timestamps: true,

@@ -61,7 +61,9 @@ export const GET = async () => {
     await connect();  // Kết nối với cơ sở dữ liệu
 
     // Lấy tất cả các công thức nấu ăn và populate trường username từ bảng User
-    const recipes = await Recipe.find({}).populate('user', 'username');
+    const recipes = await Recipe.find(
+      { 'status': { $eq: true } }
+    ).populate('user', 'username');
 
     // Chuyển đổi thông tin công thức nấu ăn
     const recipesWithUrls = recipes.map(recipe => {

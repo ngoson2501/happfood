@@ -6,7 +6,7 @@ import connect from '../utils/db';
 import updateLastActive from '../utils/updateLastActive';
 import { hashPassword, comparePassword } from '../services/authService';
 import { createAccessToken, createRefreshToken, verifyRefreshToken, verifyAccessToken } from '../utils/jwt';
-
+//import { OAuth2Client } from 'google-auth-library';
 
 
 
@@ -143,6 +143,60 @@ export const loginUser = async (req: Request) => {
     );
   }
 };
+
+
+
+
+
+
+
+// export const loginWithGoogle = async (req: Request) => {
+//   try {
+//     const body = await req.json();
+//     const { email, googleId, avatar, username } = body;
+
+//     if (!email) {
+//       return NextResponse.json(
+//         { message: 'Email is required for Google login' },
+//         { status: 400 }
+//       );
+//     }
+
+//     await connect();
+
+//     let user = await User.findOne({ email });
+
+//     if (!user) {
+//       user = await User.create({
+//         email,
+//         googleId,
+//         avatar,
+//         username: username || email.split('@')[0],
+//       });
+//     } else if (!user.googleId) {
+//       user.googleId = googleId;
+//       await user.save();
+//     }
+
+//     const accessToken = await createAccessToken({ userId: user._id, role: user.role });
+//     const refreshToken = await createRefreshToken({ userId: user._id, role: user.role });
+
+//     user.refreshToken = refreshToken;
+//     await user.save();
+
+//     return new NextResponse(
+//       JSON.stringify({ accessToken, refreshToken, user }),
+//       { status: 200 }
+//     );
+//   } catch (error: any) {
+//     console.error('Error logging in with Google:', error);
+//     return NextResponse.json(
+//       { message: 'Error logging in with Google', error: error.message },
+//       { status: 500 }
+//     );
+//   }
+// };
+
 
 
 

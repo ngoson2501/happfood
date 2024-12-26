@@ -17,16 +17,16 @@ const RecommendedList = () => {
     ) // Hiển thị trạng thái loading
   }
 
-  if (error) {
-    return (
-      <>
-        <div className='flex items-center justify-center h-full'>
-            <div style={{ borderTopColor: 'transparent' }} className="w-8 h-8 border-4 border-blue-200 rounded-full animate-spin"></div>
-            <p className="ml-2">Error: {error}</p>
-        </div>
-      </>
-    )// Hiển thị lỗi nếu có
-  }
+  // if (error) {
+  //   return (
+  //     <>
+  //       <div className='flex items-center justify-center h-full'>
+  //           <div style={{ borderTopColor: 'transparent' }} className="w-8 h-8 border-4 border-blue-200 rounded-full animate-spin"></div>
+  //           <p className="ml-2">Error: {error}</p>
+  //       </div>
+  //     </>
+  //   )
+  // }
 
   return (
     <div className="flex flex-col mt-[80px] lg:mt-[100px] xl:mt-[180px] gap-[30px] lg:gap-[50px] xl:gap-[90px]">

@@ -29,7 +29,15 @@ const RecipesList = () => {
   }
 
   if (error) {
-    return <p>Error: {error}</p>;
+    //return <p>Error: {error}</p>;
+    return(
+      <>
+        <div className='flex items-center justify-center h-full'>
+            <div style={{ borderTopColor: 'transparent' }} className="w-8 h-8 border-4 border-blue-200 rounded-full animate-spin"></div>
+            <p className="ml-2">Error: {error}</p>
+        </div>
+      </>
+    )
   }
 
 

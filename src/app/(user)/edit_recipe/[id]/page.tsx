@@ -1,5 +1,6 @@
 "use client";
 import {useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import Select, { MultiValue } from "react-select";
 import { useGetHashTags } from "../../../../../hooks/useGetHashTags";
@@ -40,6 +41,9 @@ const rationUnitOptions = [
   "hộp",
   "đĩa",
   "gram",
+  "chiếc",
+  "cốc",
+  "bát"
 ];
 const unitOptions = [
   "",
@@ -376,6 +380,8 @@ const EditRecipe = () => {
               )}
             </div>
 
+
+
             <div className="mb-4">
               <label className="block text-gray-700 mb-2">Ration</label>
               <div className="flex items-center border-[1px] border-[#cbcbcb] rounded overflow-hidden">
@@ -391,19 +397,22 @@ const EditRecipe = () => {
                   placeholder="Số lượng"
                 />
                 <select
-                  className="px-3 py-2 bg-white border-l-[1px] border-[#cbcbcb] focus:outline-none"
+                  className=" px-3 py-2 bg-white border-l-[1px] border-[#cbcbcb] focus:outline-none"
                   value={ration.unit}
                   onChange={(e) => handleRationUnitChange(e.target.value)}
                   required
                 >
                   {rationUnitOptions.map((option, index) => (
-                    <option key={index} value={option}>
+                    <option className="" key={index} value={option}>
                       {option}
                     </option>
                   ))}
                 </select>
               </div>
             </div>
+
+
+
 
             <div className="mb-4">
               <label className="block text-gray-700">Cook Time</label>
@@ -597,7 +606,7 @@ const EditRecipe = () => {
                   <div className="flex justify-center">
                     <button
                       type="button"
-                      className="font-[300] px-4 py-2 text-[#999999] hover:text-black"
+                      className="font-[300] px-4 py-2 text-red-500 hover:text-black"
                       onClick={() => handleRemoveDirection(index)}
                     >
                       - Remove Step
@@ -630,12 +639,12 @@ const EditRecipe = () => {
             </div>
 
             <div className="flex justify-between mt-[40px]">
-              <button
-                type="submit"
+              <Link href="/your_recipes"
+                
                 className="px-[100px] font-[400]  py-4 bg-[#6FCFE2] text-white rounded-[10px] hover:bg-[#3FACC1]"
               >
                 Cancel
-              </button>
+              </Link>
               <button
                 type="submit"
                 className="px-[100px] font-[400]  py-4 bg-black text-white rounded-[10px] hover:bg-[#4A4A4A]"

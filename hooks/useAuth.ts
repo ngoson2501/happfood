@@ -33,7 +33,7 @@ export const useAuth = () => {
       if (accessToken) {
         const decodedAccessToken = jwt.decode(accessToken) as JwtPayload;
 
-        console.log("decodedAccessToken>>>:", decodedAccessToken);
+        //console.log("decodedAccessToken>>>:", decodedAccessToken);
 
         if (decodedAccessToken) {
           const tokenExpiration = decodedAccessToken.exp! * 1000; // Lấy thời gian hết hạn

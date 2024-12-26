@@ -11,7 +11,7 @@ const UserSchema = new Schema(
         avatar: { type:  String, required: false },
         role: { type: String, enum: ['user', 'admin'], default: 'user' },
         lastActive: { type: Date, default: null }, // Thời điểm hoạt động gần nhất
-         
+        //googleId: { type: String, required: false }, // ID người dùng từ Google
     },
     {
         timestamps: true,

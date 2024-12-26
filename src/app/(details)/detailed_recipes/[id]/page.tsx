@@ -303,7 +303,7 @@ const DetailRecipe = () => {
                   <p className="font-[700]">{userInfo?.username}</p>
                   <p style={{ color: "rgba(0, 0, 0, 60%)" }}>
                     {recipe?.createdAt
-                      ? formatDate(recipe.createdAt)
+                      ? formatDate(recipe.updatedAt)
                       : "No date available"}
                   </p>
                 </span>

@@ -9,7 +9,7 @@
 
 
 
-// app/api/auth/register/route.ts
+// /api/auth/register/route.ts
 import { registerUser } from '../../../../../controllers/authController';
 import { NextRequest, NextResponse } from 'next/server';
 

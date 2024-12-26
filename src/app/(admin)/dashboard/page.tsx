@@ -2,6 +2,16 @@
 import React, { useState, useEffect } from "react";
 import { Table, Button, Pagination, message, Image, Select, Input } from "antd";
 import useFetchActiveUsers from "../../../../hooks/useFetchActiveUsers";
+import usePendingRecipes from "../../../../hooks/usePendingRecipes";
+import { useRecipeContext } from "@/context/RecipeContext";
+import useFetchUsers from "../../../../hooks/useFetchUsers";
+import MonthlyRecipesChart from "@/components/MonthlyRecipesChart/MonthlyRecipesChart";
+import WeeklyLoginChart from "@/components/WeeklyLoginChart/WeeklyLoginChart";
+
+import { FiUsers } from "react-icons/fi";
+import { GoNote } from "react-icons/go";
+import Link from "next/link";
+
 
 interface User {
   id: string;
@@ -13,10 +23,16 @@ interface User {
 
 const DashboardPage: React.FC = () => {
   const { activeUsers, loading, error, refetch } = useFetchActiveUsers();
+  const { recipes } = usePendingRecipes();
+  const { recipes:AllPost } = useRecipeContext();
+  const { data: AllUsers } = useFetchUsers(); // Gọi hook
+
   const [filterRole, setFilterRole] = useState("all"); // Filter state
   const [searchKeyword, setSearchKeyword] = useState(""); // Search keyword state
   const pageSize = 4; // Number of records per page
   const [currentPage, setCurrentPage] = useState(1); // Current page
+
+  //const { frequencyData} = useFetchFrequencyData();
 
   console.log("activeUsers>>>>>", activeUsers); // Debugging activeUsers data
 
@@ -106,15 +122,51 @@ const DashboardPage: React.FC = () => {
   console.log("currentData:", currentData);
 
   return (
-    <div className="flex flex-col justify-center items-center w-full p-2 sm:p-4">
+    <div className="bg-white flex flex-col justify-center items-center w-full p-2 sm:p-4">
 
+      <div className="bg-white w-full max-w-full sm:max-w-4xl">
+        <div className=" w-full  flex gap-4 flex-wrap">
+          
+          
+          <Link href="/dashboard/post_management" className="bg-white h-[130px] w-min-[250px] w-[288px] flex justify-center items-center rounded-[10px] group hover:cursor-pointer shadow-lg">
+            <div className="flex justify-center items-center gap-5 transform group-hover:scale-105 transition-transform duration-300">
+              <GoNote className="text-[50px]" />
+              <div className="flex flex-col">
+                <span className="font-[700] text-[20px]">New Post</span>
+                <span className="text-[25px] text-red-500">+ {recipes.length}</span>
+              </div>
+            </div>
+          </Link>
 
-    
+          <Link href="/dashboard/recipes/all" className="bg-white h-[130px] w-min-[250px] w-[288px] flex justify-center items-center rounded-[10px] group hover:cursor-pointer shadow-lg">
+            <div className="flex justify-center items-center gap-5 transform group-hover:scale-105 transition-transform duration-300">
+              <GoNote className="text-[50px]" />
+              <div className="flex flex-col">
+                <span className="font-[700] text-[20px]">All Post</span>
+                <span className="text-[25px] text-green-600">+ {AllPost.length}</span>
+              </div>
+            </div>
+          </Link>
+          
+          <Link href="/dashboard/users/all" className="bg-white h-[130px] w-min-[250px] w-[288px] flex justify-center items-center rounded-[10px] group hover:cursor-pointer shadow-lg">
+            <div className="flex justify-center items-center gap-5 transform group-hover:scale-105 transition-transform duration-300">
+              <FiUsers className="text-[50px]" />
+              <div className="flex flex-col">
+                <span className="font-[700] text-[20px]">Users</span>
+                <span className="text-[25px] text-green-600">+ {AllUsers.length}</span>
+              </div>
+            </div>
+          </Link>
 
-      <div className=" w-full max-w-full sm:max-w-4xl">
-        <div className=" flex flex-col lg:flex-row justify-between items-end mb-4">
-          <div className=" w-full flex flex-col lg:flex-row lg:justify-between space-x-4 items-end">
+         
+
+        </div>
+
+        
+        <div className=" flex flex-col lg:flex-row justify-between items-end my-7">
+          <div className=" w-full flex  lg:justify-between space-x-3 items-end">
             <Select
+              className="w-[120px]"
               value={filterRole}
               onChange={handleFilterChange}
               options={[
@@ -152,6 +204,16 @@ const DashboardPage: React.FC = () => {
             onChange={handlePageChange}
           />
         </div>
+
+        <div className="my-7">
+          <WeeklyLoginChart /> {/* Thêm component WeeklyLoginChart ở đây */}
+        </div>
+
+        <div>
+          <MonthlyRecipesChart />
+        </div>
+
+
       </div>
     </div>
   );

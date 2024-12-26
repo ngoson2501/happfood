@@ -14,7 +14,7 @@ const ListYourRecipes = ({
     if (idAuthorRecipe) {
       fetchRecipesByAuthor(idAuthorRecipe);
     }
-  }, [fetchRecipesByAuthor]);
+  }, []);
 
 
 

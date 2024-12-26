@@ -7,15 +7,16 @@ export async function GET(request: NextRequest) {
     // Kết nối tới cơ sở dữ liệu
     await connect();
 
-    // Tính toán mốc thời gian 2 ngày trước
-    const twoDaysAgo = new Date();
-    twoDaysAgo.setDate(twoDaysAgo.getDate() - 7);
+    // Tính toán mốc thời gian 7 ngày trước
+    // const sevenDaysAgo = new Date();
+    // sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
 
-    // Lấy tất cả công thức được thêm vào cách đây 2 ngày trở lại
+    // Lấy tất cả công thức được thêm vào trong 7 ngày gần đây và có status = true
     const recentRecipes = await Recipe.find({
-      createdAt: { $gte: twoDaysAgo },
-    }).sort({ createdAt: -1 }); // Sắp xếp theo ngày tạo mới nhất
-
+      //createdAt: { $gte: sevenDaysAgo },
+      status: true, // Chỉ lấy công thức có trạng thái là true
+    }).sort({ createdAt: -1 }) // Sắp xếp theo ngày tạo mới nhất
+    .limit(6);
     // Kiểm tra nếu không có công thức nào
     if (!recentRecipes || recentRecipes.length === 0) {
       return NextResponse.json({ error: "No recent recipes found" }, { status: 404 });
@@ -23,10 +24,6 @@ export async function GET(request: NextRequest) {
 
     // Xử lý dữ liệu trước khi gửi
     const formattedRecipes = recentRecipes.map((recipe) => {
-      // const mediaBase64 = recipe.media
-      //   ? `data:${recipe.contentType};base64,${recipe.media.toString("base64")}`
-      //   : null;
-
       return {
         id: recipe._id.toString(), // Chuyển ObjectId thành chuỗi
         name: recipe.name,
@@ -36,7 +33,6 @@ export async function GET(request: NextRequest) {
         views: recipe.views,
         likes: recipe.likes,
         description: recipe.description,
-        //media: mediaBase64, // Chuyển đổi media sang base64 nếu có
         media: recipe.media,
         createdAt: recipe.createdAt,
         updatedAt: recipe.updatedAt,
@@ -50,3 +46,10 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }
+
+
+
+
+
+
+
