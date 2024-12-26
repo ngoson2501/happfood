@@ -20,15 +20,12 @@ const LoginPage: React.FC = () => {
   return (
     <>
       <main className=" w-screen h-screen flex justify-center py-[80px]">
-
         <div
           className="bg-white w-[80%] h-fit py-[30px] lg:py-0 lg:h-[600px] rounded-lg flex flex-col lg:flex-row"
           style={{
             boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.15)",
           }}
         >
-
-
           <div className="w-[100%] rounded-l-lg flex justify-center items-center">
             <form
               onSubmit={(e) => {
@@ -38,7 +35,9 @@ const LoginPage: React.FC = () => {
               action=""
               className="w-[80%] h-[80%] flex flex-col justify-center gap-[30px]"
             >
-              <h1 className="text-center lg:text-start text-[50px] lg:text-[65px] font-[300] font-Inter">Login</h1>
+              <h1 className="text-center lg:text-start text-[50px] lg:text-[65px] font-[300] font-Inter">
+                Login
+              </h1>
               <div>
                 <Input
                   placeholder="email or username"
@@ -90,28 +89,26 @@ const LoginPage: React.FC = () => {
                 />
               </div>
               <div className="flex justify-center items-center">
-                <Link href="/register" className="bg-white  cursor-pointer hover:underline font-[200] w-full lg:w-[60%] h-[45px]  flex justify-center items-center overflow-hidden">
+                <Link
+                  href="/register"
+                  className="bg-white  cursor-pointer hover:underline font-[200] w-full lg:w-[60%] h-[45px]  flex justify-center items-center overflow-hidden"
+                >
                   {/* <button type="submit" className="w-full h-full">
                     {loading ? "Logging in..." : "Login"}
                   </button> */}
                   Sign up
                 </Link>
               </div>
-
-
-              
-
             </form>
           </div>
 
-          
           <div className="hidden lg:block w-full h-full  relative rounded-r-[8px] overflow-hidden">
             <Image
-            className="z-10 w-full h-full object-cover object-center absolute inset-0"
-            src="/images/background.png"
-            alt="image_background"
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" 
+              className="z-10 w-full h-full object-cover object-center absolute inset-0"
+              src="/images/background.png"
+              alt="image_background"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
             <Link
               href="/register"
@@ -126,11 +123,7 @@ const LoginPage: React.FC = () => {
                 height={15}
               />
             </Link>
-
           </div>
-
-
-
         </div>
       </main>
     </>
@@ -138,22 +131,6 @@ const LoginPage: React.FC = () => {
 };
 
 export default LoginPage;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // "use client";
 
@@ -294,12 +271,6 @@ export default LoginPage;
 // };
 
 // export default LoginPage;
-
-
-
-
-
-
 
 // "use client";
 
