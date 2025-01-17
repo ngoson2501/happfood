@@ -1,45 +1,41 @@
-'use client';
+"use client";
 import React, { useEffect } from "react";
 
 import Recipes_1 from "../Recipes/Recipes_1";
 
 import { useRecipeContext } from "@/context/RecipeContext";
 
-
-
 const RecipesList = () => {
-
-
-  const { recipes, loading, error } = useRecipeContext();  // Truy cập context
-
- 
-
-
+  const { recipes, loading, error } = useRecipeContext(); // Truy cập context
 
   if (loading) {
-    return(
+    return (
       <>
-        <div className='flex items-center justify-center h-full'>
-            <div style={{ borderTopColor: 'transparent' }} className="w-8 h-8 border-4 border-blue-200 rounded-full animate-spin"></div>
-            <p className="ml-2">Loading recipes...</p>
+        <div className=" flex items-center justify-center h-full">
+          <div
+            style={{ borderTopColor: "transparent" }}
+            className="w-8 h-8 border-4 border-blue-200 rounded-full animate-spin"
+          ></div>
+          <p className="ml-2">Loading recipes...</p>
         </div>
       </>
-  
-    )
+    );
   }
 
   if (error) {
     //return <p>Error: {error}</p>;
-    return(
+    return (
       <>
-        <div className='flex items-center justify-center h-full'>
-            <div style={{ borderTopColor: 'transparent' }} className="w-8 h-8 border-4 border-blue-200 rounded-full animate-spin"></div>
-            <p className="ml-2">Error: {error}</p>
+        <div className="flex items-center justify-center h-full">
+          <div
+            style={{ borderTopColor: "transparent" }}
+            className="w-8 h-8 border-4 border-blue-200 rounded-full animate-spin"
+          ></div>
+          <p className="ml-2">Error: {error}</p>
         </div>
       </>
-    )
+    );
   }
-
 
   return (
     <>
@@ -58,15 +54,13 @@ const RecipesList = () => {
           </p>
         </div>
         <div className=" w-full h-fit gap-[10px] lg:gap-[30px] flex flex-wrap xl:gap-[40px] justify-center xl:px-0 lg:justify-start items-center">
-        {recipes.map((recipe) => (
-          <Recipes_1 key={recipe.id} recipe={recipe} />
-        ))}
-      </div>
+          {recipes.map((recipe) => (
+            <Recipes_1 key={recipe.id} recipe={recipe} />
+          ))}
+        </div>
       </div>
     </>
   );
 };
 
 export default RecipesList;
-
-

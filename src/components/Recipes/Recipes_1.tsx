@@ -103,7 +103,7 @@ const Recipes_1: React.FC<RecipeProps> = ({ recipe }) => {
 
   return (
     <section
-      className="bg-[#E7FAFE] lg:bg-gradient-to-b lg:from-white lg:to-[#E7FAFE] group w-[180px] lg:w-[380px] lg:h-[400px] h-[240px] px-[10px] py-[10px] lg:px-[20px] lg:py-[20px] rounded-[10px] sm:rounded-[20px] cursor-pointer flex flex-col justify-between hover:shadow-lg"
+      className="bg-[#E7FAFE] lg:bg-gradient-to-b lg:from-white lg:to-[#E7FAFE] group w-[180px] lg:w-[360px] lg:h-[400px] h-[240px] px-[10px] py-[10px] lg:px-[20px] lg:py-[20px] rounded-[10px] sm:rounded-[20px] cursor-pointer flex flex-col justify-between hover:shadow-lg"
       // onClick={handleNavigate} // Gán sự kiện điều hướng
     >
       <div className="w-full h-[130px] lg:h-[230px] relative overflow-hidden rounded-[8px] sm:rounded-[15px] lg:rounded-[20px]">
